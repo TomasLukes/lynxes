@@ -14,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="cz">
-      <body className={manrope.className}>{children}</body>
+    <html lang="cs">
+      <body className={`${manrope.className} bg-primary-500 text-dark-900 `}>
+        {children}
+      </body>
     </html>
   )
 }
