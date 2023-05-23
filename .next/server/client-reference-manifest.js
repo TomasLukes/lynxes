@@ -2501,7 +2501,7 @@ self.__RSC_MANIFEST={
         "static/css/app/layout.css"
       ]
     },
-    "C:\\Users\\lukes\\OneDrive\\Webdev\\Github\\portfolio-projects\\lynxes\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
+    "C:\\Users\\lukes\\OneDrive\\Webdev\\Github\\portfolio-projects\\lynxes\\node_modules\\next\\font\\google\\target.css?{\"path\":\"src\\\\app\\\\layout.tsx\",\"import\":\"Manrope\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"manrope\"}#": {
       "id": "null",
       "name": "default",
       "chunks": [
