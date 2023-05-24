@@ -11,7 +11,13 @@ export default function Home() {
       <ButtonSecondary label='SEE PRODUCTS' />
       <ButtonArrow label='SHOP' />
       <li>
-        <Link href="/earphones">Earphones</Link>
+        <Link href="/category/earphones">Earphones</Link>
+      </li>
+      <li>
+        <Link href="/category/headphones">Headphones</Link>
+      </li>
+      <li>
+        <Link href="/category/speakers">Speakers</Link>
       </li>
     </div>
   )
