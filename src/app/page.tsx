@@ -19,6 +19,9 @@ export default function Home() {
       <li>
         <Link href="/category/speakers">Speakers</Link>
       </li>
+      <li>
+      <Link href="/checkout">Checkout</Link>
+      </li>
     </div>
   )
 }
