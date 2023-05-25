@@ -17,9 +17,6 @@ export default function Header() {
         <li>
         <Link href="/checkout">Checkout</Link>
         </li>
-        <li>
-        <Link href="/product/1">YX1 Earphones in sale</Link>
-        </li>
       </nav>
 
       <div>
