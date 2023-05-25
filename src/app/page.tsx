@@ -5,26 +5,12 @@ import ButtonArrow from "./components/buttons/ButtonArrow"
 
 export default function Home() {
   return (
-    <div className="">
-      <h1 className="mx-auto bg-red-500 text-center">Test</h1>
-      <ButtonPrimary label='SEE PRODUCTS' />
-      <ButtonSecondary label='SEE PRODUCTS' />
-      <ButtonArrow label='SHOP' />
-      <li>
-        <Link href="/category/earphones">Earphones</Link>
-      </li>
-      <li>
-        <Link href="/category/headphones">Headphones</Link>
-      </li>
-      <li>
-        <Link href="/category/speakers">Speakers</Link>
-      </li>
-      <li>
-      <Link href="/checkout">Checkout</Link>
-      </li>
-      <li>
-      <Link href="/product/1">YX1 Earphones in sale</Link>
-      </li>
+    <div className="container mx-auto">
+      <h1 className="text-3xl pt-12 pb-6">Main page</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos blanditiis voluptatibus consequatur dicta, 
+        necessitatibus reiciendis cumque laudantium commodi sint mollitia unde est beatae aut optio atque molestiae
+        cum eligendi exercitationem.
+      </p>
     </div>
   )
 }
