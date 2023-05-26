@@ -5,7 +5,7 @@ export default function Header() {
     /* Header */
     <header className="relative w-full bg-neutral-900 text-neutral-100">
       {/* Header container */}
-      <div className="container mx-auto flex items-center justify-between py-12 px-6">
+      <div className="container mx-auto flex items-center justify-between py-6 md:py-12 px-6">
         {/* Mobile menu */}
         <img src="/icons/shared/menu/icon-menu-hamburger.svg" alt="" className="lg:hidden" />
         {/* Logo */}
@@ -35,7 +35,8 @@ export default function Header() {
         </div>
       </div>
       {/* Navbar items desktop */}
-      <nav className="hidden absolute w-full bg-red-600 flex gap-6 list-none">
+      <nav className="absolute w-full flex-col hidden gap-8 bg-light-300 text-dark-800 text-center list-none
+        rounded-b-lg">
         <li>
           <Link href="/category/earphones">Earphones</Link>
         </li>
