@@ -5,7 +5,7 @@ export default function Header() {
     /* Header */
     <header className="relative w-full bg-neutral-900 text-neutral-100">
       {/* Header container */}
-      <div className="container mx-auto flex items-center justify-between py-12">
+      <div className="container mx-auto flex items-center justify-between py-12 px-6">
         {/* Mobile menu */}
         <img src="/icons/shared/menu/icon-menu-hamburger.svg" alt="" className="lg:hidden" />
         {/* Logo */}
@@ -13,7 +13,8 @@ export default function Header() {
           Lynxes
         </h1>
         {/* Navbar items desktop */}
-        <nav className="hidden lg:flex gap-6 list-none">
+        <nav className="hidden lg:flex gap-9 list-none
+          subtitle">
           <li>
             <Link href="/category/earphones">Earphones</Link>
           </li>
@@ -28,7 +29,7 @@ export default function Header() {
           </li>
         </nav>
         {/* Account + Shopping card icons */}
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-3 items-center">
           <img src="/icons/shared/icon-user-account.svg" alt="" className="fill-white"/>
           <img src="/icons/shared/icon-cart.svg" alt="" />
         </div>
@@ -45,7 +46,7 @@ export default function Header() {
           <Link href="/category/speakers">Speakers</Link>
         </li>
         <li>
-        <Link href="/checkout">Checkout</Link>
+          <Link href="/checkout">Checkout</Link>
         </li>
       </nav>
     </header>

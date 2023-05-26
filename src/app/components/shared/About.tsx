@@ -1,11 +1,12 @@
 
 export default function About() {
   return (
-    <section id="about" className="container mx-auto flex flex-col-reverse lg:flex-row items-center gap:8
-      px-6">
+    <section id="about"
+      className="container mx-auto flex flex-col-reverse lg:flex-row items-center 
+      gap:8 px-6 py-24">
       {/* Text container */}
       <div className="lg:w-1/2">
-        <h3 className="heading-2 text-center lg:text-left">
+        <h3 className="heading-2 text-center lg:text-left pb-6">
           Bringing you the <br></br><span className="text-primary-700">best</span> audio gear
         </h3>
         <p className="text-body opacity-50 text-center lg:text-left">
