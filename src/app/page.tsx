@@ -1,9 +1,11 @@
 import Link from "next/link"
 import About from "./components/shared/About"
+import Hero from "./components/Home/Hero"
 
 export default function Home() {
   return (
     <div>
+      <Hero />
       <div className="container mx-auto">
         <h1 className="text-3xl pt-12 pb-6">Main page</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos blanditiis voluptatibus consequatur dicta, 

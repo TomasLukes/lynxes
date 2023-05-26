@@ -35,7 +35,7 @@ export default function Header() {
         </div>
       </div>
       {/* Navbar items desktop */}
-      <nav className="absolute w-full bg-red-600 flex gap-6 list-none">
+      <nav className="hidden absolute w-full bg-red-600 flex gap-6 list-none">
         <li>
           <Link href="/category/earphones">Earphones</Link>
         </li>

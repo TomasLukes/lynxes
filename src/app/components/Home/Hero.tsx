@@ -1,16 +1,33 @@
 import Link from "next/link"
+import ButtonPrimary from "../buttons/ButtonPrimary"
 
 export default function Hero() {
   return (
-    <section>
-      <div className="container mx-auto">
-        <h1 className="text-3xl pt-12 pb-6">Main page</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos blanditiis voluptatibus consequatur dicta, 
-          necessitatibus reiciendis cumque laudantium commodi sint mollitia unde est beatae aut optio atque molestiae
-          cum eligendi exercitationem.
-        </p>
-      </div>
-      <About />
+    /* Hero section */
+    <section id="hero" className="bg-neutral-900 text-white
+        h-96 pb-12 px-6">
+        {/* Hero container */}
+        <div className="container flex mx-auto 
+            border-t border-white border-opacity-20">
+            {/* Info container */}
+            <div className="w-1/2 py-32 px-6">
+                <span className="overline-text opacity-25">
+                    NEW PRODUCT
+                </span>
+                <h1 className="heading-1">
+                    XX99 MARK II HEADPHONES
+                </h1>
+                <p className="w-1/2 text-body opacity-75 pt-6 pb-9">
+                    Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.    
+                </p>
+                <ButtonPrimary label={'SEE PRODUCT'} />
+
+            </div>
+            {/* Image container */}
+            <div className="w-1/2">
+            </div>
+            
+        </div>
     </section>
   )
 }

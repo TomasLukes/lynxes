@@ -18,10 +18,10 @@ main {
     line-height: 25px;
 }
 
-.overline {
+.overline-text {
     color: var(--primary-700);
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.2;
     letter-spacing: 0.625em;
     text-transform: uppercase;
@@ -48,7 +48,7 @@ main {
 .heading-1 {
     font-size: 3.5rem;
     font-weight: 700;
-    line-height: 3.625;
+    line-height: 1;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -101,4 +101,14 @@ main {
         letter-spacing: 1px;
     }
 
+}
+
+/* Images, media */
+#hero {
+    min-height: 70vh;
+    background: #191919;
+    background-image: url("/images/home/image-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: 75%;
 }
