@@ -3,7 +3,7 @@ import Link from "next/link"
 export default function Footer() {
   return (
     /* Footer */
-    <footer className="relative w-full bg-neutral-900 text-neutral-100">
+    <footer className="relative w-full bg-dark-850 text-neutral-100">
       {/* Footer container */}
       <div className="container mx-auto grid py-9 px-6 ">
         {/* Decorative span */}
@@ -19,22 +19,30 @@ export default function Footer() {
           {/* Nav items */}
           <nav className="flex flex-col md:flex-row gap-4 md:gap-6 text-center md:text-left list-none
             subtitle">
-            <li>
-            <Link href="/">Home</Link>
+            <li className="hover:text-primary-700">
+              <Link href="/">
+                Home
+              </Link>
             </li>
-            <li>
-              <Link href="/category/earphones">Earphones</Link>
+            <li className="hover:text-primary-700">
+              <Link href="/category/earphones">
+                Earphones
+              </Link>
             </li>
-            <li>
-              <Link href="/category/headphones">Headphones</Link>
+            <li className="hover:text-primary-700">
+              <Link href="/category/headphones">
+                Headphones
+              </Link>
             </li>
-            <li>
-              <Link href="/category/speakers">Speakers</Link>
+            <li className="hover:text-primary-700">
+              <Link href="/category/speakers">
+                Speakers
+              </Link>
             </li>
           </nav>
         </div>
         {/* Description text */}
-        <p className="md:w-1/3 mx-auto md:m-0 text-center md:text-left py-12 md:py-9 text-body opacity-50 ">
+        <p className="md:w-1/3 mx-auto md:m-0 text-center md:text-left py-12 md:py-9 text-body font-normal opacity-50">
           {`Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted 
           to helping you get the most out of personal audio. Come and visit our demo facility - we're open 7 days a week.`}
         </p>

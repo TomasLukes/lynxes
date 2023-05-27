@@ -13,14 +13,14 @@ main {
 /* Typography */
 
 .text-body {
-    font-size: 0.9375rem;
+    font-size: 0.9375rem;   /* 15px */
     font-weight: 500;
     line-height: 25px;
 }
 
 .overline-text {
     color: var(--primary-700);
-    font-size: 0.875rem;
+    font-size: 0.875rem;    /* 14px */
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: 0.625em;
@@ -29,7 +29,7 @@ main {
 
 .subtitle {
     color: var(--primary-700);
-    font-size: 0.8125rem;
+    font-size: 0.8125rem;   /* 13px */
     font-weight: 700;
     line-height: 1.5;
     letter-spacing: 1px;
@@ -38,7 +38,7 @@ main {
 
 .subtitle {
     color: var(--primary-700);
-    font-size: 0.8125rem;
+    font-size: 0.8125rem;   /* 13px */
     font-weight: 700;
     line-height: 1.5;
     letter-spacing: 1px;
@@ -46,7 +46,7 @@ main {
 }
 
 .heading-1 {
-    font-size: 3.5rem;
+    font-size: 3.5rem;  /* 56px */
     font-weight: 700;
     line-height: 1;
     letter-spacing: 2px;
@@ -54,7 +54,7 @@ main {
 }
 
 .heading-2 {
-    font-size: 2.5rem;
+    font-size: 2.5rem;  /* 40px */
     font-weight: 700;
     line-height: 44px;
     letter-spacing: 1.5px;
@@ -62,21 +62,21 @@ main {
 }
 
 .heading-3 {
-    font-size: 2rem;
+    font-size: 2rem;    /* 32px */
     font-weight: 700;
     letter-spacing: 1.15px;
     text-transform: uppercase;
 }
 
 .heading-4 {
-    font-size: 1.75rem;
+    font-size: 1.75rem; /* 28px */
     font-weight: 700;
     letter-spacing: 1.7px;
     text-transform: uppercase;
 }
 
 .heading-5 {
-    font-size: 1.5rem;
+    font-size: 1.5rem;  /* 24px */
     font-weight: 700;
     line-height: 2;
     letter-spacing: 2px;
@@ -84,7 +84,7 @@ main {
 }
 
 .heading-6 {
-    font-size: 1.125rem;
+    font-size: 1.125rem;    /* 18px */
     font-weight: 700;
     line-height: 1.5;
     letter-spacing: 1.3px;
@@ -105,13 +105,17 @@ main {
     background-image: url("/images/home/pattern-circles.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 50%;
+    background-size: 51%;
 }
 
 #bannerSm {
     background-image: url("/images/home/image-speaker-zx7.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+}
+
+#banners {
+    max-width: 1150px;
 }
 
 /* Media queries */
@@ -119,7 +123,7 @@ main {
 @media screen and (max-width: 976px) {
     #hero {
         background-image: url("/images/home/image-hero-tablet.jpg");
-        background-position-x: auto;
+        background-position-x: 50%;
     }
 
     #bannerLg {

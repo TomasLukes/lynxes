@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <Hero />
       <Categories />
-      <section id="banners" className="flex flex-col gap-8">
+      <section id="banners" className="flex flex-col gap-8 mx-auto py-12">
         <BannerLg />
         <BannerSm />
         <BannerSplit />

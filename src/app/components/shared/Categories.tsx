@@ -7,7 +7,7 @@ export default function Categories() {
       className="mx-auto">
       {/* Categories cards container */}
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center
-        md:gap-8 px-6 py-20 md:py-32">
+        md:gap-8 px-6 pt-24 md:pt-36 pb-20 md:pb-32">
         {/* Headphones card */}
         <div className="w-full flex flex-col md:w-96 md:h-52 bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">

@@ -9,7 +9,7 @@ export default function About() {
         <h3 className="heading-2 text-center lg:text-left pb-6">
           Bringing you the <br></br><span className="text-primary-700">best</span> audio gear
         </h3>
-        <p className="text-body opacity-50 text-center lg:text-left">
+        <p className="text-body opacity-60 text-center lg:text-left">
           Located at the heart of New York City, Audiophile is the premier store for high end headphones, 
           earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration 
           rooms available for you to browse and experience a wide range of our products. Stop by our store 

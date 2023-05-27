@@ -21,6 +21,7 @@ module.exports = {
 
         // Dark colors
         'dark-900': '#000000',
+        'dark-850': '#191919',
         'dark-800': '#101010',
 
         // Primary colors

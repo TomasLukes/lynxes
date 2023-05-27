@@ -6,7 +6,7 @@ export default function BannerSm() {
     /* BannerSm */
     <div className="w-full lg:container mx-auto px-6">
       {/* BannerSm container */}
-      <div id="bannerSm" className="flex gap-8 text-dark-900 h-96 p-6 lg:p-16 rounded-lg">
+      <div id="bannerSm" className="flex gap-8 bg-light-300 text-dark-900 h-80 p-6 lg:p-16 rounded-lg">
           {/* Heading + button container */}
           <div className="my-auto mr-auto">
               {/* Heading */}
