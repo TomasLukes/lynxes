@@ -11,10 +11,10 @@ export default function Home() {
     <div>
       <Hero />
       <Categories />
-      <section id="banners">
+      <section id="banners" className="flex flex-col gap-8">
         <BannerLg />
         <BannerSm />
-        <BannerSplit >/</BannerSplit>
+        <BannerSplit />
       </section>
 
       <About />

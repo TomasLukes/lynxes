@@ -64,7 +64,6 @@ main {
 .heading-3 {
     font-size: 2rem;
     font-weight: 700;
-    line-height: 2.25;
     letter-spacing: 1.15px;
     text-transform: uppercase;
 }
@@ -72,7 +71,6 @@ main {
 .heading-4 {
     font-size: 1.75rem;
     font-weight: 700;
-    line-height: 2.375;
     letter-spacing: 1.7px;
     text-transform: uppercase;
 }
@@ -106,7 +104,14 @@ main {
 #bannerLg {
     background-image: url("/images/home/pattern-circles.svg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-size: 50%;
+}
+
+#bannerSm {
+    background-image: url("/images/home/image-speaker-zx7.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Media queries */
@@ -116,11 +121,20 @@ main {
         background-image: url("/images/home/image-hero-tablet.jpg");
         background-position-x: auto;
     }
+
+    #bannerLg {
+        background-size: 100%;
+        background-position-y: 100%;
+    }
+
 }
 
     /* Tablet */
 @media screen and (max-width: 768px) {
+    #bannerSm {
+        background-position-x: 50%;
 
+    }
 }
 
     /* Mobile */
@@ -139,5 +153,15 @@ main {
     #hero {
         background-image: url("/images/home/image-hero-mobile.jpg");
         background-position-y: -75px;
+    }
+
+    #bannerLg {
+        background-size: 100%;
+        background-position-y: -20%;
+    }
+
+    #bannerSm {
+        background-image: url("/images/home/image-speaker-zx7-mobile.jpg");
+        background-position-x: 100%;
     }
 }
