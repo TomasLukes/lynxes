@@ -20,6 +20,9 @@ export default function Footer() {
           <nav className="flex flex-col md:flex-row gap-4 md:gap-6 text-center md:text-left list-none
             subtitle">
             <li>
+            <Link href="/">Home</Link>
+            </li>
+            <li>
               <Link href="/category/earphones">Earphones</Link>
             </li>
             <li>
@@ -27,9 +30,6 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/category/speakers">Speakers</Link>
-            </li>
-            <li>
-            <Link href="/checkout">Checkout</Link>
             </li>
           </nav>
         </div>
