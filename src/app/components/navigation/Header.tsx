@@ -21,7 +21,7 @@ export default function Header() {
     /* Header */
     <header className="relative w-full bg-dark-850 text-neutral-100">
       {/* Header container */}
-      <div id="navbar-desktop" className=" container mx-auto flex items-center justify-between py-6 md:py-12 px-6 md:px-9 lg:px-0">
+      <div id="navbar-desktop" className="container max-width mx-auto flex items-center justify-between py-6 md:py-12 px-6 md:px-9 lg:px-0">
         {/* Mobile menu */}
         <img src={`/icons/shared/menu/icon-menu-${mobileMenuOpen ? 'close' : 'hamburger' }.svg`} alt="" 
           className="lg:hidden" 
@@ -83,7 +83,7 @@ export default function Header() {
       
       {/* Cart modal */}
       {cartOpen &&
-      <div id="cart" className="relative mx-auto">
+      <div className="relative max-width mx-auto">
           <div className="absolute z-50 w-full
           rounded-b-lg">
             <Cart

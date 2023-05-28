@@ -7,7 +7,7 @@ export default function Hero() {
     <section id="hero"  className="bg-neutral-900 text-white
         mb-12 px-6 lg:px-0">
         {/* Hero container */}
-        <div className="container container-hero flex mx-auto text-center lg:text-left
+        <div className="container max-width flex mx-auto text-center lg:text-left
             border-t border-white border-opacity-20">
             {/* Info container */}
             <div className="mx-auto lg:mx-0 lg:mr-auto lg:w-1/2 py-32 px-6 lg:px-0">
