@@ -36,15 +36,6 @@ main {
     text-transform: uppercase;
 }
 
-.subtitle {
-    color: var(--primary-700);
-    font-size: 0.8125rem;   /* 13px */
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
 .heading-1 {
     font-size: 3.5rem;  /* 56px */
     font-weight: 700;
@@ -87,7 +78,7 @@ main {
     font-size: 1.125rem;    /* 18px */
     font-weight: 700;
     line-height: 1.5;
-    letter-spacing: 1.3px;
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
@@ -114,7 +105,7 @@ main {
     background-size: cover;
 }
 
-#navbar-desktop, .container-hero, #categories, #banners, #about, .footer-container {
+#navbar-desktop, #cart, .container-hero, #categories, #banners, #about, .footer-container {
     max-width: 1200px;
 }
 
@@ -151,7 +142,6 @@ main {
 
     .heading-2 {
         font-size: 1.75rem;
-        line-height: 38px;
         letter-spacing: 1px;
     }
 
