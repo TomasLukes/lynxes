@@ -4,10 +4,10 @@ export default function Categories() {
   return (
     /* Categories section*/
     <section id="categories"
-      className="mx-auto">
+      className="mx-auto px-6 md:px-9 lg:px-0">
       {/* Categories cards container */}
       <div className="container mx-auto flex flex-col md:flex-row justify-center
-        md:gap-8 pt-9 md:pt-32 lg:pt-36 pb-9 md:pb-20 lg:pb-32">
+        md:gap-8 mt-9 md:mt-32 lg:mt-36 mb-9 md:mb-20 lg:mb-32">
         {/* Headphones card */}
         <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">

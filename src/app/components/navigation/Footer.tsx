@@ -5,7 +5,7 @@ export default function Footer() {
     /* Footer */
     <footer className="relative w-full bg-dark-850 text-neutral-100">
       {/* Footer container */}
-      <div className="footer-container container mx-auto grid py-9 px-6 ">
+      <div className="footer-container container mx-auto grid py-9 px-6 md:px-9 lg:px-0">
         {/* Decorative span */}
         <span className="absolute left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0 
           top-0 w-24 h-1 bg-primary-700">
@@ -42,7 +42,7 @@ export default function Footer() {
           </nav>
         </div>
         {/* Description text */}
-        <p className="md:w-1/3 mx-auto md:m-0 text-center md:text-left py-12 md:py-9 text-body font-normal opacity-50">
+        <p className="max-w-prose lg:w-1/3 mx-auto md:m-0 text-center md:text-left py-12 md:py-9 text-body font-normal opacity-50">
           {`Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted 
           to helping you get the most out of personal audio. Come and visit our demo facility - we're open 7 days a week.`}
         </p>

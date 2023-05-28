@@ -21,7 +21,7 @@ export default function BannerLg() {
                     ZX9 SPEAKER
                 </h3>
                 {/* Description */}
-                <p className="text-body opacity-75 pt-6 pb-9 lg:w-1/2">
+                <p className="text-body opacity-75 pt-6 pb-9 max-w-prose md:w-2/3 lg:w-3/4 text-center mx-auto lg:text-left lg:mx-0">
                     Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
                 </p>
                 {/* Button */}
