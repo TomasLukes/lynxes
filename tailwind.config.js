@@ -18,6 +18,7 @@ module.exports = {
         'light-100': '#FFFFFF',
         'light-200': '#FAFAFA',
         'light-300': '#F1F1F1',
+        'light-400': '#CFCFCF',
 
         // Dark colors
         'dark-900': '#000000',
