@@ -12,9 +12,9 @@ export default function Header() {
 
   return (
     /* Header */
-    <header className={`relative w-full bg-dark-850 text-neutral-100`}>
+    <header className="relative w-full bg-dark-850 text-neutral-100">
       {/* Header container */}
-      <div className="container mx-auto flex items-center justify-between py-6 md:py-12 px-6">
+      <div id="navbar-desktop" className="container mx-auto flex items-center justify-between py-6 md:py-12 px-6">
         {/* Mobile menu */}
         <img src={`/icons/shared/menu/icon-menu-${mobileMenuOpen ? 'close' : 'hamburger' }.svg`} alt="" 
           className="lg:hidden" 
@@ -50,14 +50,14 @@ export default function Header() {
         </nav>
         {/* Account + Shopping card icons */}
         <div className="flex gap-3 items-center">
-          <img src="/icons/shared/icon-user-account.svg" alt="" className="fill-white"/>
+          <img src="/icons/shared/icon-user-account.svg" alt=""/>
           <img src="/icons/shared/icon-cart.svg" alt="" />
         </div>
       </div>
       {/* Navbar items desktop */}
-      <nav className={`${mobileMenuOpen === false && 'hidden'} absolute w-full flex-col gap-8 bg-light-300 text-dark-800 text-center list-none
+      <nav className={`${!mobileMenuOpen && 'hidden'} absolute z-50 lg:hidden w-full flex-col gap-8 bg-light-300 text-dark-800 text-center list-none
         rounded-b-lg`}>
-        <MobileMenu />
+        <MobileMenu handleClick={handleClick} />
       </nav>
     </header>
   )

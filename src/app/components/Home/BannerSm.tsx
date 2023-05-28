@@ -4,9 +4,9 @@ import ButtonSecondary from "../buttons/ButtonSecondary"
 export default function BannerSm() {
   return (
     /* BannerSm */
-    <div className="w-full lg:container mx-auto px-6">
+    <div className="container mx-auto">
       {/* BannerSm container */}
-      <div id="bannerSm" className="flex gap-8 bg-light-300 text-dark-900 h-80 p-6 lg:p-16 rounded-lg">
+      <div id="bannerSm" className="flex gap-8 bg-light-300 text-dark-900 h-80 p-6 md:p-12 lg:p-16 rounded-lg">
           {/* Heading + button container */}
           <div className="my-auto mr-auto">
               {/* Heading */}

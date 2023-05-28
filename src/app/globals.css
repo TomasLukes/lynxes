@@ -111,11 +111,11 @@ main {
 #bannerSm {
     background-image: url("/images/home/image-speaker-zx7.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
-#banners {
-    max-width: 1150px;
+#navbar-desktop, .container-hero, #categories, #banners, #about, .footer-container {
+    max-width: 1200px;
 }
 
 /* Media queries */
@@ -124,6 +124,7 @@ main {
     #hero {
         background-image: url("/images/home/image-hero-tablet.jpg");
         background-position-x: 50%;
+        background-position-y: -100px;
     }
 
     #bannerLg {

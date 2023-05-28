@@ -5,7 +5,7 @@ export default function Footer() {
     /* Footer */
     <footer className="relative w-full bg-dark-850 text-neutral-100">
       {/* Footer container */}
-      <div className="container mx-auto grid py-9 px-6 ">
+      <div className="footer-container container mx-auto grid py-9 px-6 ">
         {/* Decorative span */}
         <span className="absolute left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0 
           top-0 w-24 h-1 bg-primary-700">

@@ -16,7 +16,6 @@ export default function Home() {
         <BannerSm />
         <BannerSplit />
       </section>
-
       <About />
     </div>
   )

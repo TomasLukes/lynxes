@@ -6,13 +6,13 @@ export default function Categories() {
     <section id="categories"
       className="mx-auto">
       {/* Categories cards container */}
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center
-        md:gap-8 px-6 pt-24 md:pt-36 pb-20 md:pb-32">
+      <div className="container mx-auto flex flex-col md:flex-row justify-center
+        md:gap-8 pt-9 md:pt-32 lg:pt-36 pb-9 md:pb-20 lg:pb-32">
         {/* Headphones card */}
-        <div className="w-full flex flex-col md:w-96 md:h-52 bg-light-300 text-center
+        <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
           <img src="/images/shared/category/image-category-thumbnail-headphones.webp" alt="" 
-            className="mx-auto w-40 -mt-20 md:w-48 md:-mt-24"
+            className="mx-auto w-40 -mt-20 md:-mt-24"
           />
           {/* Category name + Btn continer */}
           <div className="mt-auto">
@@ -23,7 +23,7 @@ export default function Categories() {
           </div>
         </div>
         {/* Speakers card */}
-        <div className="w-full flex flex-col md:w-96 md:h-52 bg-light-300 text-center
+        <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
           <img src="/images/shared/category/image-category-thumbnail-speakers.webp" alt="" 
             className="mx-auto w-40 -mt-20 md:w-48 md:-mt-24"
@@ -37,7 +37,7 @@ export default function Categories() {
           </div>
         </div>
         {/* Earphones card */}
-        <div className="w-full flex flex-col md:w-96 md:h-52 bg-light-300 text-center
+        <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
           <img src="/images/shared/category/image-category-thumbnail-earphones.webp" alt="" 
             className="mx-auto w-40 -mt-16 md:w-48 md:-mt-20"
