@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Logo from "../shared/Logo"
 
 export default function Footer() {
   return (
@@ -13,9 +14,7 @@ export default function Footer() {
         {/* Logo + Nav container*/}
         <div className="flex flex-col lg:flex-row lg:justify-between mx-auto md:mx-0 gap-9">
           {/* Logo */}
-          <h1 className="text-3xl font-bold">
-            Lynxes
-          </h1>
+          <Logo />
           {/* Nav items */}
           <nav className="flex flex-col md:flex-row gap-4 md:gap-6 text-center md:text-left list-none
             subtitle uppercase">

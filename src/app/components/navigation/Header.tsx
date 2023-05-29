@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useState } from "react"
 import MobileMenu from "./MobileMenu";
 import Cart from "../shared/Cart";
+import Logo from "../shared/Logo";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -28,12 +29,9 @@ export default function Header() {
           onClick={() => handleClick() }
         />
         {/* Logo */}
-        <Link href="/" className="flex flex-col items-center mr-auto lg:mr-0 pl-6 md:pl-9 lg:pl-0">
-          <img src="/images/lynxes-logo.png" alt="" className="w-9 md:w-12 lg:w-14 -mb-1" />
-          <h1 className="heading-6 hidden md:block">
-            Lynxes
-          </h1>
-        </Link>
+        <div className="mr-auto lg:mr-0 pl-6 md:pl-9 lg:pl-0">
+          <Logo />
+        </div>
         {/* Navbar items desktop */}
         <nav className="hidden lg:flex gap-9 list-none
           subtitle uppercase">

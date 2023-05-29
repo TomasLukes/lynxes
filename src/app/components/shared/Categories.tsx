@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import ButtonArrow from "../buttons/ButtonArrow"
 
 export default function Categories() {
@@ -12,8 +13,12 @@ export default function Categories() {
         {/* Headphones card */}
         <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
-          <img src="/images/shared/category/image-category-thumbnail-headphones.webp" alt="" 
+          <Image 
+            src="/images/shared/category/image-category-thumbnail-headphones.webp"
+            width={160}
+            height={160}
             className="mx-auto w-40 -mt-20 md:-mt-24"
+            alt="Headphones image"
           />
           {/* Category name + Btn continer */}
           <div className="mt-auto">
@@ -28,8 +33,12 @@ export default function Categories() {
         {/* Speakers card */}
         <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
-          <img src="/images/shared/category/image-category-thumbnail-speakers.webp" alt="" 
-            className="mx-auto w-40 -mt-20 md:w-48 md:-mt-24"
+          <Image 
+            src="/images/shared/category/image-category-thumbnail-speakers.webp"
+            width={160}
+            height={160}
+            className="mx-auto w-40 -mt-20 md:-mt-24"
+            alt="Speakers image"
           />
           {/* Category name + Btn continer */}
           <div className="mt-auto">
@@ -44,8 +53,12 @@ export default function Categories() {
         {/* Earphones card */}
         <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
-          <img src="/images/shared/category/image-category-thumbnail-earphones.webp" alt="" 
-            className="mx-auto w-40 -mt-16 md:w-48 md:-mt-20"
+          <Image 
+            src="/images/shared/category/image-category-thumbnail-earphones.webp"
+            width={160}
+            height={160}
+            className="mx-auto w-40 -mt-20 md:-mt-26"
+            alt="Earphones image"
           />
           {/* Category name + Btn continer */}
           <div className="mt-auto">
