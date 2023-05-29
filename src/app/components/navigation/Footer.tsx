@@ -18,7 +18,7 @@ export default function Footer() {
           </h1>
           {/* Nav items */}
           <nav className="flex flex-col md:flex-row gap-4 md:gap-6 text-center md:text-left list-none
-            subtitle">
+            subtitle uppercase">
             <li className="hover:text-primary-700">
               <Link href="/">
                 Home

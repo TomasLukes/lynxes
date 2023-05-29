@@ -1,3 +1,4 @@
+import Link from "next/link"
 import ButtonArrow from "../buttons/ButtonArrow"
 
 export default function Categories() {
@@ -19,7 +20,9 @@ export default function Categories() {
             <h3 className="heading-6">
               HEADPHONES
             </h3>
-            <ButtonArrow label={'SHOP'} />
+            <Link href="/category/headphones" >
+              <ButtonArrow label={'SHOP'} />
+            </Link>
           </div>
         </div>
         {/* Speakers card */}
@@ -33,7 +36,9 @@ export default function Categories() {
             <h3 className="heading-6">
               SPEAKERS
             </h3>
-            <ButtonArrow label={'SHOP'} />
+            <Link href="/category/speakers" >
+              <ButtonArrow label={'SHOP'} />
+            </Link>
           </div>
         </div>
         {/* Earphones card */}
@@ -47,7 +52,9 @@ export default function Categories() {
             <h3 className="heading-6">
               EARPHONES
             </h3>
-            <ButtonArrow label={'SHOP'} />
+            <Link href="/category/earphones" >
+              <ButtonArrow label={'SHOP'} />
+            </Link>
           </div>
         </div>
       </div>

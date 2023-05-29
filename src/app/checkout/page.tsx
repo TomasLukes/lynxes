@@ -1,8 +1,19 @@
+'use client'
 import Link from "next/link"
+import { useState } from "react"
 import ButtonPrimary from "../components/buttons/ButtonPrimary"
+import CheckoutModal from "../components/Checkout/CheckoutModal"
+
 export default function Checkout() {
+  const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
+
+  function handleToggleCheckoutModal() {
+    console.log('Modal checkout clicked')
+    setCheckoutModalOpen(!checkoutModalOpen)
+  }
+
   return (
-    <section className="container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
+    <section className="relative container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
       {/* Go back link */}
       <Link href="/" className="text-sm font-medium opacity-50 capitalize">
         Go back
@@ -99,7 +110,7 @@ export default function Checkout() {
                   <input type="radio" id="paypal" name="payment" className="text-body text-neutral-700 placeholder-opacity-50 "/>
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 40 40"><g fill="none" fillRule="evenodd"><path fillRule="nonzero" d="M0 0H40V40H0z"/><g><path fill="#27346A" d="M22.798 2.422C21.336.785 18.691.084 15.308.084H5.492c-.692 0-1.28.494-1.389 1.164L.014 26.689c-.08.502.315.956.833.956h6.061l1.522-9.474-.047.296c.109-.67.692-1.163 1.384-1.163h2.88c5.658 0 10.089-2.255 11.383-8.78.038-.192.071-.38.1-.564-.163-.085-.163-.085 0 0 .386-2.411-.002-4.052-1.332-5.538" transform="translate(6.25 4.375)"/><path fill="#27346A" d="M10.75 7.092c.161-.076.341-.118.53-.118h7.697c.911 0 1.762.058 2.539.181.222.035.438.076.648.122.21.045.413.097.61.153.1.029.197.058.292.089.382.125.737.27 1.064.441.386-2.412-.002-4.052-1.332-5.538C21.335.785 18.691.084 15.308.084H5.49c-.691 0-1.28.494-1.388 1.164L.014 26.688c-.08.503.315.957.832.957h6.062l3.158-19.653c.065-.403.329-.733.684-.9z" transform="translate(6.25 4.375)"/><path fill="#2790C3" d="M24.03 8.525c-1.294 6.523-5.725 8.779-11.383 8.779H9.766c-.692 0-1.275.494-1.383 1.163L6.49 30.248c-.071.439.275.837.728.837h5.109c.605 0 1.12-.432 1.214-1.018l.05-.256.963-5.988.062-.331c.094-.586.609-1.018 1.213-1.018h.765c4.95 0 8.825-1.973 9.958-7.68.472-2.385.228-4.376-1.023-5.775-.379-.423-.85-.773-1.399-1.059-.03.185-.062.372-.1.565z" transform="translate(6.25 4.375)"/><path fill="#1F264F" d="M22.776 7.43c-.198-.056-.401-.108-.611-.153-.21-.046-.427-.086-.649-.121-.777-.124-1.627-.182-2.539-.182h-7.696c-.19 0-.37.042-.53.119-.356.167-.62.496-.684.9L8.431 18.17l-.047.296c.108-.67.691-1.163 1.383-1.163h2.88c5.659 0 10.09-2.255 11.384-8.78.038-.192.07-.38.1-.564-.328-.17-.682-.316-1.064-.44-.096-.031-.193-.061-.291-.09" transform="translate(6.25 4.375)"/></g></g>
                   </svg>
-                  <label htmlFor="cash" className="subtitle">
+                  <label htmlFor="paypal" className="subtitle">
                     PayPal
                   </label> 
                 </div>
@@ -151,16 +162,21 @@ export default function Checkout() {
               </p>
           </div>
           {/* Subbmit button */}
-          <Link href="/" className="text-white">
+          <div className="text-white"
+            onClick={() => handleToggleCheckoutModal()}
+          >
             <ButtonPrimary
-            
             label={'CONTINUE & PAY'}
             style={'w-full py-5'}
             />
-          </Link>
-
+          </div>
         </div>
       </div>
+
+      {/* CheckoutModal */}
+      {checkoutModalOpen && <CheckoutModal />}
+      {/* Modal overlay */}
+      {checkoutModalOpen && <div className="fixed inset-0 opacity-30 z-10 bg-dark-900"></div>}
 
     </section>
   )

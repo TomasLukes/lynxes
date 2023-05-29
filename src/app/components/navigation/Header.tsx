@@ -29,14 +29,14 @@ export default function Header() {
         />
         {/* Logo */}
         <Link href="/" className="flex flex-col items-center mr-auto lg:mr-0 pl-6 md:pl-9 lg:pl-0">
-          <img src="/images/lynxes-logo.png" alt="" className="w-10 md:w-14 lg:w-16 -mb-1" />
+          <img src="/images/lynxes-logo.png" alt="" className="w-9 md:w-12 lg:w-14 -mb-1" />
           <h1 className="heading-6 hidden md:block">
             Lynxes
           </h1>
         </Link>
         {/* Navbar items desktop */}
         <nav className="hidden lg:flex gap-9 list-none
-          subtitle">
+          subtitle uppercase">
           <li className="hover:text-primary-700">
             <Link href="/">
               Home
