@@ -1,5 +1,6 @@
 'use client';
 import Link from "next/link"
+import Image from "next/image";
 import { useState } from "react"
 import MobileMenu from "./MobileMenu";
 import Cart from "../shared/Cart";
@@ -24,7 +25,11 @@ export default function Header() {
       {/* Header container */}
       <div id="navbar-desktop" className="container max-width mx-auto flex items-center justify-between py-6 md:py-12 px-6 md:px-9 lg:px-3">
         {/* Mobile menu */}
-        <img src={`/icons/shared/menu/icon-menu-${mobileMenuOpen ? 'close' : 'hamburger' }.svg`} alt="" 
+        <Image
+          src={`/icons/shared/menu/icon-menu-${mobileMenuOpen ? 'close' : 'hamburger' }.svg`}
+          alt="Mobile menu toggle button"
+          width={50}
+          height={50}
           className="lg:hidden w-8 md:w-10" 
           onClick={() => handleClick() }
         />

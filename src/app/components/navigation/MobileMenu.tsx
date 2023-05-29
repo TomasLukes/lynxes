@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function MobileMenu({ handleClick }) {
   return (
@@ -8,28 +9,52 @@ export default function MobileMenu({ handleClick }) {
         <li className="flex items-center justify-center gap-2"
           onClick={() => handleClick()}>
         <Link href="/">
-          <img src="\images\lynxes-logo.png" alt="" className="bg-dark-800 p-1 w-9 mb-2 rounded-full mx-auto" />
+          <Image
+            src="/images/lynxes-logo.png"
+            alt="Homepage navigation button" 
+            className="bg-dark-800 p-1 w-9 mb-2 rounded-full mx-auto"
+            width={50}
+            height={50}
+          />
           Home
           </Link>
         </li>
         <li className="flex items-center justify-center gap-2"
           onClick={() => handleClick()} >
           <Link href="/category/earphones">
-            <img src="/images/shared/category/image-category-thumbnail-earphones.webp" alt="" className="w-16 mx-auto" />
+            <Image
+              src="/images/shared/category/image-category-thumbnail-earphones.webp"
+              alt="Earphones category navigation button" 
+              className="w-16 mx-auto"
+              width={50}
+              height={50}
+            />
             Earphones
           </Link>
         </li>
         <li className="flex items-center justify-center gap-2"
           onClick={() => handleClick()} >
           <Link href="/category/headphones">
-            <img src="/images/shared/category/image-category-thumbnail-headphones.webp" alt="" className="w-16 mx-auto" />
+            <Image
+              src="/images/shared/category/image-category-thumbnail-headphones.webp"
+              alt="Headphones category navigation button" 
+              className="w-16 mx-auto"
+              width={50}
+              height={50}
+            />
             Headphones
           </Link>
         </li>
         <li className="flex items-center justify-center gap-2" 
           onClick={() => handleClick()} >
           <Link href="/category/speakers">
-          <img src="/images/shared/category/image-category-thumbnail-speakers.webp" alt="" className="w-16 mx-auto" />
+            <Image
+                src="/images/shared/category/image-category-thumbnail-speakers.webp"
+                alt="Speakers category navigation button" 
+                className="w-16 mx-auto"
+                width={50}
+                height={50}
+              />
             Speakers
           </Link>
         </li>

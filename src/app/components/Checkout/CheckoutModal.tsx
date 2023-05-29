@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 
 export default function CheckoutModal({}) {
@@ -12,7 +13,13 @@ export default function CheckoutModal({}) {
             <h5 className="heading-5 uppercase flex-grow">
               Thank you for your order
             </h5>
-            <img src="/icons/checkout/icon-order-confirmation.svg" alt="" className="w-12"/>
+            <Image 
+              src="/icons/checkout/icon-order-confirmation.svg"
+              alt="Succesfull order icon"
+              className="w-12"
+              width={50}
+              height={50}
+            />
           </div>
           <p className="text-body opacity-50">
             You will receive an email confirmation shortly.

@@ -1,3 +1,4 @@
+import Image from "next/image"
 
 export default function About() {
   return (
@@ -19,7 +20,13 @@ export default function About() {
       </div>
       {/* Image container */}
       <div className="lg:w-1/2">
-        <img src="/images/shared/image-best-gear.webp" alt="" className="lg:ml-auto rounded-lg " />
+        <Image 
+          src="/images/shared/image-best-gear.webp" 
+          alt="Product image of ZX7 speaker" 
+          className="lg:ml-auto rounded-lg"
+          width={300} 
+          height={300}
+        />
       </div>
     </section>
   )

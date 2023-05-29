@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import ButtonSecondary from "../buttons/ButtonSecondary"
 
 export default function BannerLg() {
@@ -10,8 +11,12 @@ export default function BannerLg() {
             rounded-lg">
             {/* Image container */}
             <div className="lg:w-1/2">
-                <img src="/images/home/image-speaker-zx9.webp" alt=""
-                    className="w-32 lg:w-80 lg:mt-auto mx-auto lg:-mb-2" 
+                <Image
+                    src="/images/home/image-speaker-zx9.webp"
+                    alt="Product photo of ZX9 speaker"
+                    className="w-32 lg:w-80 lg:mt-auto mx-auto lg:-mb-2"
+                    width={300}
+                    height={300}
                 />
             </div>
             {/* Info container */}
