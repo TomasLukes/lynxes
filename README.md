@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="\public\images\lynxes-logo.png" alt="Project Logo" width="150" />
+  <img src=".\public\images\lynxes-logo.png" alt="Project Logo" width="150" />
 </p>
 
 # Lynxes
