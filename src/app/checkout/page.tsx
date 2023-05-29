@@ -2,15 +2,15 @@ import Link from "next/link"
 import ButtonPrimary from "../components/buttons/ButtonPrimary"
 export default function Checkout() {
   return (
-    <section className="container max-width my-12 mx-auto px-6 md:px-9 lg:px-3">
+    <section className="container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
       {/* Go back link */}
       <Link href="/" className="text-sm font-medium opacity-50 capitalize">
         Go back
       </Link>
       {/* Checkout layout*/}
-      <div className="flex flex-col lg:flex-row gap-8 mt-4 lg:flex-grow">
+      <div className="flex flex-col lg:flex-row gap-8 mt-4 ">
         {/* Checkout container */}
-        <div className="bg-light-100 p-6 md:p-12 rounded-lg shadow-sm">
+        <div className="bg-light-100 p-6 md:p-12 rounded-lg shadow-sm lg:flex-grow">
           <h2 className="heading-3 pb-9">
             Checkout
           </h2>
@@ -108,7 +108,7 @@ export default function Checkout() {
 
         </div>
         {/* Summary container */}
-        <div className="bg-light-100 p-6 md:p-12 mb-auto rounded-lg shadow-sm lg:w-1/4">
+        <div className="bg-light-100 p-6 md:p-12 mb-auto rounded-lg shadow-sm lg:w-1/3">
           <h3 className="heading-5 pb-9">
             Summary
           </h3>
