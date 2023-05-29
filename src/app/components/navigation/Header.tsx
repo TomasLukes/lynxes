@@ -28,9 +28,12 @@ export default function Header() {
           onClick={() => handleClick() }
         />
         {/* Logo */}
-        <h1 className="text-3xl font-bold mr-auto lg:mr-0 pl-6 lg:pl-0">
-          Lynxes
-        </h1>
+        <Link href="/" className="flex flex-col items-center mr-auto lg:mr-0 pl-6 lg:pl-0">
+          <img src="/images/lynxes-logo.png" alt="" className="w-12 md:w-14 lg:w-16 -mb-1" />
+          <h1 className="heading-6 hidden md:block">
+            Lynxes
+          </h1>
+        </Link>
         {/* Navbar items desktop */}
         <nav className="hidden lg:flex gap-9 list-none
           subtitle">

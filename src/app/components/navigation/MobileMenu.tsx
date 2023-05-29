@@ -8,7 +8,7 @@ export default function MobileMenu({ handleClick }) {
         <li className="flex items-center justify-center gap-2"
           onClick={() => handleClick()}>
         <Link href="/">
-          <img src="\images\shared\image-best-gear.webp" alt="" className="w-9 mb-2 rounded-full mx-auto" />
+          <img src="\images\lynxes-logo.png" alt="" className="bg-dark-800 p-1 w-9 mb-2 rounded-full mx-auto" />
           Home
           </Link>
         </li>
