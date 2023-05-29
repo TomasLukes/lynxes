@@ -21,15 +21,15 @@ export default function Header() {
     /* Header */
     <header className="relative w-full bg-dark-850 text-neutral-100">
       {/* Header container */}
-      <div id="navbar-desktop" className="container max-width mx-auto flex items-center justify-between py-6 md:py-12 px-6 md:px-9 lg:px-0">
+      <div id="navbar-desktop" className="container max-width mx-auto flex items-center justify-between py-6 md:py-12 px-6 md:px-9 lg:px-3">
         {/* Mobile menu */}
         <img src={`/icons/shared/menu/icon-menu-${mobileMenuOpen ? 'close' : 'hamburger' }.svg`} alt="" 
-          className="lg:hidden" 
+          className="lg:hidden w-8 md:w-10" 
           onClick={() => handleClick() }
         />
         {/* Logo */}
-        <Link href="/" className="flex flex-col items-center mr-auto lg:mr-0 pl-6 lg:pl-0">
-          <img src="/images/lynxes-logo.png" alt="" className="w-12 md:w-14 lg:w-16 -mb-1" />
+        <Link href="/" className="flex flex-col items-center mr-auto lg:mr-0 pl-6 md:pl-9 lg:pl-0">
+          <img src="/images/lynxes-logo.png" alt="" className="w-10 md:w-14 lg:w-16 -mb-1" />
           <h1 className="heading-6 hidden md:block">
             Lynxes
           </h1>
@@ -59,10 +59,10 @@ export default function Header() {
           </li>
         </nav>
         {/* Account + Shopping card icons */}
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-3 md:gap-4 items-center">
           {/* User account icon */}
           <Link href="/account">
-            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" className="fill-light-100 
+            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" className="fill-light-100
               hover:fill-primary-700 focus:fill-primary-700 cursor-pointer">
               <path d="M226-262q59-39.666 121-60.833T480-344q71 0 133.333 21.167Q675.667-301.666 734.667-262q41-49.667 59.833-103.667 18.834-54 18.834-114.333 0-141-96.167-237.167T480-813.334q-141 0-237.167 96.167T146.666-480q0 60.333 19.167 114.333T226-262Zm253.876-184.667q-58.209 0-98.043-39.957Q342-526.581 342-584.791q0-58.209 39.957-98.042 39.958-39.834 98.167-39.834t98.043 39.958Q618-642.752 618-584.543q0 58.21-39.957 98.043-39.958 39.833-98.167 39.833ZM479.73-80q-83.097 0-156.183-31.5t-127.15-85.833q-54.064-54.334-85.23-127.227Q80-397.454 80-480.333q0-82.88 31.5-155.773Q143-709 197.333-763q54.334-54 127.227-85.5Q397.454-880 480.333-880q82.88 0 155.773 31.5Q709-817 763-763t85.5 127Q880-563 880-480.177q0 82.822-31.5 155.666T763-197.333Q709-143 635.914-111.5T479.73-80Z"
               />

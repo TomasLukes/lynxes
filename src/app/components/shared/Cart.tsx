@@ -31,7 +31,6 @@ export default function Cart({ handleOpenCart }) {
             <p className="heading-6">
               $ 5,396
             </p>
-
           </div>
           <Link href="/checkout" className="text-light-100" onClick={() => handleOpenCart()}>
             <ButtonPrimary

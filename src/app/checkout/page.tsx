@@ -2,7 +2,7 @@ import Link from "next/link"
 import ButtonPrimary from "../components/buttons/ButtonPrimary"
 export default function Checkout() {
   return (
-    <section className="container max-width my-12 mx-auto px-6 md:px-9 lg:px-0">
+    <section className="container max-width my-12 mx-auto px-6 md:px-9 lg:px-3">
       {/* Go back link */}
       <Link href="/" className="text-sm font-medium opacity-50 capitalize">
         Go back

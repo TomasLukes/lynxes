@@ -4,7 +4,7 @@ export default function Categories() {
   return (
     /* Categories section*/
     <section id="categories"
-      className="max-width mx-auto px-6 md:px-9 lg:px-0">
+      className="max-width mx-auto px-6 md:px-9 lg:px-3">
       {/* Categories cards container */}
       <div className="container mx-auto flex flex-col md:flex-row justify-center
         md:gap-8 mt-9 md:mt-32 lg:mt-36 mb-9 md:mb-20 lg:mb-32">

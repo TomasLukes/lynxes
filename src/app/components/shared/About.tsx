@@ -2,7 +2,7 @@
 export default function About() {
   return (
     <section id="about"
-      className="container px-6 md:px-9 lg:px-0 mx-auto flex flex-col-reverse lg:flex-row items-center 
+      className="container px-6 md:px-9 lg:px-3 mx-auto flex flex-col-reverse lg:flex-row items-center 
       gap:8 my-9 md:my-24">
       {/* Text container */}
       <div className="lg:w-1/2">
