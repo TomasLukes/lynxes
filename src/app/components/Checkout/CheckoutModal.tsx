@@ -3,28 +3,29 @@ import ButtonPrimary from "../buttons/ButtonPrimary"
 
 export default function CheckoutModal({}) {
   return (
-    /* Cart */
-    <div className="absolute top-0 mt-6 z-50 inset-x-1/2">
-      {/* Cart container */}
-      <div className="flex justify-end">
-        <div className="bg-light-100 text-dark-900 p-6 mt-4 w-64 mr-6 md:mr-9 lg:mr-0
-         rounded-lg"> 
-          <div className="flex items-center justify-between">
-            <h5 className="">
-              {'Cart (5)'}
+    /* Checkout Modal */
+    <div className="absolute top-0 mt-6 z-50 left-1/2 transform -translate-x-1/2">
+      {/* Checkout Modal container */}
+      <div className="container flex flex-col gap-4 md:gap-8 bg-light-100 text-dark-900 p-6 md:p-9 mt-4 rounded-lg w-72 md:w-96 lg:w-96">
+        {/* Modal heading */}
+          <div className="flex items-center gap-3">
+            <h5 className="heading-5 uppercase flex-grow">
+              Thank you for your order
             </h5>
-            <button>
-            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"
-              onClick={() => handleOpenCart()}>
-              <path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"
-              />
-            </svg>
-            </button>
+            <img src="/icons/checkout/icon-order-confirmation.svg" alt="" className="w-12"/>
           </div>
-          <p>Item 1</p>
-          <p>Item 2</p>
-          <p>Item 3</p>
-          <div className="flex items-center justify-between my-4">
+          <p className="text-body opacity-50">
+            You will receive an email confirmation shortly.
+          </p>
+        {/* Order summary */}
+        <div className="flex flex-col md:flex-row">
+          {/* First/Left item */}
+          <div className="md:w-1/2 bg-light-300 p-4 rounded-t-lg md:rounded-l-lg md:rounded-t-none">
+            <p>Item 1</p>
+            <p>Item 2</p>
+          </div>
+          {/* Second/Right item */}
+          <div className="md:w-1/2 bg-dark-800 p-4 rounded-b-lg md:rounded-r-lg md:rounded-b-none text-light-200">
             <span className="subtitle opacity-50">
               TOTAL
             </span>
@@ -32,13 +33,13 @@ export default function CheckoutModal({}) {
               $ 5,396
             </p>
           </div>
-          <Link href="/checkout" className="text-light-100" onClick={() => handleOpenCart()}>
-            <ButtonPrimary
-              label={'Checkout'}
-              style={'w-full'}
-            />
-          </Link>
         </div>
+        <Link href="/" className="text-light-100">
+            <ButtonPrimary
+              label={'Back to home'}
+              style={'w-full uppercase'}
+            />
+        </Link>
       </div>
     </div>
   )
