@@ -20,7 +20,9 @@ export default function Hero() {
                 <p className="max-w-prose md:w-1/2 lg:w-2/3 text-body opacity-75 pt-6 pb-9 mx-auto lg:mx-0">
                     Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.    
                 </p>
-                <ButtonPrimary label={'SEE PRODUCT'} />
+                <Link href='/product/xx99-mark-two-headphones'>
+                    <ButtonPrimary label={'SEE PRODUCT'} />
+                </Link>
             </div>
         </div>
     </section>

@@ -30,9 +30,11 @@ export default function BannerLg() {
                     Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
                 </p>
                 {/* Button */}
-                <ButtonSecondary
-                    label={'SEE PRODUCT'}
-                />
+                <Link href='product/zx9-speaker'>
+                    <ButtonSecondary
+                        label={'SEE PRODUCT'}
+                    />
+                </Link>
             </div>
         </div>
     </div>

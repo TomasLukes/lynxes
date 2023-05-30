@@ -23,9 +23,11 @@ export default function BannerSm() {
             YX1 EARPHONES
         </h3>
         {/* Button */}
-        <ButtonSecondary
-            label={'SEE PRODUCT'}
-        />
+        <Link href='product/yx1-earphones'>
+          <ButtonSecondary
+              label={'SEE PRODUCT'}
+          />
+        </Link>
       </div>
     </div>
 

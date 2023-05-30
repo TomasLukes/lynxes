@@ -14,9 +14,11 @@ export default function BannerSm() {
                   ZX7 SPEAKER
               </h3>
               {/* Button */}
-              <ButtonSecondary
-                  label={'SEE PRODUCT'}
-              />
+              <Link href='product/zx7-speaker'>
+                <ButtonSecondary
+                    label={'SEE PRODUCT'}
+                />
+              </Link>
           </div>
       </div>
     </div>
