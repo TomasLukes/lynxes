@@ -17,7 +17,7 @@ export default function Categories() {
             src="/images/shared/category/image-category-thumbnail-headphones.webp"
             width={160}
             height={160}
-            className="mx-auto w-40 -mt-20 md:-mt-24"
+            className="mx-auto w-40 h-auto -mt-20 md:-mt-24"
             alt="Headphones image"
           />
           {/* Category name + Btn continer */}
@@ -37,7 +37,7 @@ export default function Categories() {
             src="/images/shared/category/image-category-thumbnail-speakers.webp"
             width={160}
             height={160}
-            className="mx-auto w-40 -mt-20 md:-mt-24"
+            className="mx-auto w-40 h-auto -mt-20 md:-mt-24"
             alt="Speakers image"
           />
           {/* Category name + Btn continer */}
@@ -57,7 +57,7 @@ export default function Categories() {
             src="/images/shared/category/image-category-thumbnail-earphones.webp"
             width={160}
             height={160}
-            className="mx-auto w-40 -mt-20 md:-mt-26"
+            className="mx-auto w-40 h-auto -mt-20 md:-mt-26"
             alt="Earphones image"
           />
           {/* Category name + Btn continer */}

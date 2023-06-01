@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link"
 import Hero from "./components/Home/Hero"
 import Categories from "./components/shared/Categories"
@@ -6,7 +7,9 @@ import BannerLg from "./components/Home/BannerLg"
 import BannerSm from "./components/Home/BannerSm"
 import BannerSplit from "./components/Home/BannerSplit"
 
+
 export default function Home() {
+
   return (
     <div className="">
       <Hero />
