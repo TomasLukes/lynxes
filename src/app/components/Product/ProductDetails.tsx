@@ -1,8 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
+import ProductIncludesItem from "./ProductIncludesItem"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 
 export default function ProductDetails({ product }) {
+  const ProductIncludesItems = product.includes.map((item, index) =>
+  <ProductIncludesItem key={index} quantity={item.quantity} name={item.item} />
+  );
+
   return (
     /* ProductDetails container */
     <div className='mx-auto flex flex-col lg:flex-row gap-12 md:gap-16 lg:gap-20 pb-12'>
@@ -21,34 +26,11 @@ export default function ProductDetails({ product }) {
         <h5 className="heading-5 uppercase pb-6">
           In the box
         </h5>
+        {/* Included items container */}
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-4">
-            <span className="text-primary-700 text-body">
-              2x
-            </span>
-            <p className="text-body opacity-50">
-              Speaker unit
-            </p>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-primary-700 text-body">
-              6x
-            </span>
-            <p className="text-body opacity-50">
-              Speaker Cloth Panel
-            </p>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-primary-700 text-body">
-              1x
-            </span>
-            <p className="text-body opacity-50">
-              User Manual
-            </p>
-          </div>
+          {ProductIncludesItems}
         </div>
       </div>
     </div>
-
   )
 }
