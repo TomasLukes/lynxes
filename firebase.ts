@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, doc, getDoc } from 'firebase/firestore'
+import { getFirestore, collection, query, where, doc, getDoc, getDocs } from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -23,4 +23,17 @@ export async function getProduct(db, productId) {
     } else (
         console.log('No such document found')
     )
+}
+
+export async function getProductsByCategory(db, category) {
+    const q = query(collection(db, 'products'), where('category', '==', category));
+
+    const querySnapshot = await getDocs(q)
+    const products = []
+
+    querySnapshot.forEach((doc) => {
+        products.push(doc.data())
+    });
+
+    return products;
 }

@@ -4,8 +4,9 @@ import ProductIncludesItem from "./ProductIncludesItem"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 
 export default function ProductDetails({ product }) {
+
   const ProductIncludesItems = product.includes.map((item, index) =>
-  <ProductIncludesItem key={index} quantity={item.quantity} name={item.item} />
+    <ProductIncludesItem key={index} quantity={item.quantity} name={item.item} />
   );
 
   return (

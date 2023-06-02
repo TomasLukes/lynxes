@@ -1,9 +1,33 @@
+'use client'
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import About from "@/app/components/shared/About"
 import Categories from "@/app/components/shared/Categories"
 import ProductItem from "@/app/components/Category/ProductItem"
+import { db } from "../../../../firebase"
+import { getProductsByCategory } from "../../../../firebase"
+
 
 export default function CategoryPage({ params }) {
+    const { slug } = params;
+
+    const [productsData, setProductsData] = useState(null)
+
+    useEffect(() => {
+        console.log(slug)
+        getProductsByCategory(db, slug)
+        .then(products => setProductsData(products))
+        .catch(error => console.error('Error getting document:', error));
+    }, [slug])
+
+    
+    if (productsData === null) {
+        return <div>Loading...</div>;
+    }
+
+    const ProductItems = productsData.map((product, index) => 
+        <ProductItem key={index} product={product} />
+    )
 
   return (
     <main className="mx-auto">
@@ -17,13 +41,7 @@ export default function CategoryPage({ params }) {
                 className="flex flex-col gap-8 px-6 md:px-9 lg:px-3 
                 my-9 md:my-24"
             >
-                <ProductItem
-                    reversed={false}
-                 />
-                <ProductItem 
-                    reversed={true}/>
-                <ProductItem 
-                    reversed={false}/>
+                {ProductItems}
             </section>
             <Categories />
             <About />
