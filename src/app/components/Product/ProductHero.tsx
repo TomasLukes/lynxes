@@ -8,11 +8,11 @@ export default function ProductHero({ product }) {
     <div className='mx-auto flex flex-col md:flex-row gap-6 md:gap-16 pb-12'>
       {/* Left/First item */}
       <div className="flex items-center p-4 md:w-1/2 bg-light-300 rounded-lg">
-        <Image 
-          src="/images/shared/category/image-category-thumbnail-earphones.webp"
-          alt="Product image of YX1 Wireless earphones"
-          width={350}
-          height={350}
+        <Image
+          src={`/assets/images/products/${product.slug}/desktop/image-product.jpg`}
+          alt={`Product image of ${product.name}`}
+          width={1080}
+          height={1120}
         />
       </div>
       {/* Right/Second item */}

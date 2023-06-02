@@ -14,7 +14,7 @@ export default function CheckoutModal({}) {
               Thank you for your order
             </h5>
             <Image 
-              src="/icons/checkout/icon-order-confirmation.svg"
+              src="/assets/icons/pages/Checkout/icon-order-confirmation.svg"
               alt="Succesfull order icon"
               className="w-12"
               width={50}

@@ -9,10 +9,24 @@ export default function BannerSm() {
       {/* Left item */}
       <div className="md:w-1/2 rounded-t-lg md:rounded-lg overflow-hidden">
         <Image 
-          src="/images/home/image-earphones-yx1.webp"
+          src="/assets/images/pages/Home/desktop/image-earphones-yx1.jpg"
           alt="Product image of YX1 earphones"
-          className="w-full object-cover lg:h-72"
-          width={800}
+          className="hidden lg:block w-full object-cover lg:h-72"
+          width={540}
+          height={320}
+        />
+        <Image 
+          src="/assets/images/pages/Home/tablet/image-earphones-yx1.jpg"
+          alt="Product image of YX1 earphones"
+          className="hidden md:block lg:hidden w-full object-cover"
+          width={678}
+          height={640}
+        />
+        <Image 
+          src="/assets/images/pages/Home/mobile/image-earphones-yx1.jpg"
+          alt="Product image of YX1 earphones"
+          className="md:hidden w-full object-cover"
+          width={654}
           height={400}
         />
       </div>

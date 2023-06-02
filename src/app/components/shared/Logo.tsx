@@ -6,7 +6,7 @@ export default function Logo() {
       <Link href="/">
         <div className="flex flex-col items-center">
           <Image
-            src="/images/lynxes-logo.png"
+            src="/assets/images/components/Logo/lynxes-logo.png"
             width={150}
             height={150}
             className="w-9 md:w-12 lg:w-14 -mb-1" 

@@ -86,21 +86,21 @@ main {
 #hero {
     min-height: 70vh;
     background: #191919;
-    background-image: url("/images/home/image-hero-desktop.jpg");
+    background-image: url("/assets/images/pages/Home/desktop/image-hero.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position-x: 75%;
 }
 
 #bannerLg {
-    background-image: url("/images/home/pattern-circles.svg");
+    background-image: url("/assets/images/pages/Home/desktop/pattern-circles.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 51%;
 }
 
 #bannerSm {
-    background-image: url("/images/home/image-speaker-zx7.jpg");
+    background-image: url("/assets/images/pages/Home/desktop/image-speaker-zx7.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -113,7 +113,7 @@ main {
     /* Smaller laptop */
 @media screen and (max-width: 976px) {
     #hero {
-        background-image: url("/images/home/image-hero-tablet.jpg");
+        background-image: url("/assets/images/pages/Home/tablet/image-header.jpg");
         background-position-x: 50%;
         background-position-y: -100px;
     }
@@ -146,8 +146,8 @@ main {
     }
 
     #hero {
-        background-image: url("/images/home/image-hero-mobile.jpg");
-        background-position-y: -75px;
+        background-image: url("/assets/images/pages/Home/tablet/image-header.jpg");
+        background-position-y: 75px;
     }
 
     #bannerLg {
@@ -156,7 +156,7 @@ main {
     }
 
     #bannerSm {
-        background-image: url("/images/home/image-speaker-zx7-mobile.jpg");
+        background-image: url("/assets/images/pages/Home/mobile/image-speaker-zx7-mobile.jpg");
         background-position-x: 100%;
     }
 }

@@ -14,7 +14,7 @@ export default function Categories() {
         <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
           <Image 
-            src="/images/shared/category/image-category-thumbnail-headphones.webp"
+            src="/assets/images/components/Categories/image-category-thumbnail-headphones.png"
             width={160}
             height={160}
             className="mx-auto w-40 h-auto -mt-20 md:-mt-24"
@@ -34,9 +34,9 @@ export default function Categories() {
         <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
           <Image 
-            src="/images/shared/category/image-category-thumbnail-speakers.webp"
-            width={160}
-            height={160}
+            src="/assets/images/components/Categories/image-category-thumbnail-speakers.png"
+            width={438}
+            height={408}
             className="mx-auto w-40 h-auto -mt-20 md:-mt-24"
             alt="Speakers image"
           />
@@ -54,9 +54,9 @@ export default function Categories() {
         <div className="w-full flex flex-col bg-light-300 text-center
           rounded-lg mt-20 md:mt-0 p-6">
           <Image 
-            src="/images/shared/category/image-category-thumbnail-earphones.webp"
-            width={160}
-            height={160}
+            src="/assets/images/components/Categories/image-category-thumbnail-earphones.png"
+            width={438}
+            height={408}
             className="mx-auto w-40 h-auto -mt-20 md:-mt-26"
             alt="Earphones image"
           />

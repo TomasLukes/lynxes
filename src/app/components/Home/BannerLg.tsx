@@ -12,11 +12,11 @@ export default function BannerLg() {
             {/* Image container */}
             <div className="lg:w-1/2">
                 <Image
-                    src="/images/home/image-speaker-zx9.webp"
+                    src="/assets/images/pages/Home/desktop/image-speaker-zx9.png"
                     alt="Product photo of ZX9 speaker"
                     className="w-32 lg:w-80 lg:mt-auto mx-auto lg:-mb-2"
-                    width={300}
-                    height={300}
+                    width={756}
+                    height={918}
                 />
             </div>
             {/* Info container */}

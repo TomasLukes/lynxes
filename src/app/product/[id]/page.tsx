@@ -34,7 +34,7 @@ export default function ProductPage({ params }) {
         </Link>
         <ProductHero product={productData} />
         <ProductDetails product={productData} />
-        <ProductGallery />
+        <ProductGallery slug={id}/>
         <Categories />
         <About />
       </main>

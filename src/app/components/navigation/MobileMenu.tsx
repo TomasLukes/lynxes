@@ -10,9 +10,9 @@ export default function MobileMenu({ handleClick }) {
           onClick={() => handleClick()}>
         <Link href="/">
           <Image
-            src="/images/lynxes-logo.png"
+            src="/assets/images/components/Logo/lynxes-logo-bg.png"
             alt="Homepage navigation button" 
-            className="bg-dark-800 p-1 w-9 mb-2 rounded-full mx-auto"
+            className="bg-primary-700 p-1 w-9 mb-2 rounded-full mx-auto"
             width={50}
             height={50}
           />
@@ -23,7 +23,7 @@ export default function MobileMenu({ handleClick }) {
           onClick={() => handleClick()} >
           <Link href="/category/earphones">
             <Image
-              src="/images/shared/category/image-category-thumbnail-earphones.webp"
+              src="/assets/images/components/Categories/image-category-thumbnail-earphones.png"
               alt="Earphones category navigation button" 
               className="w-16 mx-auto"
               width={50}
@@ -36,7 +36,7 @@ export default function MobileMenu({ handleClick }) {
           onClick={() => handleClick()} >
           <Link href="/category/headphones">
             <Image
-              src="/images/shared/category/image-category-thumbnail-headphones.webp"
+              src="/assets/images/components/Categories/image-category-thumbnail-headphones.png"
               alt="Headphones category navigation button" 
               className="w-16 mx-auto"
               width={50}
@@ -49,7 +49,7 @@ export default function MobileMenu({ handleClick }) {
           onClick={() => handleClick()} >
           <Link href="/category/speakers">
             <Image
-                src="/images/shared/category/image-category-thumbnail-speakers.webp"
+                src="/assets/images/components/Categories/image-category-thumbnail-speakers.png"
                 alt="Speakers category navigation button" 
                 className="w-16 mx-auto"
                 width={50}

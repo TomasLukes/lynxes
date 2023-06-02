@@ -21,11 +21,25 @@ export default function About() {
       {/* Image container */}
       <div className="lg:w-1/2">
         <Image 
-          src="/images/shared/image-best-gear.webp" 
+          src="/assets/images/components/About/desktop/image-best-gear.jpg" 
           alt="Product image of ZX7 speaker" 
-          className="lg:ml-auto rounded-lg"
-          width={300} 
-          height={300}
+          className="hidden lg:block lg:ml-auto rounded-lg"
+          width={540} 
+          height={588}
+        />
+        <Image 
+          src="/assets/images/components/About/tablet/image-best-gear.jpg" 
+          alt="Product image of ZX7 speaker" 
+          className="hidden md:block lg:hidden rounded-lg"
+          width={1378} 
+          height={600}
+        />
+        <Image 
+          src="/assets/images/components/About/mobile/image-best-gear.jpg" 
+          alt="Product image of ZX7 speaker" 
+          className="md:hidden rounded-lg"
+          width={654} 
+          height={600}
         />
       </div>
     </section>

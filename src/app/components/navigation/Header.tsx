@@ -27,7 +27,7 @@ export default function Header() {
         border-b border-white border-opacity-10">
         {/* Mobile menu */}
         <Image
-          src={`/icons/shared/menu/icon-menu-${mobileMenuOpen ? 'close' : 'hamburger' }.svg`}
+          src={`/assets/icons/shared/menu/icon-menu-${mobileMenuOpen ? 'close' : 'hamburger' }.svg`}
           alt="Mobile menu toggle button"
           width={50}
           height={50}
