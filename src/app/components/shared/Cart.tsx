@@ -1,13 +1,20 @@
 import Link from "next/link"
+import CartItem from "./CartItem"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 
 export default function Cart({ handleOpenCart }) {
+  const cartArr = [
+    {'quantity': 1, 'slug': 'xx59-headphones', 'name': 'XX59 Headphones', 'price': 899},
+    {'quantity': 3, 'slug': 'xx99-mark-two-headphones', 'price': 2999}, 
+    {'quantity': 2, 'slug': 'zx9-speaker', 'price': 3500}
+  ]
+
   return (
     /* Cart */
     <div className="">
       {/* Cart container */}
       <div className="flex justify-end z-50">
-        <div className="bg-light-100 text-dark-900 p-6 mt-4 w-64 mr-6 md:mr-9 lg:mr-0
+        <div className="bg-light-100 text-dark-900 p-6 mt-4 mr-6 md:mr-9 lg:mr-0
          rounded-lg"> 
           <div className="flex items-center justify-between">
             <h5 className="">
@@ -21,9 +28,13 @@ export default function Cart({ handleOpenCart }) {
             </svg>
             </button>
           </div>
-          <p>Item 1</p>
-          <p>Item 2</p>
-          <p>Item 3</p>
+          <CartItem
+            product={cartArr[0]}
+          
+          />
+          <p>{cartArr[0].quantity}x {cartArr[0].item}</p>
+          <p>{cartArr[1].quantity}x {cartArr[1].item}</p>
+          <p>{cartArr[2].quantity}x {cartArr[2].item}</p>
           <div className="flex items-center justify-between my-4">
             <span className="subtitle opacity-50">
               TOTAL
