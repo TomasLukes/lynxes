@@ -4,9 +4,9 @@ import ButtonPrimary from "../buttons/ButtonPrimary"
 
 export default function Cart({ handleOpenCart }) {
   const cartArr = [
-    {'quantity': 1, 'slug': 'xx59-headphones', 'name': 'XX59 Headphones', 'price': 899},
-    {'quantity': 3, 'slug': 'xx99-mark-two-headphones', 'price': 2999}, 
-    {'quantity': 2, 'slug': 'zx9-speaker', 'price': 3500}
+    {'quantity': 1, 'slug': 'xx59-headphones', 'name': 'XX59', 'price': 899},
+    {'quantity': 3, 'slug': 'xx99-mark-two-headphones', 'name': 'XX99 MK II', 'price': 2999}, 
+    {'quantity': 2, 'slug': 'zx9-speaker', 'name': 'ZX9', 'price': 3500}
   ]
 
   return (
@@ -28,13 +28,11 @@ export default function Cart({ handleOpenCart }) {
             </svg>
             </button>
           </div>
-          <CartItem
-            product={cartArr[0]}
-          
-          />
-          <p>{cartArr[0].quantity}x {cartArr[0].item}</p>
-          <p>{cartArr[1].quantity}x {cartArr[1].item}</p>
-          <p>{cartArr[2].quantity}x {cartArr[2].item}</p>
+          <div className="flex flex-col gap-4 my-8">
+            <CartItem product={cartArr[0]}/>
+            <CartItem product={cartArr[1]}/>
+            <CartItem product={cartArr[2]}/>
+          </div>
           <div className="flex items-center justify-between my-4">
             <span className="subtitle opacity-50">
               TOTAL

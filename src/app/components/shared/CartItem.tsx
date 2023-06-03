@@ -1,12 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
-import ButtonPrimary from "../buttons/ButtonPrimary"
+import ButtonQuantity from "../buttons/ButtonQuantity"
 
 export default function CartItem({ product }) {
 
   return (
     /* CartItem container */
-    <div className="flex gap-4">
+    <div className="flex items-center gap-4">
       {/* Items image */}
       <Image
         className="rounded-lg"
@@ -24,7 +24,8 @@ export default function CartItem({ product }) {
           $ {product.price}
         </p>
       </div>
-
+      {/* Button for toggle quantity of item */}
+      <ButtonQuantity quantity={product.quantity} />
     </div>
   )
 }
