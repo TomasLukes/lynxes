@@ -16,12 +16,12 @@ export default function CartItem({ product }) {
         height={50}
       />
       {/* Items name + price */}
-      <div>
-        <h5>
+      <div className="pr-8 md:pr-16 lg:pr-20">
+        <h5 className="subtitle">
           {product.name}
         </h5>
-        <p>
-          $ {product.price}
+        <p className="text-body opacity-50">
+          $ {product.price.toLocaleString('en-US')}
         </p>
       </div>
       {/* Button for toggle quantity of item */}

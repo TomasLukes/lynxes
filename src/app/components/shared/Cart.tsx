@@ -9,16 +9,18 @@ export default function Cart({ handleOpenCart }) {
     {'quantity': 2, 'slug': 'zx9-speaker', 'name': 'ZX9', 'price': 3500}
   ]
 
+  const cartTotal = cartArr.reduce((total, currentValue) => total + currentValue.price,
+  0)
+
   return (
-    /* Cart */
-    <div className="">
+    <div className="lg:w-90">
       {/* Cart container */}
-      <div className="flex justify-end z-50">
-        <div className="bg-light-100 text-dark-900 p-6 mt-4 mr-6 md:mr-9 lg:mr-0
+      <div className="flex justify-end lg:w-90 z-50">
+        <div className="bg-light-100 text-dark-900 p-8 mt-4 mx-4 md:mx-0 md:mr-9 lg:mr-0
          rounded-lg"> 
           <div className="flex items-center justify-between">
-            <h5 className="">
-              {'Cart (5)'}
+            <h5 className="subtitle uppercase">
+              {`Cart (${cartArr.length})`}
             </h5>
             <button>
             <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"
@@ -28,7 +30,7 @@ export default function Cart({ handleOpenCart }) {
             </svg>
             </button>
           </div>
-          <div className="flex flex-col gap-4 my-8">
+          <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 my-8">
             <CartItem product={cartArr[0]}/>
             <CartItem product={cartArr[1]}/>
             <CartItem product={cartArr[2]}/>
@@ -38,7 +40,7 @@ export default function Cart({ handleOpenCart }) {
               TOTAL
             </span>
             <p className="heading-6">
-              $ 5,396
+              $ {cartTotal.toLocaleString('en-US')}
             </p>
           </div>
           <Link href="/checkout" className="text-light-100" onClick={() => handleOpenCart()}>
