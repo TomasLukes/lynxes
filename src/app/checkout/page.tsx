@@ -46,7 +46,7 @@ export default function Checkout() {
       setGrandTotal(currentGrandTotal);
     })
     .catch(error => console.error('Error getting document:', error));
-    }, [])
+    }, [cartItemsData, shippingCost])
 
 
   if (cartItemsData === null) {
