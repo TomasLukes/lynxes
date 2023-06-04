@@ -1,18 +1,34 @@
+'use client'
 import Link from "next/link"
 import CartItem from "./CartItem"
 import ButtonPrimary from "../buttons/ButtonPrimary"
+import { db, getCartItems } from "../../../../firebase"
+import { useState, useEffect } from "react"
 
-export const cartArr = [
-  {'quantity': 1, 'slug': 'xx59-headphones', 'name': 'XX59', 'price': 899},
-  {'quantity': 3, 'slug': 'xx99-mark-two-headphones', 'name': 'XX99 MK II', 'price': 2999}, 
-  {'quantity': 2, 'slug': 'zx9-speaker', 'name': 'ZX9', 'price': 3500}
-]
-
-export const cartTotal = cartArr.reduce((total, currentValue) => total + currentValue.price,
-0)
 
 export default function Cart({ handleOpenCart }) {
+  const [cartItemsData, setCartItemsData] = useState([])
+  
+  useEffect(() => {
+    getCartItems(db, 'test')
+    .then(items => {
+      console.log('Items:', items);
+      setCartItemsData(items.cartItems)})
+      .catch(error => console.error('Error getting document:', error));
+    }, [])
+    
+    if (cartItemsData === null) {
+      return <div>Loading...</div>;
+    }
+    
+    const cartItems = cartItemsData.length > 0 && cartItemsData.map((item, index) => {
+      console.log(item.slug);
+      return <CartItem key={index} product={item}/>}
+    )
 
+    const cartTotal = cartItemsData.reduce((total, currentValue) => total + currentValue.price,
+    0)
+      
   return (
     <div className="lg:w-90">
       {/* Cart container */}
@@ -21,7 +37,7 @@ export default function Cart({ handleOpenCart }) {
          rounded-lg"> 
           <div className="flex items-center justify-between">
             <h5 className="subtitle uppercase">
-              {`Cart (${cartArr.length})`}
+              {`Cart (${cartItemsData.length})`}
             </h5>
             <button>
             <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"
@@ -32,9 +48,7 @@ export default function Cart({ handleOpenCart }) {
             </button>
           </div>
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 my-8">
-            <CartItem product={cartArr[0]}/>
-            <CartItem product={cartArr[1]}/>
-            <CartItem product={cartArr[2]}/>
+            {cartItems}
           </div>
           <div className="flex items-center justify-between my-4">
             <span className="subtitle opacity-50">

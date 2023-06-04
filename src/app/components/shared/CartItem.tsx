@@ -11,14 +11,14 @@ export default function CartItem({ product }) {
       <Image
         className="rounded-lg"
         src={`/assets/images/components/Cart/image-${product.slug}.jpg`}
-        alt={`Product image of ${product.name}`}
+        alt={`Product image of ${product.shortName}`}
         width={50}
         height={50}
       />
       {/* Items name + price */}
       <div className="pr-8 md:pr-16 lg:pr-20">
         <h5 className="subtitle">
-          {product.name}
+          {product.shortName}
         </h5>
         <p className="text-body opacity-50">
           $ {product.price.toLocaleString('en-US')}
