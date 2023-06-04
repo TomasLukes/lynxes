@@ -49,9 +49,13 @@ export default function Footer() {
         </p>
         {/* Copyright + socials container */}
         <div className="flex flex-col-reverse items-center md:flex-row md:justify-between">
-          <p className="text-body opacity-50">
-            Copyright 2023. All Rights Reserved
-          </p>
+          <Link href={'http://tomaslukes.com/'}>
+            <p className="text-body text-light-100">
+              <span className="opacity-100">Created by </span>
+              <span className="opacity-100 hover:opacity-100 hover:text-primary-700 hover:font-semibold">Tomas Lukes</span>
+              <span className="opacity-100"> © 2023</span>
+            </p>
+          </Link>
           {/* Social icons */}
           <div className="flex items-center gap-3 md:gap-4 py-3">
             {/* FB icon */}

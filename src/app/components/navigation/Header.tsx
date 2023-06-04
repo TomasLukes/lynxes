@@ -23,7 +23,7 @@ export default function Header() {
     /* Header */
     <header className="relative w-full bg-dark-850 text-neutral-100">
       {/* Header container */}
-      <div id="navbar-desktop" className="container max-width mx-auto flex items-center justify-between py-6 md:py-12 px-6 md:px-9 lg:px-3
+      <div id="navbar-desktop" className="container max-width mx-auto flex items-center justify-between py-6 md:py-6 lg:py-12 px-6 md:px-9 lg:px-3
         border-b border-white border-opacity-10">
         {/* Mobile menu */}
         <Image

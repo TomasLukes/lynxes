@@ -12,7 +12,7 @@ export default function Logo() {
             className="w-9 md:w-12 lg:w-14 -mb-1" 
             alt="Logo of Lynxes" 
           />
-          <h3 className="heading-6 hidden md:block">
+          <h3 className="heading-6 hidden lg:block">
             Lynxes
           </h3>
         </div>

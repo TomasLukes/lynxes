@@ -13,7 +13,7 @@ export default function ProductItem({ product }) {
         <Image 
           src={`/assets/images/products/${product.slug}/desktop/image-category-page-preview.jpg`}
           alt={`Product image of ${product.name}`}
-          className="hidden lg:block m-auto"
+          className="hidden lg:block m-auto w-3/4"
           width={1080}
           height={1120}
         />

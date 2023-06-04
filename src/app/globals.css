@@ -129,7 +129,6 @@ main {
 @media screen and (max-width: 768px) {
     #bannerSm {
         background-position-x: 50%;
-
     }
 }
 
@@ -157,6 +156,5 @@ main {
 
     #bannerSm {
         background-image: url("/assets/images/pages/Home/mobile/image-speaker-zx7-mobile.jpg");
-        background-position-x: 100%;
     }
 }

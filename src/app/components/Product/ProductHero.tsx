@@ -33,7 +33,7 @@ export default function ProductHero({ product }) {
         </p>
         {/* Product price */}
         <p className="heading-6">
-            $ {product.price}
+            $ {product.price.toLocaleString('en-US')}
         </p>
         {/* Button */}
         <Link href='product/yx1-earphones' className="text-light-100">

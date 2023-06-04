@@ -6,7 +6,7 @@ export default function CartItem({ product }) {
 
   return (
     /* CartItem container */
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 mb-4">
       {/* Items image */}
       <Image
         className="rounded-lg"
@@ -16,7 +16,7 @@ export default function CartItem({ product }) {
         height={50}
       />
       {/* Items name + price */}
-      <div className="pr-8 md:pr-16 lg:pr-20">
+      <div className="pr-4 md:pr-16 lg:pr-20">
         <h5 className="subtitle">
           {product.shortName}
         </h5>

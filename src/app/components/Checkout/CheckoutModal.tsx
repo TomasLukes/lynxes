@@ -6,7 +6,7 @@ import ButtonPrimary from "../buttons/ButtonPrimary"
 export default function CheckoutModal({ cartItems, grandTotal}) {
   return (
     /* Checkout Modal */
-    <div className="absolute top-0 w-full md:w-auto mt-6 z-50 left-1/2 transform -translate-x-1/2 mx-auto px-6 md:px-9 lg:px-3">
+    <div className="absolute top-0 w-full md:w-3/4 lg:w-auto mt-6 z-50 left-1/2 transform -translate-x-1/2 mx-auto px-6 md:px-9 lg:px-3">
       {/* Checkout Modal container */}
       <div className="container flex flex-col gap-4 md:gap-8 bg-light-100 text-dark-900 p-6 md:p-9 mt-4 rounded-lg">
         {/* Modal heading */}

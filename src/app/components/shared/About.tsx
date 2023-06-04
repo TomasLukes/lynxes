@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section id="about"
       className="container px-6 md:px-9 lg:px-3 mx-auto flex flex-col-reverse lg:flex-row items-center 
-      gap:8 my-9 md:my-24">
+      gap:8 my-24 md:my-28">
       {/* Text container */}
       <div className="lg:w-1/2">
         <h3 className="w-3/4 mx-auto lg:mx-0 heading-2 text-center lg:text-left pb-6 pt-6">
@@ -23,7 +23,7 @@ export default function About() {
         <Image 
           src="/assets/images/components/About/desktop/image-best-gear.jpg" 
           alt="Product image of ZX7 speaker" 
-          className="hidden lg:block lg:ml-auto rounded-lg"
+          className="hidden lg:block lg:ml-auto w-3/4 rounded-lg"
           width={540} 
           height={588}
         />

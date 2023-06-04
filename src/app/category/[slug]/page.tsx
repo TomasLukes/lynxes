@@ -38,8 +38,8 @@ export default function CategoryPage({ params }) {
         </div>
         <div className="max-width mx-auto">
             <section id='products' 
-                className="flex flex-col gap-8 px-6 md:px-9 lg:px-3 
-                my-9 md:my-24"
+                className="flex flex-col gap-20 md:gap-24 lg:gap-32 px-6 md:px-9 lg:px-3 
+                my-20 md:my-40 lg:my-48"
             >
                 {ProductItems}
             </section>
