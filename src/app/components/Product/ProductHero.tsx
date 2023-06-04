@@ -39,6 +39,7 @@ export default function ProductHero({ product }) {
         <Link href='product/yx1-earphones' className="text-light-100">
           <ButtonPrimary
               label={'ADD TO CART'}
+              style={''}
           />
         </Link>
       </div>
