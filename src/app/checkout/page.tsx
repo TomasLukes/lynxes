@@ -1,8 +1,10 @@
 'use client'
 import Link from "next/link"
 import { useState } from "react"
-import ButtonPrimary from "../components/buttons/ButtonPrimary"
 import CheckoutModal from "../components/Checkout/CheckoutModal"
+import ButtonPrimary from "../components/buttons/ButtonPrimary"
+import CartItem from "../components/shared/CartItem"
+import { cartArr, cartTotal } from "../components/shared/Cart"
 
 export default function Checkout() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
@@ -11,6 +13,10 @@ export default function Checkout() {
     console.log('Modal checkout clicked')
     setCheckoutModalOpen(!checkoutModalOpen)
   }
+
+  const shipping = 50;
+  const VAT = Math.round((cartTotal + shipping) * 0.21)
+  const grandTotal = cartTotal + shipping + VAT
 
   return (
     <section className="relative container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
@@ -123,14 +129,18 @@ export default function Checkout() {
           <h3 className="heading-5 pb-9">
             Summary
           </h3>
-
+          <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 my-8">
+            <CartItem product={cartArr[0]}/>
+            <CartItem product={cartArr[1]}/>
+            <CartItem product={cartArr[2]}/>
+          </div>
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
               <span className="subtitle opacity-50">
                 TOTAL
               </span>
               <p className="heading-6">
-                $ 5,396
+                $ {cartTotal.toLocaleString('en-US')}
               </p>
             </div>
 
@@ -139,7 +149,7 @@ export default function Checkout() {
                 SHIPPING
               </span>
               <p className="heading-6">
-                $ 50
+                $ {shipping}
               </p>
             </div>
 
@@ -148,7 +158,7 @@ export default function Checkout() {
                 VAT (INCLUDED)
               </span>
               <p className="heading-6">
-                $ 1,079
+                $ {VAT.toLocaleString('en-US')}
               </p>
             </div>
           </div>
@@ -158,7 +168,7 @@ export default function Checkout() {
                 GRAND TOTAL
               </span>
               <p className="heading-5 text-primary-700 font-black">
-                $ 5,446
+                $ {grandTotal.toLocaleString('en-US')}
               </p>
           </div>
           {/* Subbmit button */}

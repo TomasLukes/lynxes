@@ -2,15 +2,16 @@ import Link from "next/link"
 import CartItem from "./CartItem"
 import ButtonPrimary from "../buttons/ButtonPrimary"
 
-export default function Cart({ handleOpenCart }) {
-  const cartArr = [
-    {'quantity': 1, 'slug': 'xx59-headphones', 'name': 'XX59', 'price': 899},
-    {'quantity': 3, 'slug': 'xx99-mark-two-headphones', 'name': 'XX99 MK II', 'price': 2999}, 
-    {'quantity': 2, 'slug': 'zx9-speaker', 'name': 'ZX9', 'price': 3500}
-  ]
+export const cartArr = [
+  {'quantity': 1, 'slug': 'xx59-headphones', 'name': 'XX59', 'price': 899},
+  {'quantity': 3, 'slug': 'xx99-mark-two-headphones', 'name': 'XX99 MK II', 'price': 2999}, 
+  {'quantity': 2, 'slug': 'zx9-speaker', 'name': 'ZX9', 'price': 3500}
+]
 
-  const cartTotal = cartArr.reduce((total, currentValue) => total + currentValue.price,
-  0)
+export const cartTotal = cartArr.reduce((total, currentValue) => total + currentValue.price,
+0)
+
+export default function Cart({ handleOpenCart }) {
 
   return (
     <div className="lg:w-90">
