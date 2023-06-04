@@ -8,12 +8,19 @@ import { useState, useEffect } from "react"
 
 export default function Cart({ handleOpenCart }) {
   const [cartItemsData, setCartItemsData] = useState([])
-  
+  const [cartTotal, setCartTotal] = useState(0)
+
+  function sumCartTotal(cartItemsData) {
+    const currentTotal = cartItemsData.reduce((total, currentValue) => total + currentValue.price,
+    0);
+    setCartTotal(currentTotal)
+  }
+
   useEffect(() => {
     getCartItems(db, 'test')
     .then(items => {
-      console.log('Items:', items);
-      setCartItemsData(items.cartItems)})
+      setCartItemsData(items.cartItems);
+      sumCartTotal(items.cartItems)})
       .catch(error => console.error('Error getting document:', error));
     }, [])
     
@@ -22,13 +29,9 @@ export default function Cart({ handleOpenCart }) {
     }
     
     const cartItems = cartItemsData.length > 0 && cartItemsData.map((item, index) => {
-      console.log(item.slug);
       return <CartItem key={index} product={item}/>}
     )
 
-    const cartTotal = cartItemsData.reduce((total, currentValue) => total + currentValue.price,
-    0)
-      
   return (
     <div className="lg:w-90">
       {/* Cart container */}
