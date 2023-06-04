@@ -6,17 +6,18 @@ import ButtonPrimary from "../components/buttons/ButtonPrimary"
 import CartItem from "../components/shared/CartItem"
 import { cartArr, cartTotal } from "../components/shared/Cart"
 
+const shipping = 50;
+const VAT = Math.round((cartTotal + shipping) * 0.21)
+export const grandTotal = cartTotal + shipping + VAT
+
 export default function Checkout() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
 
-  function handleToggleCheckoutModal() {
+  function handleToggleCheckoutModal(e) {
+    e.preventDefault()
     console.log('Modal checkout clicked')
     setCheckoutModalOpen(!checkoutModalOpen)
   }
-
-  const shipping = 50;
-  const VAT = Math.round((cartTotal + shipping) * 0.21)
-  const grandTotal = cartTotal + shipping + VAT
 
   return (
     <section className="relative container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
@@ -25,14 +26,14 @@ export default function Checkout() {
         Go back
       </Link>
       {/* Checkout layout*/}
-      <div className="flex flex-col lg:flex-row gap-8 mt-4 ">
+      <form onSubmit={handleToggleCheckoutModal} className="flex flex-col lg:flex-row gap-8 mt-4 ">
         {/* Checkout container */}
         <div className="bg-light-100 p-6 md:p-12 rounded-lg shadow-sm lg:flex-grow">
           <h2 className="heading-3 pb-9">
             Checkout
           </h2>
           {/* Form */}
-          <form action="" className="">
+          <div>
             {/* Billing heading */}
             <h5 className="text-primary-700 text-sm font-bold uppercase pb-4">
               Billing details
@@ -121,7 +122,7 @@ export default function Checkout() {
                   </label> 
                 </div>
               </div>
-          </form>
+          </div>
 
         </div>
         {/* Summary container */}
@@ -172,16 +173,14 @@ export default function Checkout() {
               </p>
           </div>
           {/* Subbmit button */}
-          <div className="text-white"
-            onClick={() => handleToggleCheckoutModal()}
-          >
+          <div className="text-white">
             <ButtonPrimary
-            label={'CONTINUE & PAY'}
-            style={'w-full py-5'}
+              label={'CONTINUE & PAY'}
+              style={'w-full py-5'}
             />
           </div>
         </div>
-      </div>
+      </form>
 
       {/* CheckoutModal */}
       {checkoutModalOpen && <CheckoutModal />}
