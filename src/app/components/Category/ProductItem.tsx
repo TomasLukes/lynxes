@@ -51,6 +51,7 @@ export default function ProductItem({ product }) {
         {/* Button */}
         <Link href={`product/${product.slug}`} className="text-light-100">
           <ButtonPrimary
+              style={'text-light-100'}
               label={'SEE PRODUCT'}
           />
         </Link>
