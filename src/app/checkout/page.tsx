@@ -1,23 +1,61 @@
 'use client'
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import CheckoutModal from "../components/Checkout/CheckoutModal"
 import ButtonPrimary from "../components/buttons/ButtonPrimary"
 import CartItem from "../components/shared/CartItem"
-import { cartArr, cartTotal } from "../components/shared/Cart"
-
-const shipping = 50;
-const VAT = Math.round((cartTotal + shipping) * 0.21)
-export const grandTotal = cartTotal + shipping + VAT
+import { db, getCartItems } from "../../../firebase"
 
 export default function Checkout() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
-
+  const [cartItemsData, setCartItemsData] = useState([])
+  const [cartTotal, setCartTotal] = useState(0)
+  const [shippingCost, setShippingCost] = useState(50)
+  const [vatPrice, setVatPrice] = useState(0)
+  const [grandTotal, setGrandTotal] = useState(0)
+  
   function handleToggleCheckoutModal(e) {
     e.preventDefault()
     console.log('Modal checkout clicked')
     setCheckoutModalOpen(!checkoutModalOpen)
   }
+
+  function sumCartTotal(cartItemsData) {
+    return cartItemsData.reduce((total, currentValue) => total + currentValue.price, 0);
+  }
+  
+  function calcVat(cartTotal, shipping, vatRate) {
+    return Math.round((cartTotal + shipping) * vatRate);
+  }
+  
+  function sumGrandTotal(cartTotal, shipping, VAT) {
+    return cartTotal + shipping + VAT;
+  }
+
+  useEffect(() => {
+    getCartItems(db, 'test')
+    .then(items => {
+      let itemsData = items.cartItems;
+      let currentCartTotal = sumCartTotal(itemsData);
+      let currentVatPrice = calcVat(currentCartTotal, shippingCost, 0.21);
+      let currentGrandTotal = sumGrandTotal(currentCartTotal, shippingCost, currentVatPrice);
+  
+      setCartItemsData(itemsData);
+      setCartTotal(currentCartTotal);
+      setVatPrice(currentVatPrice);
+      setGrandTotal(currentGrandTotal);
+    })
+    .catch(error => console.error('Error getting document:', error));
+    }, [])
+
+
+  if (cartItemsData === null) {
+    return <div>Loading...</div>;
+  }
+  
+  const cartItems = cartItemsData.length > 0 && cartItemsData.map((item, index) => {
+    return <CartItem key={index} product={item}/>}
+  )
 
   return (
     <section className="relative container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
@@ -131,9 +169,7 @@ export default function Checkout() {
             Summary
           </h3>
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 my-8">
-            <CartItem product={cartArr[0]}/>
-            <CartItem product={cartArr[1]}/>
-            <CartItem product={cartArr[2]}/>
+            {cartItems}
           </div>
           <div className="flex flex-col gap-1">
             <div className="flex items-center justify-between">
@@ -150,7 +186,7 @@ export default function Checkout() {
                 SHIPPING
               </span>
               <p className="heading-6">
-                $ {shipping}
+                $ {shippingCost}
               </p>
             </div>
 
@@ -159,7 +195,7 @@ export default function Checkout() {
                 VAT (INCLUDED)
               </span>
               <p className="heading-6">
-                $ {VAT.toLocaleString('en-US')}
+                $ {vatPrice.toLocaleString('en-US')}
               </p>
             </div>
           </div>
@@ -183,7 +219,7 @@ export default function Checkout() {
       </form>
 
       {/* CheckoutModal */}
-      {checkoutModalOpen && <CheckoutModal />}
+      {checkoutModalOpen && <CheckoutModal cartItems={cartItems} grandTotal={grandTotal} />}
       {/* Modal overlay */}
       {checkoutModalOpen && <div className="fixed inset-0 opacity-30 z-10 bg-dark-900"></div>}
 

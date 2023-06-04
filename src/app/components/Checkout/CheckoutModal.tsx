@@ -2,10 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import CartItem from "../shared/CartItem"
 import ButtonPrimary from "../buttons/ButtonPrimary"
-import { cartArr, cartTotal } from "../shared/Cart"
-import { grandTotal } from "@/app/checkout/page"
 
-export default function CheckoutModal({}) {
+export default function CheckoutModal({ cartItems, grandTotal}) {
   return (
     /* Checkout Modal */
     <div className="absolute top-0 w-full md:w-auto mt-6 z-50 left-1/2 transform -translate-x-1/2 mx-auto px-6 md:px-9 lg:px-3">
@@ -31,9 +29,7 @@ export default function CheckoutModal({}) {
         <div className="flex flex-col">
           {/* First/Left item */}
           <div className="flex-grow bg-light-300 p-4 rounded-t-lg md:rounded-l-lg md:rounded-b-none">
-            <CartItem product={cartArr[0]}/>
-            <CartItem product={cartArr[1]}/>
-            <CartItem product={cartArr[2]}/>
+            {cartItems}
           </div>
           {/* Second/Right item */}
           <div className="flex items-center lg:w-auto bg-dark-800 p-4 rounded-b-lg md:rounded-r-lg md:rounded-t-none md:rounded-b-lg text-light-200">
