@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ButtonPrimary from '../components/buttons/ButtonPrimary';
+import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
 
 export default function LoginPage() {
   return (

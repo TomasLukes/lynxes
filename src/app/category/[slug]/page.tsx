@@ -1,11 +1,10 @@
 'use client'
 import { useState, useEffect } from "react"
-import Link from "next/link"
-import About from "@/app/components/shared/About"
-import Categories from "@/app/components/shared/Categories"
-import ProductItem from "@/app/components/Category/ProductItem"
-import { db } from "../../../../firebase"
-import { getProductsByCategory } from "../../../../firebase"
+import About from "@/components/shared/About"
+import Categories from "@/components/shared/Categories"
+import ProductItem from "@/components/Category/ProductItem"
+import { db } from "@/lib/db"
+import { getProductsByCategory } from "@/lib/db"
 
 
 export default function CategoryPage({ params }) {

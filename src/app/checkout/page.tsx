@@ -1,10 +1,10 @@
 'use client'
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import CheckoutModal from "../components/Checkout/CheckoutModal"
-import ButtonPrimary from "../components/buttons/ButtonPrimary"
-import CartItem from "../components/shared/CartItem"
-import { db, getCartItems } from "../../../firebase"
+import CheckoutModal from "@/components/Checkout/CheckoutModal"
+import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
+import CartItem from "@/components/shared/CartItem"
+import { db, getCartItems } from "@/lib/db"
 
 export default function Checkout() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
