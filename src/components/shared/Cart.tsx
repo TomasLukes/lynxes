@@ -2,7 +2,8 @@
 import Link from "next/link"
 import CartItem from "./CartItem"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
-import { db, getCartItems } from "@/lib/db"
+import { db } from "@/lib/firebase/config"
+import { getCartItems } from "@/lib/firebase/get/getCartItems" 
 import { useState, useEffect } from "react"
 
 

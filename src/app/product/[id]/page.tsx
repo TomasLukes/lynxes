@@ -6,7 +6,7 @@ import ProductDetails from "@/components/Product/ProductDetails";
 import ProductGallery from "@/components/Product/ProductGallery";
 import Categories from "@/components/shared/Categories";
 import About from "@/components/shared/About";
-import { db, getProduct } from "@/lib/db";
+import { db, getProduct } from "@/lib/firebase/config";
 
 export default function ProductPage({ params }) {
   const { id } = params;

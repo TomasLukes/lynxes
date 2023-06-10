@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import CheckoutModal from "@/components/Checkout/CheckoutModal"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import CartItem from "@/components/shared/CartItem"
-import { db, getCartItems } from "@/lib/db"
+import { db, getCartItems } from "@/lib/firebase/config"
 
 export default function Checkout() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)

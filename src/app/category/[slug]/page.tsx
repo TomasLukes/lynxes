@@ -3,8 +3,8 @@ import { useState, useEffect } from "react"
 import About from "@/components/shared/About"
 import Categories from "@/components/shared/Categories"
 import ProductItem from "@/components/Category/ProductItem"
-import { db } from "@/lib/db"
-import { getProductsByCategory } from "@/lib/db"
+import { db } from "@/lib/firebase/config"
+import { getProductsByCategory } from "@/lib/firebase/config"
 
 
 export default function CategoryPage({ params }) {
