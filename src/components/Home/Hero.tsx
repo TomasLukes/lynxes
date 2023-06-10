@@ -1,5 +1,5 @@
 import Link from "next/link"
-import ButtonPrimary from "../buttons/ButtonPrimary"
+import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 
 export default function Hero() {
   return (

@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import CartItem from "../shared/CartItem"
-import ButtonPrimary from "../buttons/ButtonPrimary"
+import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 
 export default function CheckoutModal({ cartItems, grandTotal}) {
   return (

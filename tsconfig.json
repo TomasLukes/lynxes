@@ -15,14 +15,19 @@
     "jsx": "preserve",
     "incremental": true,
     "noImplicitAny": false, // delete this line later
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@styles": ["src/styles/*"],
+      "@components": ["src/components/*"],
+      "@lib": ["src/lib/*"],
+      "@helpers": ["src/helpers/*"],
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

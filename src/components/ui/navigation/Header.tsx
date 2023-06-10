@@ -2,9 +2,9 @@
 import Link from "next/link"
 import Image from "next/image";
 import { useState } from "react"
-import MobileMenu from "./MobileMenu";
-import Cart from "../shared/Cart";
-import Logo from "../shared/Logo";
+import MobileMenu from "@/components/ui/navigation/MobileMenu";
+import Cart from "@/components/shared/Cart";
+import Logo from "@/components/shared/Logo";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

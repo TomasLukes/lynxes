@@ -1,7 +1,4 @@
-import Link from "next/link"
-import Image from "next/image"
 import ProductIncludesItem from "./ProductIncludesItem"
-import ButtonPrimary from "../buttons/ButtonPrimary"
 
 export default function ProductDetails({ product }) {
 

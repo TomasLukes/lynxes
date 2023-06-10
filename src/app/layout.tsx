@@ -1,7 +1,7 @@
-import './globals.css'
+import '@/styles/globals.css'
 import { Manrope } from 'next/font/google'
-import Header from './components/navigation/Header'
-import Footer from './components/navigation/Footer'
+import Header from '@/components/ui/navigation/Header'
+import Footer from '@/components/ui/navigation/Footer'
 
 const manrope = Manrope({ subsets: ['latin'] })
 

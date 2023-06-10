@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import ButtonSecondary from "../buttons/ButtonSecondary"
+import ButtonSecondary from "@/components/ui/buttons/ButtonSecondary"
 
 export default function BannerSm() {
   return (

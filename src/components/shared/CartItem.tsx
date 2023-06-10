@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import ButtonQuantity from "../buttons/ButtonQuantity"
+import ButtonQuantity from "@/components/ui/buttons/ButtonQuantity"
 
 export default function CartItem({ product }) {
 

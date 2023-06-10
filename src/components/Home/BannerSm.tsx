@@ -1,5 +1,5 @@
 import Link from "next/link"
-import ButtonSecondary from "../buttons/ButtonSecondary"
+import ButtonSecondary from "@/components/ui/buttons/ButtonSecondary"
 
 export default function BannerSm() {
   return (

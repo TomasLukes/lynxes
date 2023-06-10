@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import ButtonPrimary from "../buttons/ButtonPrimary"
+import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 
 export default function ProductHero({ product }) {
   return (

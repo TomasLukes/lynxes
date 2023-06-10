@@ -1,8 +1,8 @@
 'use client'
 import Link from "next/link"
 import CartItem from "./CartItem"
-import ButtonPrimary from "../buttons/ButtonPrimary"
-import { db, getCartItems } from "../../../../firebase"
+import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
+import { db, getCartItems } from "@/lib/db"
 import { useState, useEffect } from "react"
 
 

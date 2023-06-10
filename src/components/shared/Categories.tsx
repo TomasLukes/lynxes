@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import ButtonArrow from "../buttons/ButtonArrow"
+import ButtonArrow from "@/components/ui/buttons/ButtonArrow"
 
 export default function Categories() {
   return (
