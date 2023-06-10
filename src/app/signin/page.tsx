@@ -20,10 +20,10 @@ export default function SignInPage() {
   }
 
   return (
-    <section id="signInPage" className="grid place-content-center">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-light-100 text-dark-900 px-20 py-12  mt-16 mx-4 md:mx-0 md:mr-9 lg:mr-0
-         rounded-lg">
-        <h2 className='text-center heading-5'>
+    <section id="signInPage" className="mx-auto px-6 md:px-9 lg:px-3">
+      <form onSubmit={handleSubmit} className="md:w-1/2 lg:w-1/4 md:mx-auto flex flex-col gap-4 bg-light-100 text-dark-900 p-9 mt-12 md:mt-16
+         rounded-lg shadow-lg">
+        <h2 className='text-center heading-6 mb-6'>
           Log in to your Lynxes account
         </h2>
         <label htmlFor="username" className="flex flex-col gap-2 subtitle normal-case pb-4">
@@ -35,11 +35,12 @@ export default function SignInPage() {
           <input name='password' onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Your Password" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
         </label>
         <ButtonPrimary label={'Log In'} style={''} />
-        <Link href="signup">
-          <p className="mx-auto text-sm font-medium opacity-50 mb-6">
-            {`Don't have account? Sign up`}
-          </p> 
-        </Link>
+        <p className="mx-auto text-sm font-medium opacity-75 mb-6">
+          <span className='opacity-50'>{`Don't have account? `}</span>
+          <Link href="signup" className='hover:text-primary-700'>
+            Sign up
+          </Link>
+        </p> 
       </form>
     </section>
   );

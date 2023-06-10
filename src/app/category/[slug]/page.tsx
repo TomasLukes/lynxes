@@ -4,7 +4,7 @@ import About from "@/components/shared/About"
 import Categories from "@/components/shared/Categories"
 import ProductItem from "@/components/Category/ProductItem"
 import { db } from "@/lib/firebase/config"
-import { getProductsByCategory } from "@/lib/firebase/config"
+import { getProductsByCategory } from "@/lib/firebase/get/getProductByCategory"
 
 
 export default function CategoryPage({ params }) {
