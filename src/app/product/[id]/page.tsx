@@ -1,12 +1,12 @@
 'use client'
 import { useState, useEffect } from "react"
 import Link from "next/link";
-import ProductHero from "@/app/components/Product/ProductHero";
-import ProductDetails from "@/app/components/Product/ProductDetails";
-import ProductGallery from "@/app/components/Product/ProductGallery";
-import Categories from "@/app/components/shared/Categories";
-import About from "@/app/components/shared/About";
-import { db, getProduct } from "../../../../firebase";
+import ProductHero from "@/components/Product/ProductHero";
+import ProductDetails from "@/components/Product/ProductDetails";
+import ProductGallery from "@/components/Product/ProductGallery";
+import Categories from "@/components/shared/Categories";
+import About from "@/components/shared/About";
+import { db, getProduct } from "@/lib/db";
 
 export default function ProductPage({ params }) {
   const { id } = params;
