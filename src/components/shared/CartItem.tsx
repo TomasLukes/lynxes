@@ -25,7 +25,7 @@ export default function CartItem({ product }) {
         </p>
       </div>
       {/* Button for toggle quantity of item */}
-      <ButtonQuantity quantity={product.quantity} />
+      <ButtonQuantity quantity={product.itemQuantity} />
     </div>
   )
 }

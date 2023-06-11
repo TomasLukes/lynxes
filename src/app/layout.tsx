@@ -4,6 +4,7 @@ import { Manrope } from 'next/font/google'
 import Header from '@/components/ui/navigation/Header'
 import Footer from '@/components/ui/navigation/Footer'
 import { AuthContextProvider } from '@/context/AuthContext'
+import { CartContextProvider } from '@/context/CartContext'
 
 const manrope = Manrope({ subsets: ['latin'] })
 
@@ -21,11 +22,13 @@ export default function RootLayout({
     <html lang="cs">
       <body className={`${manrope.className} bg-light-200 text-dark-900 `}>
         <AuthContextProvider>
-          <Header />
-          <main>
-            {children}
-          </main>
-          <Footer />
+          <CartContextProvider>
+            <Header />
+            <main>
+              {children}
+            </main>
+            <Footer />
+          </CartContextProvider>
         </AuthContextProvider>
       </body>
     </html>

@@ -1,35 +1,35 @@
-import { onAuthStateChanged, getAuth } from "firebase/auth"
-import { app } from '@/lib/firebase/config'
+import { useAuthContext } from './AuthContext'
+import { db } from '@/lib/firebase/config'
 import { useEffect, useState, useContext, createContext } from "react"
+import getCartItemsFromDB from '@/lib/firebase/getDB/getCartItemsFromDB'
 
-const auth = getAuth(app)
+export const CartContext = createContext({})
+export const useCartContext = () => useContext(CartContext)
 
-export const AuthContext = createContext({})
-export const useAuthContext = () => useContext(AuthContext)
-
-export const AuthContextProvider = ({
-    children,
-    }) => {
-        const [user, setUser] = useState(null)
-        const [loading, setLoading] = useState(true)
-
+export const CartContextProvider = ({ children }) => {
+    const { user } = useAuthContext();
+    const [cart, setCart] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser(null);
+        if (user) {
+            getCartItemsFromDB(db, user.uid)
+                .then(cartItems => {
+                    setCart(cartItems)
+                    setLoading(false);
+                });
+        } else {
+            const getCartFromLS = localStorage.getItem('cart');
+            if (getCartFromLS) {
+                setCart(JSON.parse(getCartFromLS))
             }
             setLoading(false);
-        });
-
-        return () => unsubscribe();
-    }, []);
+        }
+    }, [user]);
 
     return (
-        <AuthContext.Provider value={{ user }}>
+        <CartContext.Provider value={{ cart }}>
             {loading ? <div>Loading...</div> : children}
-        </AuthContext.Provider>
+        </CartContext.Provider>
     );
 }

@@ -6,12 +6,14 @@ import { useAuthContext } from "@/context/AuthContext";
 import MobileMenu from "@/components/ui/navigation/MobileMenu";
 import Cart from "@/components/shared/Cart";
 import Logo from "@/components/shared/Logo";
+import { useCartContext } from "@/context/CartContext";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
 
   const { user, logOut } = useAuthContext();
+  const { cart } = useCartContext();
 
   function handleClick() {
     setMobileMenuOpen(!mobileMenuOpen)
@@ -97,7 +99,9 @@ export default function Header() {
           {/* Shopping icon */}
           <div className="relative">
             <div className="absolute -top-1 -right-1 flex items-center justify-center text-center bg-red-500 w-3 h-3 p-2 rounded-full">
-              <span className="text-xs">3</span>
+              <span className="text-xs">
+                {cart.length}
+              </span>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28" className="fill-light-100
             hover:fill-primary-700 focus:fill-primary-700 cursor-pointer"

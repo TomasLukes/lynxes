@@ -5,7 +5,7 @@ import CheckoutModal from "@/components/Checkout/CheckoutModal"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import CartItem from "@/components/shared/CartItem"
 import { db } from "@/lib/firebase/config"
-import getCartItems from "@/lib/firebase/getDB/getCartItems"
+import getCartItems from "@/lib/firebase/getDB/getCartItemsFromDB"
 
 export default function Checkout() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
