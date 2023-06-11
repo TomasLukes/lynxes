@@ -6,7 +6,6 @@ import { useAuthContext } from "@/context/AuthContext";
 import MobileMenu from "@/components/ui/navigation/MobileMenu";
 import Cart from "@/components/shared/Cart";
 import Logo from "@/components/shared/Logo";
-import { getAuth } from "firebase/auth";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
