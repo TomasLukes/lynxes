@@ -3,18 +3,21 @@ import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useAuthContext } from "@/context/AuthContext"
+import addCartItemToLS from "@/helpers/addCartItemToLS"
 import { db } from "@/lib/firebase/config"
-import { addCartItem } from "@/lib/firebase/updateDB/addCartItem"
+import { addCartItemToDB } from "@/lib/firebase/updateDB/addCartItemToDB"
 
 export default function ProductHero({ product }) {
   const { user } = useAuthContext();
 
   async function handleAddToCart(product) {
-    console.log('Adding to cart item')
+    
     if (user) {
-    addCartItem(db, user.uid, product)
+      console.log('Adding to cart item for logged in user')
+      addCartItemToDB(db, user.uid, product)
     } else {
-      console.log('User is not logged in')
+      console.log('Adding cart item for guest user')
+      addCartItemToLS(product)
     }
   }
 

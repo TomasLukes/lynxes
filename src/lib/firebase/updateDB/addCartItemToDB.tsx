@@ -1,6 +1,6 @@
 import { doc, updateDoc, getDoc, setDoc } from 'firebase/firestore'
 
-export async function addCartItem(db, userID, addedItem) {
+export async function addCartItemToDB(db, userID, addedItem) {
     let error = null;
 
     try {
@@ -11,8 +11,7 @@ export async function addCartItem(db, userID, addedItem) {
             slug: addedItem.slug,
             shortName: addedItem.shortName,
             price: addedItem.price,
-            itemQuality: null,
-
+            itemQuantity: null,
         }
 
         if (cartSnap.exists()) {
@@ -23,10 +22,10 @@ export async function addCartItem(db, userID, addedItem) {
 
             if (existingItem) {
                 // If item already exists in cart, increment the quantity
-                existingItem.itemQuality += 1;
+                existingItem.itemQuantity += 1;
             } else {
                 // If item isn't in cart, add it
-                addedItemData.itemQuality = 1;
+                addedItemData.itemQuantity = 1;
                 items.push(addedItemData)
             }
 
