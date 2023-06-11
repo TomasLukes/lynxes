@@ -1,8 +1,23 @@
+'use client'
 import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
+import { useAuthContext } from "@/context/AuthContext"
+import { db } from "@/lib/firebase/config"
+import addCartItem from "@/lib/firebase/addDB/addCartItem"
 
 export default function ProductHero({ product }) {
+  const { user } = useAuthContext();
+
+  async function handleAddToCart(product) {
+    console.log('Adding to cart item')
+    if (user) {
+    addCartItem(db, user.uid, product)
+    } else {
+      console.log('User is not logged in')
+    }
+  }
+
   return (
     /* Product Item container */
     <div className='mx-auto flex flex-col md:flex-row gap-6 md:gap-16 pb-12'>
@@ -36,12 +51,14 @@ export default function ProductHero({ product }) {
             $ {product.price.toLocaleString('en-US')}
         </p>
         {/* Button */}
-        <Link href='product/yx1-earphones' className="text-light-100">
-          <ButtonPrimary
+        <button onClick={() => handleAddToCart(product)}>
+          Add to cart
+        </button>
+{/*           <ButtonPrimary
+              onClick={() => handleAddToCart(product)}
               label={'ADD TO CART'}
-              style={''}
-          />
-        </Link>
+              style={'w-1/2'}
+          /> */}
       </div>
     </div>
 

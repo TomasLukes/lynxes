@@ -21,6 +21,7 @@
       "@styles": ["src/styles/*"],
       "@components": ["src/components/*"],
       "@lib": ["src/lib/*"],
+      "@context": ["src/context/*"],
       "@helpers": ["src/helpers/*"],
     },
     "plugins": [

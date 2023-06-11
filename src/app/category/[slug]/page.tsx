@@ -4,7 +4,7 @@ import About from "@/components/shared/About"
 import Categories from "@/components/shared/Categories"
 import ProductItem from "@/components/Category/ProductItem"
 import { db } from "@/lib/firebase/config"
-import { getProductsByCategory } from "@/lib/firebase/get/getProductByCategory"
+import getProductsByCategory from "@/lib/firebase/getDB/getProductByCategory"
 
 
 export default function CategoryPage({ params }) {
@@ -13,7 +13,6 @@ export default function CategoryPage({ params }) {
     const [productsData, setProductsData] = useState(null)
 
     useEffect(() => {
-        console.log(slug)
         getProductsByCategory(db, slug)
         .then(products => setProductsData(products))
         .catch(error => console.error('Error getting document:', error));
