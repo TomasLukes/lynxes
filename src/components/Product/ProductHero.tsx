@@ -4,7 +4,7 @@ import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useAuthContext } from "@/context/AuthContext"
 import { db } from "@/lib/firebase/config"
-import addCartItem from "@/lib/firebase/addDB/addCartItem"
+import { addCartItem } from "@/lib/firebase/updateDB/addCartItem"
 
 export default function ProductHero({ product }) {
   const { user } = useAuthContext();
