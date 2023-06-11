@@ -5,7 +5,7 @@ import CheckoutModal from "@/components/Checkout/CheckoutModal"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import CartItem from "@/components/shared/CartItem"
 import { db } from "@/lib/firebase/config"
-import getCartItems from "@/lib/firebase/getDB/getCartItemsFromDB"
+import { useCartContext } from "@/context/CartContext"
 
 export default function Checkout() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
@@ -14,6 +14,8 @@ export default function Checkout() {
   const [shippingCost, setShippingCost] = useState(50)
   const [vatPrice, setVatPrice] = useState(0)
   const [grandTotal, setGrandTotal] = useState(0)
+
+  const { cart } = useCartContext();
   
   function handleToggleCheckoutModal(e) {
     e.preventDefault()
@@ -32,7 +34,7 @@ export default function Checkout() {
     return cartTotal + shipping + VAT;
   }
 
-  useEffect(() => {
+/*   useEffect(() => {
     getCartItems(db, 'test')
     .then(items => {
       let itemsData = items.cartItems;
@@ -47,13 +49,13 @@ export default function Checkout() {
     })
     .catch(error => console.error('Error getting document:', error));
     }, [cartItemsData, shippingCost])
-
+ */
 
   if (cartItemsData === null) {
     return <div>Loading...</div>;
   }
   
-  const cartItems = cartItemsData.length > 0 && cartItemsData.map((item, index) => {
+  const cartItems = cart.length > 0 && cart.map((item, index) => {
     return <CartItem key={index} product={item}/>}
   )
 

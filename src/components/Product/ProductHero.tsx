@@ -6,20 +6,11 @@ import { useAuthContext } from "@/context/AuthContext"
 import addCartItemToLS from "@/helpers/addCartItemToLS"
 import { db } from "@/lib/firebase/config"
 import { addCartItemToDB } from "@/lib/firebase/updateDB/addCartItemToDB"
+import { useCartContext } from "@/context/CartContext"
 
 export default function ProductHero({ product }) {
   const { user } = useAuthContext();
-
-  async function handleAddToCart(product) {
-    
-    if (user) {
-      console.log('Adding to cart item for logged in user')
-      addCartItemToDB(db, user.uid, product)
-    } else {
-      console.log('Adding cart item for guest user')
-      addCartItemToLS(product)
-    }
-  }
+  const { handleAddCartItem } = useCartContext();
 
   return (
     /* Product Item container */
@@ -54,7 +45,7 @@ export default function ProductHero({ product }) {
             $ {product.price.toLocaleString('en-US')}
         </p>
         {/* Button */}
-        <button onClick={() => handleAddToCart(product)}>
+        <button onClick={() => handleAddCartItem(product)}>
           Add to cart
         </button>
 {/*           <ButtonPrimary

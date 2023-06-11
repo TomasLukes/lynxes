@@ -2,6 +2,8 @@ import { useAuthContext } from './AuthContext'
 import { db } from '@/lib/firebase/config'
 import { useEffect, useState, useContext, createContext } from "react"
 import getCartItemsFromDB from '@/lib/firebase/getDB/getCartItemsFromDB'
+import { addCartItemToDB } from '@/lib/firebase/updateDB/addCartItemToDB'
+import addCartItemtoLS from '@/helpers/addCartItemToLS'
 
 export const CartContext = createContext({})
 export const useCartContext = () => useContext(CartContext)
@@ -27,8 +29,24 @@ export const CartContextProvider = ({ children }) => {
         }
     }, [user]);
 
+    function handleAddCartItem(addedItem) {
+        if (user) {
+            addCartItemToDB(db, user.uid, addedItem)
+            .then(() => getCartItemsFromDB(db, user.uid))
+            .then(cartItems => {
+                setCart(cartItems);
+            });
+        } else {
+            addCartItemtoLS(addedItem)
+            .then(() => {
+                const getCartFromLS = localStorage.getItem('cart');
+                setCart(JSON.parse(getCartFromLS));
+            });
+        }
+    }
+
     return (
-        <CartContext.Provider value={{ cart }}>
+        <CartContext.Provider value={{ cart, handleAddCartItem }}>
             {loading ? <div>Loading...</div> : children}
         </CartContext.Provider>
     );

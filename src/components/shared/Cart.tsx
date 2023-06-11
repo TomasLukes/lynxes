@@ -11,7 +11,7 @@ export default function Cart({ handleOpenCart }) {
   let cartLength = 0;
 
   if (cart) {
-    cartTotal = cart.reduce((total, currentValue) => total + currentValue.price, 0);
+/*     cartTotal = cart.reduce((total, currentValue) => total + currentValue.price, 0); */
     cartItems = cart.map((item, index) => <CartItem key={index} product={item} />);
     cartLength = cart.length;
   }
