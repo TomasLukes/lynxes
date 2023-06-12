@@ -14,7 +14,7 @@ export default function Header() {
   const [cartItemsQuantity, setCartItemQuantity] = useState(null)
 
   const { user, logOut } = useAuthContext();
-  const { cart } = useCartContext();
+  const { cart, cartQ } = useCartContext();
 
   useEffect(() => {
     cart ? setCartItemQuantity(cart.length) : 0
@@ -105,7 +105,7 @@ export default function Header() {
           <div className="relative">
             <div className="absolute -top-1 -right-1 flex items-center justify-center text-center bg-red-500 w-3 h-3 p-2 rounded-full">
               <span className="text-xs">
-                {cartItemsQuantity}
+                {cartQ}
               </span>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 -960 960 960" width="28" className="fill-light-100

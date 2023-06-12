@@ -11,6 +11,8 @@ export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ({ children }) => {
     const { user } = useAuthContext();
     const [cart, setCart] = useState([])
+    const [cartQ, setCartQ] = useState(null)
+    const [cartTotal, setCartTotal] = useState(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -29,6 +31,13 @@ export const CartContextProvider = ({ children }) => {
         }
     }, [user]);
 
+    useEffect(() => {
+        const calcCartQ = cart.reduce((total, item) => total + item.itemQuantity, 0);
+        setCartQ(calcCartQ);
+        const calcCartTotal = cart.reduce((total, item) => total + (item.itemQuantity * item.price), 0)
+        setCartTotal(calcCartTotal)
+      }, [cart])
+
     function handleAddCartItem(addedItem) {
         if (user) {
             addCartItemToDB(db, user.uid, addedItem)
@@ -46,7 +55,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ cart, handleAddCartItem }}>
+        <CartContext.Provider value={{ cart, cartQ, cartTotal, handleAddCartItem }}>
             {loading ? <div>Loading...</div> : children}
         </CartContext.Provider>
     );

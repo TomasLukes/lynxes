@@ -7,57 +7,33 @@ import CartItem from "@/components/shared/CartItem"
 import { db } from "@/lib/firebase/config"
 import { useCartContext } from "@/context/CartContext"
 
-export default function Checkout() {
+export default function CheckoutPage() {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
-  const [cartItemsData, setCartItemsData] = useState([])
-  const [cartTotal, setCartTotal] = useState(0)
-  const [shippingCost, setShippingCost] = useState(50)
-  const [vatPrice, setVatPrice] = useState(0)
-  const [grandTotal, setGrandTotal] = useState(0)
+  const [shippingCost, setShippingCost] = useState(null)
+  const [vatPrice, setVatPrice] = useState(null)
+  const [grandTotal, setGrandTotal] = useState(null)
 
-  const { cart } = useCartContext();
+  const { cart, cartTotal } = useCartContext();
   
   function handleToggleCheckoutModal(e) {
     e.preventDefault()
     setCheckoutModalOpen(!checkoutModalOpen)
   }
 
-  function sumCartTotal(cartItemsData) {
-    return cartItemsData.reduce((total, currentValue) => total + currentValue.price, 0);
-  }
+  useEffect(() => {
+    const calcVatPrice = Math.round(cartTotal * 0.21)
+    const shipping = 50
+    setVatPrice(calcVatPrice)
+    setShippingCost(shipping)
+    const calcGrandTotal = cartTotal + shippingCost + vatPrice
+    setGrandTotal(calcGrandTotal)
+  }, [cart, grandTotal, shippingCost, vatPrice])
   
-  function calcVat(cartTotal, shipping, vatRate) {
-    return Math.round((cartTotal + shipping) * vatRate);
-  }
-  
-  function sumGrandTotal(cartTotal, shipping, VAT) {
-    return cartTotal + shipping + VAT;
-  }
+  let cartItems = []
 
-/*   useEffect(() => {
-    getCartItems(db, 'test')
-    .then(items => {
-      let itemsData = items.cartItems;
-      let currentCartTotal = sumCartTotal(itemsData);
-      let currentVatPrice = calcVat(currentCartTotal, shippingCost, 0.21);
-      let currentGrandTotal = sumGrandTotal(currentCartTotal, shippingCost, currentVatPrice);
-  
-      setCartItemsData(itemsData);
-      setCartTotal(currentCartTotal);
-      setVatPrice(currentVatPrice);
-      setGrandTotal(currentGrandTotal);
-    })
-    .catch(error => console.error('Error getting document:', error));
-    }, [cartItemsData, shippingCost])
- */
-
-  if (cartItemsData === null) {
-    return <div>Loading...</div>;
+  if (cart) {
+    cartItems = cart.map((item, index) => <CartItem key={index} product={item} />);
   }
-  
-  const cartItems = cart.length > 0 && cart.map((item, index) => {
-    return <CartItem key={index} product={item}/>}
-  )
 
   return (
     <section className="relative container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
@@ -179,7 +155,7 @@ export default function Checkout() {
                 TOTAL
               </span>
               <p className="heading-6">
-                $ {cartTotal.toLocaleString('en-US')}
+                $ {cartTotal?.toLocaleString('en-US')}
               </p>
             </div>
 
@@ -188,7 +164,7 @@ export default function Checkout() {
                 SHIPPING
               </span>
               <p className="heading-6">
-                $ {shippingCost}
+                $ {shippingCost?.toLocaleString('en-US')}
               </p>
             </div>
 
@@ -197,7 +173,7 @@ export default function Checkout() {
                 VAT (INCLUDED)
               </span>
               <p className="heading-6">
-                $ {vatPrice.toLocaleString('en-US')}
+                $ {vatPrice?.toLocaleString('en-US')}
               </p>
             </div>
           </div>
@@ -207,7 +183,7 @@ export default function Checkout() {
                 GRAND TOTAL
               </span>
               <p className="heading-5 text-primary-700 font-black">
-                $ {grandTotal.toLocaleString('en-US')}
+                $ {grandTotal?.toLocaleString('en-US')}
               </p>
           </div>
           {/* Subbmit button */}

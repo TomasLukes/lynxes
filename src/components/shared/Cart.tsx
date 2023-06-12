@@ -4,16 +4,11 @@ import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useCartContext } from "@/context/CartContext";
 
 export default function Cart({ handleOpenCart }) {
-  const { cart } = useCartContext();
+  const { cart, cartQ, cartTotal } = useCartContext();
 
-  let cartTotal = 0;
   let cartItems = [];
-  let cartLength = 0;
-
   if (cart) {
-/*     cartTotal = cart.reduce((total, currentValue) => total + currentValue.price, 0); */
     cartItems = cart.map((item, index) => <CartItem key={index} product={item} />);
-    cartLength = cart.length;
   }
 
   return (
@@ -23,7 +18,7 @@ export default function Cart({ handleOpenCart }) {
         <div className="bg-light-100 text-dark-900 p-8 mt-4 mx-4 md:mx-0 md:mr-9 lg:mr-0 rounded-lg"> 
           <div className="flex items-center justify-between">
             <h5 className="subtitle uppercase">
-              {`Cart (${cartLength})`}
+              {`Cart (${cartQ})`}
             </h5>
             <button onClick={() => handleOpenCart()}>
               <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
