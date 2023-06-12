@@ -4,8 +4,9 @@ import { useEffect, useState, useContext, createContext } from "react"
 import getCartItemsFromDB from '@/lib/firebase/getDB/getCartItemsFromDB'
 import { addCartItemToDB } from '@/lib/firebase/updateDB/addCartItemToDB'
 import addCartItemtoLS from '@/helpers/addCartItemToLS'
-import { removeCartItemFromDB } from '@/lib/firebase/updateDB/removeCartItemFromDB'
+import { removeCartItemFromDB } from '@/lib/firebase/deleteDB/removeCartItemFromDB'
 import removeCartItemFromLS from '@/helpers/removeCartItemFromLS'
+import { clearCartFromDB } from '@/lib/firebase/deleteDB/clearCartFromDB'
 
 export const CartContext = createContext({})
 export const useCartContext = () => useContext(CartContext)
@@ -70,10 +71,11 @@ export const CartContextProvider = ({ children }) => {
 
     function handleClearCart() {
         if (user) {
-            console.log('Cleared DB cart')
+            clearCartFromDB(db, user.uid)
+            setCart([])
         } else {
-            console.log('Cleared LS cart')
             localStorage.removeItem("cart");
+            setCart([])
         }
     }
 
