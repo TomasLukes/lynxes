@@ -4,6 +4,8 @@ import { useEffect, useState, useContext, createContext } from "react"
 import getCartItemsFromDB from '@/lib/firebase/getDB/getCartItemsFromDB'
 import { addCartItemToDB } from '@/lib/firebase/updateDB/addCartItemToDB'
 import addCartItemtoLS from '@/helpers/addCartItemToLS'
+import { removeCartItemFromDB } from '@/lib/firebase/updateDB/removeCartItemFromDB'
+import removeCartItemFromLS from '@/helpers/removeCartItemFromLS'
 
 export const CartContext = createContext({})
 export const useCartContext = () => useContext(CartContext)
@@ -54,8 +56,24 @@ export const CartContextProvider = ({ children }) => {
         }
     }
 
+    function handleRemoveCartItem(removedItem) {
+        if (user) {
+            removeCartItemFromDB(db, user.uid, removedItem)
+            .then(() => getCartItemsFromDB(db, user.uid))
+            .then(cartItems => {
+                setCart(cartItems);
+            });
+        } else {
+            removeCartItemFromLS(removedItem)
+            .then(() => {
+                const getCartFromLS = localStorage.getItem('cart');
+                setCart(JSON.parse(getCartFromLS));
+            });
+        }
+    }
+
     return (
-        <CartContext.Provider value={{ cart, cartQ, cartTotal, handleAddCartItem }}>
+        <CartContext.Provider value={{ cart, cartQ, cartTotal, handleAddCartItem, handleRemoveCartItem }}>
             {loading ? <div>Loading...</div> : children}
         </CartContext.Provider>
     );
