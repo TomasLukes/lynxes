@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="cs">
+    <html lang="en">
       <body className={`${manrope.className} bg-light-200 text-dark-900 `}>
         <AuthContextProvider>
           <CartContextProvider>

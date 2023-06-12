@@ -77,6 +77,8 @@ export const CartContextProvider = ({ children }) => {
             localStorage.removeItem("cart");
             setCart([])
         }
+        setCartQ(0)
+        setCartTotal(0)
     }
 
     return (
