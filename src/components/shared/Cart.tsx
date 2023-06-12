@@ -14,8 +14,8 @@ export default function Cart({ handleOpenCart }) {
   return (
     <div className="lg:w-90">
       {/* Cart container */}
-      <div className="flex justify-end lg:w-90 z-50">
-        <div className="bg-light-100 text-dark-900 p-8 mt-4 mx-4 md:mx-0 md:mr-9 lg:mr-0 rounded-lg"> 
+      <div className="flex justify-end z-50">
+        <div className="bg-light-100 w-72 md:w-80 lg:w-96 text-dark-900 p-8 mt-4 mx-4 md:mx-0 md:mr-9 lg:mr-0 rounded-lg"> 
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <h5 className="subtitle uppercase">
@@ -40,7 +40,7 @@ export default function Cart({ handleOpenCart }) {
             {cartItems}
           </div>
           { cartQ < 1 &&
-            <p className="block text-body opacity-50">
+            <p className="block text-center text-body opacity-50 mb-16">
               Your cart looks little bit empty..
             </p>
           }

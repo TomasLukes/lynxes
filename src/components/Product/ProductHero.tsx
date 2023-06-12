@@ -3,9 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useAuthContext } from "@/context/AuthContext"
-import addCartItemToLS from "@/helpers/addCartItemToLS"
 import { db } from "@/lib/firebase/config"
-import { addCartItemToDB } from "@/lib/firebase/updateDB/addCartItemToDB"
 import { useCartContext } from "@/context/CartContext"
 
 export default function ProductHero({ product }) {
@@ -45,14 +43,12 @@ export default function ProductHero({ product }) {
             $ {product.price.toLocaleString('en-US')}
         </p>
         {/* Button */}
-        <button onClick={() => handleAddCartItem(product)}>
-          Add to cart
+        <button onClick={() => handleAddCartItem(product)} className="text-light-100">
+          <ButtonPrimary
+            label={'ADD TO CART'}
+            style={'w-1/2'}
+          />
         </button>
-{/*           <ButtonPrimary
-              onClick={() => handleAddToCart(product)}
-              label={'ADD TO CART'}
-              style={'w-1/2'}
-          /> */}
       </div>
     </div>
 

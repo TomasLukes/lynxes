@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link"
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from "react"
 import CheckoutModal from "@/components/Checkout/CheckoutModal"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
@@ -8,12 +9,14 @@ import { db } from "@/lib/firebase/config"
 import { useCartContext } from "@/context/CartContext"
 
 export default function CheckoutPage() {
+  const router = useRouter()
+
+  const { cart, cartTotal } = useCartContext();
+
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
   const [shippingCost, setShippingCost] = useState(null)
   const [vatPrice, setVatPrice] = useState(null)
   const [grandTotal, setGrandTotal] = useState(null)
-
-  const { cart, cartTotal } = useCartContext();
   
   function handleToggleCheckoutModal(e) {
     e.preventDefault()
@@ -38,9 +41,9 @@ export default function CheckoutPage() {
   return (
     <section className="relative container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
       {/* Go back link */}
-      <Link href="/" className="text-sm font-medium opacity-50 capitalize">
+      <a href="#" onClick={() => router.back()} className="text-sm font-medium opacity-50 capitalize">
         Go back
-      </Link>
+      </a>
       {/* Checkout layout*/}
       <form onSubmit={handleToggleCheckoutModal} className="flex flex-col lg:flex-row gap-8 mt-4 ">
         {/* Checkout container */}

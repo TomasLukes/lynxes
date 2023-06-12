@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from "react"
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 import ProductHero from "@/components/Product/ProductHero";
 import ProductDetails from "@/components/Product/ProductDetails";
 import ProductGallery from "@/components/Product/ProductGallery";
@@ -11,6 +12,7 @@ import getProduct from "@/lib/firebase/getDB/getProduct";
 
 export default function ProductPage({ params }) {
   const { id } = params;
+  const router = useRouter()
 
   const [productData, setProductData] = useState(null);
 
@@ -28,11 +30,11 @@ export default function ProductPage({ params }) {
 
       <main className="max-width mx-auto px-6 md:px-9 lg:px-3 py-24">
         {/* Go back link */}
-        <Link href="/">
+        <a href="#" onClick={() => router.back()} className="">
           <p className="text-sm font-medium opacity-50 capitalize mb-6">
             Go back
           </p> 
-        </Link>
+        </a>
         <ProductHero product={productData} />
         <ProductDetails product={productData} />
         <ProductGallery slug={id}/>

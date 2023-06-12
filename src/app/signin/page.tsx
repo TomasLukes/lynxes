@@ -1,27 +1,32 @@
 'use client'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
 import { signIn } from '@/lib/firebase/auth/signIn';
 import { useState } from 'react';
 
 export default function SignInPage() {
+  const router = useRouter()
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  async function handleSubmit(e) {
+  async function handleLoginSubmit(e) {
     e.preventDefault();
-    const { result, error } = await signIn(email, password)
-
-    if (error) {
-      return console.log(error)
+    try {
+      const { result, error } = await signIn(email, password)
+      if (error) {
+        console.log(error)
+      } else {
+        router.push('/')
+      }
+    } catch (error) {
+      console.log(error)
     }
-
-    console.log(result)
   }
 
   return (
     <section id="signInPage" className="mx-auto px-6 md:px-9 lg:px-3">
-      <form onSubmit={handleSubmit} className="md:w-1/2 lg:w-1/4 md:mx-auto flex flex-col gap-4 bg-light-100 text-dark-900 p-9 mt-12 md:mt-16
+      <form onSubmit={handleLoginSubmit} className="md:w-1/2 lg:w-1/4 md:mx-auto flex flex-col gap-4 bg-light-100 text-dark-900 p-9 mt-12 md:mt-16
          rounded-lg shadow-lg">
         <h2 className='text-center heading-6 mb-6'>
           Log in to your Lynxes account
@@ -34,7 +39,10 @@ export default function SignInPage() {
           Password
           <input name='password' onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Your Password" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
         </label>
-        <ButtonPrimary label={'Log In'} style={''} />
+        <ButtonPrimary 
+          label={'Log In'}
+          style={'uppercase'} 
+        />
         <p className="mx-auto text-sm font-medium opacity-75 mb-6">
           <span className='opacity-50'>{`Don't have account? `}</span>
           <Link href="signup" className='hover:text-primary-700'>
