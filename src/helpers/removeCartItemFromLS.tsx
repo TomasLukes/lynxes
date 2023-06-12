@@ -1,23 +1,22 @@
+export default function removeCartItemFromLS(removedItem) {
+    const cartItems = JSON.parse(localStorage.getItem('cart'))
 
-export default function removeCartItemFromLS(addedItem) {
-    const addedItemData = {
-        productID: addedItem.productID,
-        slug: addedItem.slug,
-        shortName: addedItem.shortName,
-        price: addedItem.price,
-        itemQuantity: null,
+    if (cartItems) {
+        const existingItem = cartItems.find(cartItem => cartItem.productID === removedItem.productID)
+
+        if (!existingItem) {
+            throw new Error('Product not found in the cart');
+        }
+
+        if(existingItem.itemQuantity > 1) {
+            const updatedExistingItem = {...existingItem, itemQuantity: existingItem.itemQuantity - 1 };
+            const updatedCartItems = cartItems.map(item =>
+                item.productID === updatedExistingItem.productID ? updatedExistingItem : item
+            );
+            localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+        } else if (existingItem.itemQuantity === 1) {
+            const updatedCartItems = cartItems.filter(cartItem => cartItem.productID !== existingItem.productID);
+            localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+        }
     }
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    const existingItem = cart.find(item => item.productID === addedItemData.productID )
-
-    if(existingItem) {
-        existingItem.itemQuantity += 1;
-    } else {
-        addedItemData.itemQuantity += 1;
-        cart.push(addedItemData)
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart))
 }

@@ -1,4 +1,4 @@
-import { doc, updateDoc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, updateDoc, getDoc } from 'firebase/firestore'
 
 export async function removeCartItemFromDB(db, userID, removedItem) {
     try {

@@ -8,11 +8,6 @@ import { CartContextProvider } from '@/context/CartContext'
 
 const manrope = Manrope({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Lynxes',
-  description: 'Lynxes e-shop',
-}
-
 export default function RootLayout({
   children,
 }: {

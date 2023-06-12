@@ -48,11 +48,9 @@ export const CartContextProvider = ({ children }) => {
                 setCart(cartItems);
             });
         } else {
-            addCartItemtoLS(addedItem)
-            .then(() => {
-                const getCartFromLS = localStorage.getItem('cart');
-                setCart(JSON.parse(getCartFromLS));
-            });
+            addCartItemtoLS(addedItem);
+            const getCartFromLS = localStorage.getItem('cart');
+            setCart(JSON.parse(getCartFromLS));
         }
     }
 
@@ -64,16 +62,23 @@ export const CartContextProvider = ({ children }) => {
                 setCart(cartItems);
             });
         } else {
-            removeCartItemFromLS(removedItem)
-            .then(() => {
-                const getCartFromLS = localStorage.getItem('cart');
-                setCart(JSON.parse(getCartFromLS));
-            });
+            removeCartItemFromLS(removedItem);
+            const getCartFromLS = localStorage.getItem('cart');
+            setCart(JSON.parse(getCartFromLS));
+        }
+    }
+
+    function handleClearCart() {
+        if (user) {
+            console.log('Cleared DB cart')
+        } else {
+            console.log('Cleared LS cart')
+            localStorage.removeItem("cart");
         }
     }
 
     return (
-        <CartContext.Provider value={{ cart, cartQ, cartTotal, handleAddCartItem, handleRemoveCartItem }}>
+        <CartContext.Provider value={{ cart, cartQ, cartTotal, handleAddCartItem, handleRemoveCartItem, handleClearCart }}>
             {loading ? <div>Loading...</div> : children}
         </CartContext.Provider>
     );
