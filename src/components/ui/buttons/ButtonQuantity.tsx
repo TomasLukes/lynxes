@@ -6,9 +6,9 @@ export default function ButtonQuantity({ product }) {
   
   return (
     <div className='flex items-center ml-auto gap-3 bg-neutral-300'>
-      <button onClick={() => handleRemoveCartItem(product)} className='py-1 px-2 hover:bg-light-400 hover:text-primary-700 hover:font-bold'>-</button>
+      <button type='button' onClick={() => handleRemoveCartItem(product)} className='py-1 px-2 hover:bg-light-400 hover:text-primary-700 hover:font-bold'>-</button>
       <p className=' text-sm'>{product.itemQuantity}</p>
-      <button onClick={() => handleAddCartItem(product)} className='py-1 px-2 hover:bg-light-400 hover:text-primary-700 hover:font-bold'>+</button>
+      <button type='button' onClick={() => handleAddCartItem(product)} className='py-1 px-2 hover:bg-light-400 hover:text-primary-700 hover:font-bold'>+</button>
     </div>
   )
 }
