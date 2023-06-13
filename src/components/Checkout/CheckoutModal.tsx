@@ -6,6 +6,8 @@ import { useCartContext } from "@/context/CartContext"
 export default function CheckoutModal({ cartItems, grandTotal, formData}) {
   const { handleClearCart } = useCartContext();
 
+  console.log(formData)
+
   function handleOrderSubmit() {
     handleClearCart();
   }
@@ -18,7 +20,7 @@ export default function CheckoutModal({ cartItems, grandTotal, formData}) {
         {/* Modal heading */}
           <div className="flex items-center gap-3">
             <h5 className="heading-5 uppercase flex-grow">
-              {`Thank you for your order, ${formData.name}`}
+              Thank you for your order, {`${formData.name}`}
             </h5>
             <Image 
               src="/assets/icons/pages/Checkout/icon-order-confirmation.svg"
