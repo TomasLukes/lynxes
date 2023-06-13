@@ -1,8 +1,15 @@
 import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
+import { useCartContext } from "@/context/CartContext"
 
 export default function CheckoutModal({ cartItems, grandTotal}) {
+  const { handleClearCart } = useCartContext();
+
+  function handleOrderSubmit() {
+    handleClearCart();
+  }
+
   return (
     /* Checkout Modal */
     <div className="absolute top-0 w-full md:w-3/4 lg:w-auto mt-6 z-50 left-1/2 transform -translate-x-1/2 mx-auto px-6 md:px-9 lg:px-3">
@@ -42,7 +49,7 @@ export default function CheckoutModal({ cartItems, grandTotal}) {
             </div>
           </div>
         </div>
-        <Link href="/" className="text-light-100">
+        <Link href="/" onClick={handleOrderSubmit} className="text-light-100">
             <ButtonPrimary
               label={'Back to home'}
               style={'w-full uppercase'}
