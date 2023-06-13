@@ -12,14 +12,33 @@ export default function CheckoutPage() {
   const router = useRouter()
 
   const { cart, cartQ, cartTotal, shippingCost, vatPrice, grandTotal } = useCartContext();
-
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
+
+  const [name, setName] = useState(null)
+  const [email, setEmail] = useState(null)
+  const [phoneNumber, setPhoneNumber] = useState(null)
+  const [address, setAddress] = useState(null)
+  const [city, setCity] = useState(null)
+  const [zipCode, setZipCode] = useState(null)
+  const [country, setCountry] = useState(null)
+  const [paymentMethod, setPaymentMethod] = useState(null)
   
+  const formData = {
+    name,
+    email,
+    phoneNumber,
+    address,
+    city,
+    zipCode,
+    country,
+    paymentMethod,
+    orderItems: cart,
+  }
+
   function handleToggleCheckoutModal(e) {
     e.preventDefault()
     setCheckoutModalOpen(!checkoutModalOpen)
   }
-
 
   let cartItems = []
   if (cart) {
@@ -50,7 +69,13 @@ export default function CheckoutPage() {
               {/* Name input */}
                 <label htmlFor="" className="flex flex-col gap-2 subtitle normal-case pb-4">
                   Name
-                <input type="text" placeholder="Your Name" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
+                <input 
+                  type="text" 
+                  placeholder="Your Name"
+                  className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                />
                 </label>
                 {/* Email input */}
                 <label htmlFor="" className="flex flex-col gap-2 subtitle normal-case pb-4">
@@ -188,7 +213,7 @@ export default function CheckoutPage() {
       </form>
 
       {/* CheckoutModal */}
-      {checkoutModalOpen && <CheckoutModal cartItems={cartItems} grandTotal={grandTotal} />}
+      {checkoutModalOpen && <CheckoutModal cartItems={cartItems} grandTotal={grandTotal} formData={formData} />}
       {/* Modal overlay */}
       {checkoutModalOpen && <div className="fixed inset-0 opacity-30 z-10 bg-dark-900"></div>}
 

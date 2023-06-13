@@ -3,7 +3,7 @@ import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useCartContext } from "@/context/CartContext"
 
-export default function CheckoutModal({ cartItems, grandTotal}) {
+export default function CheckoutModal({ cartItems, grandTotal, formData}) {
   const { handleClearCart } = useCartContext();
 
   function handleOrderSubmit() {
@@ -18,7 +18,7 @@ export default function CheckoutModal({ cartItems, grandTotal}) {
         {/* Modal heading */}
           <div className="flex items-center gap-3">
             <h5 className="heading-5 uppercase flex-grow">
-              Thank you for your order
+              {`Thank you for your order, ${formData.name}`}
             </h5>
             <Image 
               src="/assets/icons/pages/Checkout/icon-order-confirmation.svg"
