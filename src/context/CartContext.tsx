@@ -16,6 +16,9 @@ export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     const [cartQ, setCartQ] = useState(null)
     const [cartTotal, setCartTotal] = useState(null)
+    const [shippingCost, setShippingCost] = useState(null)
+    const [vatPrice, setVatPrice] = useState(null)
+    const [grandTotal, setGrandTotal] = useState(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -39,6 +42,12 @@ export const CartContextProvider = ({ children }) => {
         setCartQ(calcCartQ);
         const calcCartTotal = cart.reduce((total, item) => total + (item.itemQuantity * item.price), 0)
         setCartTotal(calcCartTotal)
+        const calcShippingCost = cartQ > 0 ? 50 : 0
+        setShippingCost(calcShippingCost)
+        const calcVatPrice = Math.round(cartTotal * 0.21)
+        setVatPrice(calcVatPrice)
+        const calcGrandTotal = cartTotal + shippingCost + vatPrice
+        setGrandTotal(calcGrandTotal)
       }, [cart])
 
     function handleAddCartItem(addedItem) {
@@ -82,7 +91,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ cart, cartQ, cartTotal, handleAddCartItem, handleRemoveCartItem, handleClearCart }}>
+        <CartContext.Provider value={{ cart, cartQ, cartTotal, shippingCost, vatPrice, grandTotal, handleAddCartItem, handleRemoveCartItem, handleClearCart }}>
             {loading ? <div>Loading...</div> : children}
         </CartContext.Provider>
     );

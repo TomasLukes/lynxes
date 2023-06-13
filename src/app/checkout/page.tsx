@@ -11,29 +11,17 @@ import { useCartContext } from "@/context/CartContext"
 export default function CheckoutPage() {
   const router = useRouter()
 
-  const { cart, cartTotal } = useCartContext();
+  const { cart, cartQ, cartTotal, shippingCost, vatPrice, grandTotal } = useCartContext();
 
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
-  const [shippingCost, setShippingCost] = useState(null)
-  const [vatPrice, setVatPrice] = useState(null)
-  const [grandTotal, setGrandTotal] = useState(null)
   
   function handleToggleCheckoutModal(e) {
     e.preventDefault()
     setCheckoutModalOpen(!checkoutModalOpen)
   }
 
-  useEffect(() => {
-    const calcVatPrice = Math.round(cartTotal * 0.21)
-    const shipping = 50
-    setVatPrice(calcVatPrice)
-    setShippingCost(shipping)
-    const calcGrandTotal = cartTotal + shippingCost + vatPrice
-    setGrandTotal(calcGrandTotal)
-  }, [cart, grandTotal, shippingCost, vatPrice])
-  
-  let cartItems = []
 
+  let cartItems = []
   if (cart) {
     cartItems = cart.map((item, index) => <CartItem key={index} product={item} />);
   }
@@ -147,7 +135,7 @@ export default function CheckoutPage() {
         {/* Summary container */}
         <div className="bg-light-100 p-6 md:p-12 mb-auto rounded-lg shadow-sm lg:w-1/3">
           <h3 className="heading-5 pb-9">
-            Summary
+            Summary <span>{`(${cartQ})`}</span>
           </h3>
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 my-8">
             {cartItems}
