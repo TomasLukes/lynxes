@@ -18,7 +18,7 @@ export default function CheckoutModal({ cartItems, grandTotal, formData }) {
     };
 
     try {
-      const res = await addDoc(collection(db, 'orders'), {... orderData})
+      const docRef = await addDoc(collection(db, 'orders'), {... orderData})
     } catch (e) {
       console.log(e);
     }

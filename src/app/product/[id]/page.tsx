@@ -27,7 +27,6 @@ export default function ProductPage({ params }) {
   }
 
   return (
-
       <main className="max-width mx-auto px-6 md:px-9 lg:px-3 py-24">
         {/* Go back link */}
         <a href="#" onClick={() => router.back()} className="">

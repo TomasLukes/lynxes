@@ -26,7 +26,7 @@ export default function CheckoutPage() {
   const [paymentMethod, setPaymentMethod] = useState('')
   
   const formData = {
-    user: user?.uid || 'Guest user',
+    user: user?.uid || 'guest',
     creationDate: null,
     name,
     email,

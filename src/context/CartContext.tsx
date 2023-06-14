@@ -48,7 +48,7 @@ export const CartContextProvider = ({ children }) => {
         setVatPrice(calcVatPrice)
         const calcGrandTotal = cartTotal + shippingCost + vatPrice
         setGrandTotal(calcGrandTotal)
-      }, [cart])
+      }, [cart, cartQ, cartTotal, shippingCost, vatPrice])
 
     function handleAddCartItem(addedItem) {
         if (user) {
