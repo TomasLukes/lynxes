@@ -2,13 +2,27 @@ import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useCartContext } from "@/context/CartContext"
+import { collection, addDoc, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { useAuthContext } from "@/context/AuthContext";
+import { db } from "@/lib/firebase/config"
 
-export default function CheckoutModal({ cartItems, grandTotal, formData}) {
+export default function CheckoutModal({ cartItems, grandTotal, formData }) {
+  const { user } = useAuthContext()
   const { handleClearCart } = useCartContext();
 
-  console.log(formData)
+  async function handleOrderSubmit() {
+    const creationDate = serverTimestamp();
+    const orderData = {
+      ...formData,
+      creationDate: creationDate,
+    };
 
-  function handleOrderSubmit() {
+    try {
+      const res = await addDoc(collection(db, 'orders'), {... orderData})
+    } catch (e) {
+      console.log(e);
+    }
+
     handleClearCart();
   }
 
@@ -18,21 +32,21 @@ export default function CheckoutModal({ cartItems, grandTotal, formData}) {
       {/* Checkout Modal container */}
       <div className="container flex flex-col gap-4 md:gap-8 bg-light-100 text-dark-900 p-6 md:p-9 mt-4 rounded-lg">
         {/* Modal heading */}
-          <div className="flex items-center gap-3">
-            <h5 className="heading-5 uppercase flex-grow">
-              Thank you for your order, {`${formData.name}`}
-            </h5>
-            <Image 
-              src="/assets/icons/pages/Checkout/icon-order-confirmation.svg"
-              alt="Succesfull order icon"
-              className="w-12"
-              width={50}
-              height={50}
-            />
-          </div>
-          <p className="text-body opacity-50">
-            You will receive an email confirmation shortly.
-          </p>
+        <div className="flex items-center gap-3">
+          <h5 className="heading-5 uppercase flex-grow">
+            Thank you for your order, {`${formData.name}`}
+          </h5>
+          <Image
+            src="/assets/icons/pages/Checkout/icon-order-confirmation.svg"
+            alt="Succesfull order icon"
+            className="w-12"
+            width={50}
+            height={50}
+          />
+        </div>
+        <p className="text-body opacity-50">
+          You will receive an email confirmation shortly.
+        </p>
         {/* Order summary */}
         <div className="flex flex-col">
           {/* First/Left item */}
@@ -52,10 +66,10 @@ export default function CheckoutModal({ cartItems, grandTotal, formData}) {
           </div>
         </div>
         <Link href="/" onClick={handleOrderSubmit} className="text-light-100">
-            <ButtonPrimary
-              label={'Back to home'}
-              style={'w-full uppercase'}
-            />
+          <ButtonPrimary
+            label={'Back to home'}
+            style={'w-full uppercase'}
+          />
         </Link>
       </div>
     </div>

@@ -27,6 +27,7 @@ export default function CheckoutPage() {
   
   const formData = {
     user: user?.uid || 'Guest user',
+    creationDate: null,
     name,
     email,
     phoneNumber,
@@ -35,7 +36,7 @@ export default function CheckoutPage() {
     zipCode,
     country,
     paymentMethod,
-    orderItems: cart,
+    orderedItems: cart,
   }
 
   function handleToggleCheckoutModal(e) {
