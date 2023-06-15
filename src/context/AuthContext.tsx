@@ -1,6 +1,11 @@
-import { onAuthStateChanged, getAuth, signOut } from "firebase/auth"
+import { onAuthStateChanged, getAuth, signOut, User } from "firebase/auth"
 import { app } from '@/lib/firebase/config'
 import { useEffect, useState, useContext, createContext } from "react"
+
+type AuthContextType = {
+    user: User | null,
+    logOut: () => void
+}
 
 const auth = getAuth(app)
 
