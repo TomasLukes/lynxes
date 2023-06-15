@@ -55,6 +55,7 @@ export default function Cart({ handleOpenCart }) {
           { cartQ > 0 &&
             <Link href="/checkout" className="text-light-100" onClick={() => handleOpenCart()}>
               <ButtonPrimary
+                type={"button"}
                 label={'Checkout'}
                 style={'w-full'}
               />

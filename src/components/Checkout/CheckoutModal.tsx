@@ -67,6 +67,7 @@ export default function CheckoutModal({ cartItems, grandTotal, formData }) {
         </div>
         <Link href="/" onClick={handleOrderSubmit} className="text-light-100">
           <ButtonPrimary
+            type={"button"}
             label={'Back to home'}
             style={'w-full uppercase'}
           />
