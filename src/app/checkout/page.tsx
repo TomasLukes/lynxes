@@ -41,6 +41,7 @@ export default function CheckoutPage() {
 
   function handleToggleCheckoutModal(e) {
     e.preventDefault()
+    window.scrollTo(0, 0);
     setCheckoutModalOpen(!checkoutModalOpen)
   }
 
