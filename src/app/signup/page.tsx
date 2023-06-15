@@ -35,7 +35,7 @@ export default function SignUpPage() {
           <input name='password' onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Your Password" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
         </label>
         <ButtonPrimary 
-          type={'button'} 
+          type={'submit'} 
           label={'Sign Up'} 
           style={'uppercase button-text-white'} 
         />
