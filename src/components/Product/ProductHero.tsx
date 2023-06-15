@@ -43,12 +43,12 @@ export default function ProductHero({ product }) {
             $ {product.price.toLocaleString('en-US')}
         </p>
         {/* Button */}
-        <button onClick={() => handleAddCartItem(product)} className="text-light-100">
-          <ButtonPrimary
-            label={'ADD TO CART'}
-            style={'w-1/2'}
-          />
-        </button>
+        <ButtonPrimary
+          type={'button'}
+          label={'ADD TO CART'}
+          style={'w-1/2'}
+          onClick={() => handleAddCartItem(product)}
+        />
       </div>
     </div>
 

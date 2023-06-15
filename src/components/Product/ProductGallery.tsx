@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function ProductGallery({ slug }) {
   return (
     /* Product image gallery section */
-    <section id="productGallery" className="max-width mb-12 px-6 lg:px-0">
+    <section id="productGallery" className="max-width mb-12 px-6 lg:px-3">
         {/* Gallery container */}
         <div className="flex flex-col md:flex-row md:gap-6 gap-8">
             <div className="flex flex-col md:gap-6 gap-8">

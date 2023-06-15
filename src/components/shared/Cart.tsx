@@ -29,7 +29,7 @@ export default function Cart({ handleOpenCart }) {
                 </div>
               }
             </div>
-            <button onClick={() => handleOpenCart()}>
+            <button type='button' onClick={() => handleOpenCart()}>
               <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
                 <path d="m251.333-204.667-46.666-46.666L433.334-480 204.667-708.667l46.666-46.666L480-526.666l228.667-228.667 46.666 46.666L526.666-480l228.667 228.667-46.666 46.666L480-433.334 251.333-204.667Z"
                 />

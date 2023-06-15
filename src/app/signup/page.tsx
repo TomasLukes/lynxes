@@ -34,7 +34,11 @@ export default function SignUpPage() {
           Password
           <input name='password' onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Your Password" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
         </label>
-        <ButtonPrimary label={'Sign Up'} style={''} />
+        <ButtonPrimary 
+          type={'button'} 
+          label={'Sign Up'} 
+          style={''} 
+        />
         <p className="mx-auto text-sm font-medium opacity-75 mb-6">
           <span className='opacity-50'>{`Already have account? `}</span>
           <Link href="signin" className='hover:text-primary-700'>

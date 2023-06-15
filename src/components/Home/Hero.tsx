@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     /* Hero section */
     <section id="hero"  className="bg-neutral-900 text-white
-        mb-12 px-6 lg:px-0">
+        mb-12 px-6 lg:px-3">
         {/* Hero container */}
         <div className="container max-width flex mx-auto text-center lg:text-left
             ">
@@ -21,7 +21,7 @@ export default function Hero() {
                     Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.    
                 </p>
                 <Link href='/product/xx99-mark-two-headphones'>
-                    <ButtonPrimary label={'SEE PRODUCT'} style={''}/>
+                    <ButtonPrimary type={'button'} label={'SEE PRODUCT'} style={''}/>
                 </Link>
             </div>
         </div>
