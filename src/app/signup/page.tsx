@@ -20,7 +20,7 @@ export default function SignUpPage() {
   }
 
   return (
-    <section id="signUpPage" className="mx-auto px-6 md:px-9 lg:px-3">
+    <section id="signUpPage" className="mx-auto px-6 md:px-9 lg:px-6">
       <form onSubmit={handleSubmit} className="md:w-1/2 lg:w-1/4 md:mx-auto flex flex-col gap-4 bg-light-100 text-dark-900 p-9 mt-12 md:mt-16
          rounded-lg shadow-lg">
         <h2 className='text-center heading-6 mb-6'>

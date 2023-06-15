@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
 :root {
-    --primary-700: '#D87D4A',
+    --light-200: '#FAFAFA';
+    --dark-900: '#000000';
+    --primary-700: '#D87D4A'
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--dark-900);
+    background-color: var(--light-200);
 }
 
 main {

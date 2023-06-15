@@ -51,7 +51,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <section className="relative container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-3">
+    <section className="relative container max-width my-12 md:my-24 mx-auto px-6 md:px-9 lg:px-6">
       {/* Go back link */}
       <a href="#" onClick={() => router.back()} className="text-sm font-medium opacity-50 capitalize">
         Go back
@@ -59,7 +59,7 @@ export default function CheckoutPage() {
       {/* Checkout layout*/}
       <form onSubmit={handleToggleCheckoutModal} className="flex flex-col lg:flex-row gap-8 mt-4 ">
         {/* Checkout container */}
-        <div className="bg-light-100 p-6 md:p-12 rounded-lg shadow-sm lg:flex-grow">
+        <div className="bg-light-100 p-6 md:p-12 rounded-lg shadow-md lg:flex-grow">
           <h2 className="heading-3 pb-9">
             Checkout
           </h2>
@@ -238,7 +238,7 @@ export default function CheckoutPage() {
 
         </div>
         {/* Summary container */}
-        <div className="bg-light-100 p-6 md:p-12 mb-auto rounded-lg shadow-sm lg:w-1/3">
+        <div className="bg-light-100 p-6 md:p-12 mb-auto rounded-lg shadow-md lg:w-1/3">
           <h3 className="heading-5 pb-9">
             Summary <span>{`(${cartQ})`}</span>
           </h3>

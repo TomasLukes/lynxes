@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     /* Hero section */
     <section id="hero"  className="bg-neutral-900 text-white
-        mb-12 px-6 lg:px-3">
+        mb-12 px-6 lg:px-6">
         {/* Hero container */}
         <div className="container max-width flex mx-auto text-center lg:text-left
             ">
