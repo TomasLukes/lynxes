@@ -282,9 +282,10 @@ export default function CheckoutPage() {
                 $ {grandTotal?.toLocaleString('en-US')}
               </p>
           </div>
-          {/* Subbmit button */}
-          <div className="">
+          {/* Submit button */}
+          <div>
             <ButtonPrimary
+              type="submit"
               label={'CONTINUE & PAY'}
               style={'w-full py-4 button-text-white'}
             />

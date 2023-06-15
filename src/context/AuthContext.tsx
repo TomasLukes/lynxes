@@ -9,7 +9,7 @@ type AuthContextType = {
 
 const auth = getAuth(app)
 
-export const AuthContext = createContext({})
+export const AuthContext = createContext<AuthContextType | null>(null)
 export const useAuthContext = () => useContext(AuthContext)
 
 export const AuthContextProvider = ({

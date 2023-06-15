@@ -8,7 +8,19 @@ import { removeCartItemFromDB } from '@/lib/firebase/deleteDB/removeCartItemFrom
 import removeCartItemFromLS from '@/helpers/removeCartItemFromLS'
 import { clearCartFromDB } from '@/lib/firebase/deleteDB/clearCartFromDB'
 
-export const CartContext = createContext({})
+type CartContextType = {
+    cart: Array<object>,
+    cartQ: number,
+    cartTotal: number,
+    shippingCost: number,
+    vatPrice: number,
+    grandTotal: number,
+    handleAddCartItem: (addedItem: object) => void,
+    handleRemoveCartItem: (removedItem: object) => void,
+    handleClearCart: () => void,
+}
+
+export const CartContext = createContext<CartContextType | null>(null)
 export const useCartContext = () => useContext(CartContext)
 
 export const CartContextProvider = ({ children }) => {
