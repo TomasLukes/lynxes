@@ -42,7 +42,7 @@ export default function SignInPage() {
         <ButtonPrimary
           type={'button'}
           label={'Log In'}
-          style={'uppercase'} 
+          style={'uppercase button-text-white'} 
         />
         <p className="mx-auto text-sm font-medium opacity-75 mb-6">
           <span className='opacity-50'>{`Don't have account? `}</span>

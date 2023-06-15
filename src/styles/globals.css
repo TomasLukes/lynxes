@@ -82,6 +82,10 @@ main {
     text-transform: uppercase;
 }
 
+.button-text-white {
+    color: #FFFFFF;
+}
+
 /* Images, media */
 #hero {
     min-height: 70vh;

@@ -46,7 +46,7 @@ export default function ProductHero({ product }) {
         <ButtonPrimary
           type={'button'}
           label={'ADD TO CART'}
-          style={'w-1/2'}
+          style={'w-1/2 button-text-white'}
           onClick={() => handleAddCartItem(product)}
         />
       </div>

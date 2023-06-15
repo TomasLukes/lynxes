@@ -37,7 +37,7 @@ export default function SignUpPage() {
         <ButtonPrimary 
           type={'button'} 
           label={'Sign Up'} 
-          style={''} 
+          style={'uppercase button-text-white'} 
         />
         <p className="mx-auto text-sm font-medium opacity-75 mb-6">
           <span className='opacity-50'>{`Already have account? `}</span>

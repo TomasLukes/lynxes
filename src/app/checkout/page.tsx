@@ -283,10 +283,10 @@ export default function CheckoutPage() {
               </p>
           </div>
           {/* Subbmit button */}
-          <div className="text-white">
+          <div className="">
             <ButtonPrimary
               label={'CONTINUE & PAY'}
-              style={'w-full py-5'}
+              style={'w-full py-4 button-text-white'}
             />
           </div>
         </div>
