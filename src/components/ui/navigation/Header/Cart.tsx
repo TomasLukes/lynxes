@@ -1,5 +1,5 @@
 import Link from "next/link"
-import CartItem from "./CartItem"
+import CartItem from "../../../shared/CartItem"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useCartContext } from "@/context/CartContext";
 

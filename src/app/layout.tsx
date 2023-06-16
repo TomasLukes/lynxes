@@ -1,6 +1,6 @@
 'use client'
 import '@/styles/globals.css'
-import Header from '@/components/ui/navigation/Header'
+import Header from '@/components/ui/navigation/Header/Header'
 import Footer from '@/components/ui/navigation/Footer'
 import { AuthContextProvider } from '@/context/AuthContext'
 import { CartContextProvider } from '@/context/CartContext'
