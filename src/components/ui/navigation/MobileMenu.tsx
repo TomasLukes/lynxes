@@ -4,8 +4,8 @@ import Image from "next/image"
 export default function MobileMenu({ handleClick }) {
   return (
     /* Mobile menu */
-    <ul className="px-6 md:px-9 py-8 flex flex-col items-center subtitle">
-      <div className="flex flex-col md:flex-row text-center gap-4 md:gap-12">
+    <div className="px-6 md:px-9 py-8 flex flex-col items-center subtitle">
+      <ul className="flex flex-col md:flex-row text-center gap-4 md:gap-12">
         <li className="flex items-center justify-center gap-2"
           onClick={() => handleClick()}>
         <Link href="/">
@@ -58,7 +58,7 @@ export default function MobileMenu({ handleClick }) {
             Speakers
           </Link>
         </li>
-      </div>
-    </ul>
+      </ul>
+    </div>
   )
 }

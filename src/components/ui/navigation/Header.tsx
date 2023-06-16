@@ -49,28 +49,30 @@ export default function Header() {
           <Logo />
         </div>
         {/* Navbar items desktop */}
-        <nav className="hidden lg:flex gap-9 list-none
+        <nav className="">
+          <ul className="hidden lg:flex gap-9 list-none
           subtitle uppercase">
-          <li className="hover:text-primary-700">
-            <Link href="/">
-              Home
-            </Link>
-          </li>
-          <li className="hover:text-primary-700">
-            <Link href="/category/earphones">
-              Earphones
-            </Link>
-          </li>
-          <li className="hover:text-primary-700">
-            <Link href="/category/headphones">
-              Headphones
-            </Link>
-          </li>
-          <li className="hover:text-primary-700">
-            <Link href="/category/speakers">
-              Speakers
-            </Link>
-          </li>
+            <li className="hover:text-primary-700">
+              <Link href="/">
+                Home
+              </Link>
+            </li>
+            <li className="hover:text-primary-700">
+              <Link href="/category/earphones">
+                Earphones
+              </Link>
+            </li>
+            <li className="hover:text-primary-700">
+              <Link href="/category/headphones">
+                Headphones
+              </Link>
+            </li>
+            <li className="hover:text-primary-700">
+              <Link href="/category/speakers">
+                Speakers
+              </Link>
+            </li>
+          </ul>
         </nav>
         {/* Account + Shopping card icons */}
         <div className="flex gap-3 md:gap-4 items-center">

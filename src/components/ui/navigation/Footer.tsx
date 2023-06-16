@@ -18,28 +18,30 @@ export default function Footer() {
             <Logo />
           </div>
           {/* Nav items */}
-          <nav className="flex flex-col md:flex-row gap-4 md:gap-6 text-center md:text-left list-none
+          <nav className="">
+            <ul className="flex flex-col md:flex-row gap-4 md:gap-6 text-center md:text-left list-none
             subtitle uppercase">
-            <li className="hover:text-primary-700">
-              <Link href="/">
-                Home
-              </Link>
-            </li>
-            <li className="hover:text-primary-700">
-              <Link href="/category/earphones">
-                Earphones
-              </Link>
-            </li>
-            <li className="hover:text-primary-700">
-              <Link href="/category/headphones">
-                Headphones
-              </Link>
-            </li>
-            <li className="hover:text-primary-700">
-              <Link href="/category/speakers">
-                Speakers
-              </Link>
-            </li>
+              <li className="hover:text-primary-700">
+                <Link href="/">
+                  Home
+                </Link>
+              </li>
+              <li className="hover:text-primary-700">
+                <Link href="/category/earphones">
+                  Earphones
+                </Link>
+              </li>
+              <li className="hover:text-primary-700">
+                <Link href="/category/headphones">
+                  Headphones
+                </Link>
+              </li>
+              <li className="hover:text-primary-700">
+                <Link href="/category/speakers">
+                  Speakers
+                </Link>
+              </li>
+            </ul>
           </nav>
         </div>
         {/* Description text */}

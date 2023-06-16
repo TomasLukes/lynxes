@@ -12,6 +12,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Lynxes - Best Audio Gear</title>
+      </head>
       <body>
         <AuthContextProvider>
           <CartContextProvider>
