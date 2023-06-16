@@ -33,11 +33,11 @@ export default function SignInPage() {
         </h2>
         <label htmlFor="username" className="flex flex-col gap-2 subtitle normal-case pb-4">
           Username
-          <input name='username' onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Your Name" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
+          <input id='username' name='username' onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Your Name" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
         </label>
         <label htmlFor="password" className="flex flex-col gap-2 subtitle normal-case pb-4">
           Password
-          <input name='password' onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Your Password" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
+          <input id='password' name='password' onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Your Password" className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"/>
         </label>
         <ButtonPrimary
           type={'submit'}
