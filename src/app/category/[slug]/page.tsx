@@ -15,14 +15,13 @@ export default function CategoryPage({ params }) {
         .then(products => setProductsData(products))
         .catch(error => console.error('Error getting document:', error));
     }, [slug])
-    
-    if (productsData === null) {
-        return <div>Loading...</div>;
-    }
 
-    const ProductItems = productsData.map((product, index) => 
+    let ProductItems = null;
+    if (productsData) {
+        ProductItems = productsData.map((product, index) => 
         <ProductItem key={index} product={product} />
     )
+    }
 
   return (
     <main className="mx-auto">
@@ -35,7 +34,7 @@ export default function CategoryPage({ params }) {
             <section id='products' 
                 className="flex flex-col gap-20 md:gap-24 lg:gap-32 px-6 md:px-9 lg:px-6 my-20 md:my-40 lg:my-48"
             >
-                {ProductItems}
+                {productsData? ProductItems : <p>Loading...</p>}
             </section>
             <Categories />
             <About />

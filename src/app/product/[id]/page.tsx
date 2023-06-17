@@ -21,23 +21,26 @@ export default function ProductPage({ params }) {
       .catch(error => console.error('Error getting document:', error));
   }, [id]);
 
-  if (productData === null) {
-    return <div>Loading...</div>;
-  }
-
   return (
       <main className="max-width mx-auto px-6 md:px-9 lg:px-6 py-24">
+
         {/* Go back link */}
         <a href="#" onClick={() => router.back()} className="">
           <p className="text-sm font-medium opacity-50 capitalize mb-6">
             Go back
           </p> 
         </a>
-        <ProductHero product={productData} />
-        <ProductDetails product={productData} />
-        <ProductGallery slug={id}/>
+        { productData? 
+          <section id='product'>
+            <ProductHero product={productData} />
+            <ProductDetails product={productData} />
+            <ProductGallery slug={id}/>
+          </section>
+          : <p>Loading...</p>
+        }
         <Categories />
         <About />
+
       </main>
     )
 }
