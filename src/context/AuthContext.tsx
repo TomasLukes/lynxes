@@ -15,7 +15,6 @@ export const AuthContextProvider = ({
     children,
     }) => {
         const [user, setUser] = useState(null)
-        const [loading, setLoading] = useState(true)
 
     const logOut = async () => {
         try {
@@ -32,7 +31,6 @@ export const AuthContextProvider = ({
             } else {
                 setUser(null);
             }
-            setLoading(false);
         });
 
         return () => unsubscribe();

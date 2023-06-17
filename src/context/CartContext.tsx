@@ -31,21 +31,18 @@ export const CartContextProvider = ({ children }) => {
     const [shippingCost, setShippingCost] = useState(null)
     const [vatPrice, setVatPrice] = useState(null)
     const [grandTotal, setGrandTotal] = useState(null)
-    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if (user) {
             getCartItemsFromDB(db, user.uid)
                 .then(cartItems => {
                     setCart(cartItems)
-                    setLoading(false);
                 });
         } else {
             const getCartFromLS = localStorage.getItem('cart');
             if (getCartFromLS) {
                 setCart(JSON.parse(getCartFromLS))
             }
-            setLoading(false);
         }
     }, [user]);
 
