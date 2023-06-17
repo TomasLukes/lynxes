@@ -6,6 +6,7 @@ import ProductDetails from "@/components/Product/ProductDetails";
 import ProductGallery from "@/components/Product/ProductGallery";
 import Categories from "@/components/shared/Categories";
 import About from "@/components/shared/About";
+import Loader from '@/components/ui/navigation/loader';
 import { db } from "@/lib/firebase/config";
 import getProduct from "@/lib/firebase/getDB/getProduct";
 
@@ -36,7 +37,7 @@ export default function ProductPage({ params }) {
             <ProductDetails product={productData} />
             <ProductGallery slug={id}/>
           </section>
-          : <p>Loading...</p>
+          : <Loader />
         }
         <Categories />
         <About />

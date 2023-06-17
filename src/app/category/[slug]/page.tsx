@@ -2,6 +2,7 @@
 import ProductItem from "@/components/Category/ProductItem"
 import Categories from "@/components/shared/Categories"
 import About from "@/components/shared/About"
+import Loader from "@/components/ui/navigation/loader"
 import { useState, useEffect } from "react"
 import { db } from "@/lib/firebase/config"
 import getProductsByCategory from "@/lib/firebase/getDB/getProductByCategory"
@@ -34,7 +35,7 @@ export default function CategoryPage({ params }) {
             <section id='products' 
                 className="flex flex-col gap-20 md:gap-24 lg:gap-32 px-6 md:px-9 lg:px-6 my-20 md:my-40 lg:my-48"
             >
-                {productsData? ProductItems : <p>Loading...</p>}
+                {productsData? ProductItems : <Loader />}
             </section>
             <Categories />
             <About />
