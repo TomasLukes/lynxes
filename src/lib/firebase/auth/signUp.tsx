@@ -1,5 +1,6 @@
 import { app } from "../config";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth"
+import { getAuthErrorMessage } from "./getAuthErrorMessage";
 
 const auth = getAuth(app);
 
@@ -8,8 +9,8 @@ export async function signUp(email, password) {
         signUpError = null;
     try {
         result = await createUserWithEmailAndPassword(auth, email, password)
-    } catch (e) {
-        signUpError = e;
+    } catch (error) {
+        signUpError = getAuthErrorMessage(error.code);
     }
 
     return { result, signUpError };

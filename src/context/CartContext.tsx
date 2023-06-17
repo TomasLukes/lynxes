@@ -1,9 +1,9 @@
 import { db } from '@/lib/firebase/config'
 import getCartItemsFromDB from '@/lib/firebase/getDB/getCartItemsFromDB'
 import { addCartItemToDB } from '@/lib/firebase/updateDB/addCartItemToDB'
-import addCartItemtoLS from '@/helpers/addCartItemToLS'
+import addCartItemtoLS from '@/helpers/LocalStorage/addCartItemToLS'
 import { removeCartItemFromDB } from '@/lib/firebase/deleteDB/removeCartItemFromDB'
-import removeCartItemFromLS from '@/helpers/removeCartItemFromLS'
+import removeCartItemFromLS from '@/helpers/LocalStorage/removeCartItemFromLS'
 import { clearCartFromDB } from '@/lib/firebase/deleteDB/clearCartFromDB'
 import { useEffect, useState, useContext, createContext } from "react"
 import { useAuthContext } from './AuthContext'

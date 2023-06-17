@@ -15,15 +15,13 @@ export default function SignInPage() {
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
-      const { result, error } = await signIn(email, password)
-      if (error) {
-        setError(error.message)
-      } else {
-        setError(null)
-        router.push('/')
+      const { result, signInError } = await signIn(email, password);
+      setError(signInError);
+      if (!signInError) {
+        router.push('/');
       }
     } catch (error) {
-      setError(error.message)
+      setError(error);
     }
   }
 
@@ -35,7 +33,7 @@ export default function SignInPage() {
           Log in to your Lynxes account
         </h2>
         { error &&
-          <p className='text-light-100 bg-red-500 rounded-lg px-6 py-4'>
+          <p className='border-2 border-red-500 bg-red-300 rounded-lg px-4 py-2'>
             {error}
           </p>
         }

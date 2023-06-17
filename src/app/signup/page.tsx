@@ -14,13 +14,14 @@ export default function SignUpPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const { result, signUpError } = await signUp(email, password)
-
-    if (signUpError) {
-      setError(signUpError.message)
-    } else {
-    setError(null)
-    router.push('/')
+    try {
+      const { result, signUpError } = await signUp(email, password)
+      setError(signUpError)
+      if(!signUpError) {
+        router.push('/');
+      }
+    } catch (error) {
+        setError(error)
     }
   }
 
@@ -32,7 +33,7 @@ export default function SignUpPage() {
           Create your Lynxes account
         </h2>
         { error &&
-          <p className='text-light-100 bg-red-500 rounded-lg px-6 py-4'>
+          <p className='border-2 border-red-500 bg-red-300 rounded-lg px-4 py-2'>
             {error}
           </p>
         }
