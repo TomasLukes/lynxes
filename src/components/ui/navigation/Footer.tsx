@@ -54,7 +54,7 @@ export default function Footer() {
           <Link href={'http://tomaslukes.com/'}>
             <p className="text-body text-light-100">
               <span className="opacity-100">Created by </span>
-              <span className="opacity-100 hover:opacity-100 hover:text-primary-700 hover:font-semibold">Tomas Lukes</span>
+              <span className="opacity-100 hover:opacity-100 hover:text-primary-700">Tomas Lukes</span>
               <span className="opacity-100"> © 2023</span>
             </p>
           </Link>
