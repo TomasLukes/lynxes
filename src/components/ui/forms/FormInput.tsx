@@ -1,4 +1,12 @@
-export default function FormInput({ label, id, value, type, onChange }) {
+type FormInputProps = {
+  label: string,
+  id: string,
+  value: string,
+  type: string,
+  onChange: () => void,
+}
+
+export default function FormInput({ label, id, value, type, onChange } : FormInputProps) {
 
   return (
     <label htmlFor={id} className="flex flex-col gap-2 subtitle normal-case pb-4">

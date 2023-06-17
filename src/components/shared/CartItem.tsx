@@ -2,7 +2,19 @@ import Link from "next/link"
 import Image from "next/image"
 import ButtonQuantity from "@/components/ui/buttons/ButtonQuantity"
 
-export default function CartItem({ product }) {
+type CartItemProps = {
+  product: ProductType,
+}
+
+type ProductType = {
+  slug: string,
+  shortName: string,
+  itemQuantity: number,
+  price: number,
+
+}
+
+export default function CartItem({ product } : CartItemProps) {
   const totalPrice = product.itemQuantity * product.price
 
   return (

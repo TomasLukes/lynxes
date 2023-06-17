@@ -1,7 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
 
-export default function MobileMenu({ handleClick }) {
+type MobileMenuProps = {
+  handleClick: () => void;
+}
+
+export default function MobileMenu({ handleClick } : MobileMenuProps) {
   return (
     /* Mobile menu */
     <div className="px-6 md:px-9 py-8 flex flex-col items-center subtitle">

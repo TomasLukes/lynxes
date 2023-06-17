@@ -3,12 +3,17 @@ import CartItem from "../../../shared/CartItem"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useCartContext } from "@/context/CartContext";
 
-export default function Cart({ handleOpenCart }) {
+type CartProps = {
+  handleOpenCart: () => void,
+}
+
+export default function Cart({ handleOpenCart } : CartProps) {
   const { cart, cartQ, cartTotal, handleClearCart } = useCartContext();
 
   let cartItems = [];
   if (cart) {
-    cartItems = cart.map((item, index) => <CartItem key={index} product={item} />);
+    cartItems = cart.map((item, index) => (
+      <CartItem key={index} product={item} />));
   }
 
   return (

@@ -1,6 +1,14 @@
 import Image from "next/image"
 
-export default function RadioInput({ label, id, name, checked, onChange }) {
+type RadioInputProps = {
+  label: string,
+  id: string,
+  name: string,
+  checked: boolean,
+  onChange: () => void,
+}
+
+export default function RadioInput({ label, id, name, checked, onChange } : RadioInputProps) {
 
   return (
     <div className="flex gap-4 items-center h-16 px-4 py-3 border border-light-400 rounded-lg">

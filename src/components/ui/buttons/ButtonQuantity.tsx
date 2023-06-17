@@ -1,6 +1,10 @@
 import { useCartContext } from '@/context/CartContext';
 
-export default function ButtonQuantity({ product }) {
+type ButtonQuantityProps = {
+  product: object,
+}
+
+export default function ButtonQuantity({ product } : ButtonQuantityProps) {
   const { handleAddCartItem, handleRemoveCartItem } = useCartContext();
   
   return (
