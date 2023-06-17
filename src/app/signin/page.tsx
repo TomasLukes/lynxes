@@ -1,10 +1,10 @@
 'use client'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
-import { signIn } from '@/lib/firebase/auth/signIn';
-import { useState } from 'react';
 import FormInput from '@/components/ui/forms/FormInput';
+import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
+import { useState } from 'react';
+import { signIn } from '@/lib/firebase/auth/signIn';
 
 export default function SignInPage() {
   const router = useRouter()

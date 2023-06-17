@@ -1,7 +1,6 @@
 import ProductIncludesItem from "./ProductIncludesItem"
 
 export default function ProductDetails({ product }) {
-
   const ProductIncludesItems = product.includes.map((item, index) =>
     <ProductIncludesItem key={index} quantity={item.quantity} name={item.item} />
   );

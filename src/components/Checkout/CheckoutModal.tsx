@@ -1,9 +1,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
-import { useCartContext } from "@/context/CartContext"
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase/config"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useCartContext } from "@/context/CartContext"
 
 export default function CheckoutModal({ cartItems, grandTotal, formData }) {
   const { handleClearCart } = useCartContext();

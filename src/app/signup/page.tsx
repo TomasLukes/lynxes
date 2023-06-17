@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link';
-import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
-import { signUp } from '@/lib/firebase/auth/signUp';
-import { useState } from 'react';
 import FormInput from '@/components/ui/forms/FormInput';
+import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
+import { useState } from 'react';
+import { signUp } from '@/lib/firebase/auth/signUp';
 
 export default function SignUpPage() {
   const [email, setEmail] = useState(null);

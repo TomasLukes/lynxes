@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 export default function GuestIcon() {
-
+    
     return (
         <div className="flex items-center gap-2">
             {/* Guest icon container */}

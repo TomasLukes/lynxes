@@ -1,12 +1,12 @@
-import { useAuthContext } from './AuthContext'
 import { db } from '@/lib/firebase/config'
-import { useEffect, useState, useContext, createContext } from "react"
 import getCartItemsFromDB from '@/lib/firebase/getDB/getCartItemsFromDB'
 import { addCartItemToDB } from '@/lib/firebase/updateDB/addCartItemToDB'
 import addCartItemtoLS from '@/helpers/addCartItemToLS'
 import { removeCartItemFromDB } from '@/lib/firebase/deleteDB/removeCartItemFromDB'
 import removeCartItemFromLS from '@/helpers/removeCartItemFromLS'
 import { clearCartFromDB } from '@/lib/firebase/deleteDB/clearCartFromDB'
+import { useEffect, useState, useContext, createContext } from "react"
+import { useAuthContext } from './AuthContext'
 
 type CartContextType = {
     cart: Array<object>,

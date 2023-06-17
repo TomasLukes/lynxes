@@ -6,6 +6,7 @@ type ButtonPrimaryProps = {
 }
 
 export default function ButtonPrimary({ type, label, style, onClick } : ButtonPrimaryProps) {
+  
   return (
     <button 
       type={type} 

@@ -1,11 +1,9 @@
 'use client'
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
-import { useAuthContext } from "@/context/AuthContext"
 import { useCartContext } from "@/context/CartContext"
 
 export default function ProductHero({ product }) {
-  const { user } = useAuthContext();
   const { handleAddCartItem } = useCartContext();
 
   return (
@@ -49,6 +47,5 @@ export default function ProductHero({ product }) {
         />
       </div>
     </div>
-
   )
 }

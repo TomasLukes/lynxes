@@ -1,21 +1,21 @@
 'use client';
 import Link from "next/link"
 import Image from "next/image";
-import { useState } from "react"
-import { useAuthContext } from "@/context/AuthContext";
-import MobileMenu from "@/components/ui/navigation/Header/MobileMenu";
-import Cart from "@/components/ui/navigation/Header/Cart";
 import Logo from "@/components/shared/Logo";
-import { useCartContext } from "@/context/CartContext";
 import UserIcon from "./UserIcon";
 import GuestIcon from "./GuestIcon";
+import Cart from "@/components/ui/navigation/Header/Cart";
+import MobileMenu from "@/components/ui/navigation/Header/MobileMenu";
+import { useState } from "react"
+import { useAuthContext } from "@/context/AuthContext";
+import { useCartContext } from "@/context/CartContext";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
 
-  const { user, logOut } = useAuthContext();
-  const { cart, cartQ } = useCartContext();
+  const { user } = useAuthContext();
+  const { cartQ } = useCartContext();
 
   function handleClick() {
     setMobileMenuOpen(!mobileMenuOpen)

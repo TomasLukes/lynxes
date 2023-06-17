@@ -1,13 +1,13 @@
 'use client'
 import { useRouter } from 'next/navigation';
-import { useState } from "react"
-import CheckoutModal from "@/components/Checkout/CheckoutModal"
-import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import CartItem from "@/components/shared/CartItem"
-import { useCartContext } from "@/context/CartContext"
-import { useAuthContext } from "@/context/AuthContext";
 import FormInput from "@/components/ui/forms/FormInput";
 import RadioInput from "@/components/ui/forms/RadioInput";
+import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
+import CheckoutModal from "@/components/Checkout/CheckoutModal"
+import { useState } from "react"
+import { useCartContext } from "@/context/CartContext"
+import { useAuthContext } from "@/context/AuthContext";
 
 export default function CheckoutPage() {
   const router = useRouter()

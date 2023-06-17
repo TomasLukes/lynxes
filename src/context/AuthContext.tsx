@@ -1,6 +1,6 @@
-import { onAuthStateChanged, getAuth, signOut, User } from "firebase/auth"
 import { app } from '@/lib/firebase/config'
 import { useEffect, useState, useContext, createContext } from "react"
+import { onAuthStateChanged, getAuth, signOut, User } from "firebase/auth"
 
 type AuthContextType = {
     user: User | null,
@@ -8,7 +8,6 @@ type AuthContextType = {
 }
 
 const auth = getAuth(app)
-
 export const AuthContext = createContext<AuthContextType | null>(null)
 export const useAuthContext = () => useContext(AuthContext)
 

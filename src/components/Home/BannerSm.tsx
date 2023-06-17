@@ -16,7 +16,7 @@ export default function BannerSm() {
               {/* Button */}
               <Link href='product/zx7-speaker'>
                 <ButtonSecondary
-                    label={'SEE PRODUCT'}
+                  label={'SEE PRODUCT'}
                 />
               </Link>
           </div>

@@ -1,7 +1,6 @@
 import { useAuthContext } from "@/context/AuthContext"
 
 export default function UserIcon() {
-
     const { user, logOut } = useAuthContext()
 
     return (
