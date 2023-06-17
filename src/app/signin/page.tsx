@@ -8,30 +8,37 @@ import { signIn } from '@/lib/firebase/auth/signIn';
 
 export default function SignInPage() {
   const router = useRouter()
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
       const { result, error } = await signIn(email, password)
       if (error) {
-        console.log(error)
+        setError(error.message)
       } else {
+        setError(null)
         router.push('/')
       }
     } catch (error) {
-      console.log(error)
+      setError(error.message)
     }
   }
 
   return (
     <section id="signInPage" className="mx-auto px-6 md:px-9 lg:px-6">
-      <form onSubmit={handleLoginSubmit} className="md:w-1/2 lg:w-1/4 md:mx-auto flex flex-col gap-4 bg-light-100 text-dark-900 p-9 mt-12 md:mt-16
+      <form onSubmit={handleLoginSubmit} className="md:w-1/2 lg:w-1/3 md:mx-auto flex flex-col gap-4 bg-light-100 text-dark-900 p-9 mt-12 md:mt-16
          rounded-lg shadow-lg">
         <h2 className='text-center heading-6 mb-6'>
           Log in to your Lynxes account
         </h2>
+        { error &&
+          <p className='text-light-100 bg-red-500 rounded-lg px-6 py-4'>
+            {error}
+          </p>
+        }
         <FormInput label='Email Address' id='email' value={email} type='email' onChange={(e) => setEmail(e.target.value)} />
         <FormInput label='Password' id='password' value={password} type='password' onChange={(e) => setPassword(e.target.value)} />
         <ButtonPrimary

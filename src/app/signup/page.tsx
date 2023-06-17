@@ -1,32 +1,41 @@
 'use client'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import FormInput from '@/components/ui/forms/FormInput';
 import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
 import { useState } from 'react';
 import { signUp } from '@/lib/firebase/auth/signUp';
 
 export default function SignUpPage() {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const router = useRouter()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const { result, error } = await signUp(email, password)
+    const { result, signUpError } = await signUp(email, password)
 
-    if (error) {
-      return console.log(error)
+    if (signUpError) {
+      setError(signUpError.message)
+    } else {
+    setError(null)
+    router.push('/')
     }
-
-    console.log(result)
   }
 
   return (
     <section id="signUpPage" className="mx-auto px-6 md:px-9 lg:px-6">
-      <form onSubmit={handleSubmit} className="md:w-1/2 lg:w-1/4 md:mx-auto flex flex-col gap-4 bg-light-100 text-dark-900 p-9 mt-12 md:mt-16
+      <form onSubmit={handleSubmit} className="md:w-1/2 lg:w-1/3 md:mx-auto flex flex-col gap-4 bg-light-100 text-dark-900 p-9 mt-12 md:mt-16
          rounded-lg shadow-lg">
         <h2 className='text-center heading-6 mb-6'>
           Create your Lynxes account
         </h2>
+        { error &&
+          <p className='text-light-100 bg-red-500 rounded-lg px-6 py-4'>
+            {error}
+          </p>
+        }
         <FormInput label='Email Address' id='email' value={email} type='email' onChange={(e) => setEmail(e.target.value)} />
         <FormInput label='Password' id='password' value={password} type='password' onChange={(e) => setPassword(e.target.value)} />
         <ButtonPrimary 
