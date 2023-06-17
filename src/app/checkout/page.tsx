@@ -1,11 +1,9 @@
 'use client'
-import Link from "next/link"
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import CheckoutModal from "@/components/Checkout/CheckoutModal"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import CartItem from "@/components/shared/CartItem"
-import { db } from "@/lib/firebase/config"
 import { useCartContext } from "@/context/CartContext"
 import { useAuthContext } from "@/context/AuthContext";
 import FormInput from "@/components/ui/forms/FormInput";

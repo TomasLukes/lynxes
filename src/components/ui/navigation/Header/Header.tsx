@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link"
 import Image from "next/image";
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useAuthContext } from "@/context/AuthContext";
 import MobileMenu from "@/components/ui/navigation/Header/MobileMenu";
 import Cart from "@/components/ui/navigation/Header/Cart";

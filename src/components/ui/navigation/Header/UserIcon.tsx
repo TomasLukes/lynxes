@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { useAuthContext } from "@/context/AuthContext"
 
 export default function UserIcon() {

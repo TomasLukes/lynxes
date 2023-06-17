@@ -2,12 +2,10 @@ import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useCartContext } from "@/context/CartContext"
-import { collection, addDoc, doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { useAuthContext } from "@/context/AuthContext";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase/config"
 
 export default function CheckoutModal({ cartItems, grandTotal, formData }) {
-  const { user } = useAuthContext()
   const { handleClearCart } = useCartContext();
 
   async function handleOrderSubmit() {

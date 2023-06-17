@@ -1,9 +1,7 @@
 'use client'
-import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useAuthContext } from "@/context/AuthContext"
-import { db } from "@/lib/firebase/config"
 import { useCartContext } from "@/context/CartContext"
 
 export default function ProductHero({ product }) {

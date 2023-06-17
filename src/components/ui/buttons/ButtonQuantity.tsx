@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useCartContext } from '@/context/CartContext';
 
 export default function ButtonQuantity({ product }) {
