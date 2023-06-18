@@ -1,6 +1,10 @@
 import Image from "next/image"
 
-export default function ProductGallery({ slug }) {
+type SlugProp = {
+    slug: string,
+}
+
+export default function ProductGallery({ slug }: SlugProp) {
   return (
     /* Product image gallery section */
     <section id="productGallery" className="max-width mb-12 px-6 lg:px-6">

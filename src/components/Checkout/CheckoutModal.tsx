@@ -5,7 +5,13 @@ import { db } from "@/lib/firebase/config"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useCartContext } from "@/context/CartContext"
 
-export default function CheckoutModal({ cartItems, grandTotal, formData }) {
+type CheckoutModalProps = {
+  cartItems: object,
+  grandTotal: number,
+  formData: object, 
+}
+
+export default function CheckoutModal({ cartItems, grandTotal, formData }: CheckoutModalProps) {
   const { handleClearCart } = useCartContext();
 
   async function handleOrderSubmit() {

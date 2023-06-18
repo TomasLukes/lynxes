@@ -11,7 +11,6 @@ type ProductType = {
   shortName: string,
   itemQuantity: number,
   price: number,
-
 }
 
 export default function CartItem({ product } : CartItemProps) {

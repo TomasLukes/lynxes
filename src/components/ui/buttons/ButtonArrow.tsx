@@ -1,10 +1,7 @@
 import Image from 'next/image';
+import { LabelProp } from '@/types/global';
 
-type ButtonArrowProps = {
-  label: string,
-}
-
-export default function ButtonArrow({ label } : ButtonArrowProps) {
+export default function ButtonArrow({ label } : LabelProp) {
   return (
     <button type='button' className="flex items-center gap-1 mx-auto px-4 py-2 text-dark-900 subtitle opacity-50
     hover:text-primary-700 hover:opacity-100">

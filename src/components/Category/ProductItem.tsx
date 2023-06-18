@@ -1,9 +1,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
+import { ProductProp } from "@/types/global";
 
-export default function ProductItem({ product }) {
-  const reversed = product.id % 2 == 0;
+export default function ProductItem({ product }: ProductProp ) {
+  const reversed = product.productID % 2 == 0;
 
   return (
     /* Product Item container */

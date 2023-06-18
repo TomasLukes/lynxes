@@ -1,6 +1,7 @@
 import ProductIncludesItem from "./ProductIncludesItem"
+import { ProductProp } from "@/types/global";
 
-export default function ProductDetails({ product }) {
+export default function ProductDetails({ product }: ProductProp) {
   const ProductIncludesItems = product.includes.map((item, index) =>
     <ProductIncludesItem key={index} quantity={item.quantity} name={item.item} />
   );

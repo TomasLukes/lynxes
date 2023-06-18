@@ -2,8 +2,9 @@
 import Image from "next/image"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useCartContext } from "@/context/CartContext"
+import { ProductProp } from "@/types/global"
 
-export default function ProductHero({ product }) {
+export default function ProductHero({ product }: ProductProp) {
   const { handleAddCartItem } = useCartContext();
 
   return (

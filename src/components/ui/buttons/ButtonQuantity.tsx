@@ -1,7 +1,8 @@
 import { useCartContext } from '@/context/CartContext';
+import { ProductType } from '@/types/global';
 
 type ButtonQuantityProps = {
-  product: object,
+  product: ProductType,
 }
 
 export default function ButtonQuantity({ product } : ButtonQuantityProps) {

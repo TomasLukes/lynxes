@@ -22,6 +22,7 @@
       "@lib": ["src/lib/*"],
       "@context": ["src/context/*"],
       "@helpers": ["src/helpers/*"],
+      "@types": ["src/types/*"],
     },
     "plugins": [
       {
@@ -29,6 +30,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "types"],
   "exclude": ["node_modules"]
 }
