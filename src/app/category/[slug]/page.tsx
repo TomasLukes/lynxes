@@ -12,9 +12,15 @@ export default function CategoryPage({ params }) {
     const [productsData, setProductsData] = useState(null)
 
     useEffect(() => {
-        getProductsByCategory(db, slug)
-        .then(products => setProductsData(products))
-        .catch(error => console.error('Error getting document:', error));
+        const fetchData = async () => {
+            try {
+                const products = await getProductsByCategory(db, slug)
+                setProductsData(products);
+            } catch (error) {
+                console.error('Error getting document:', error)
+            }
+        }
+        fetchData()
     }, [slug])
 
     let ProductItems = null;

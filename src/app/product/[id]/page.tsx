@@ -17,10 +17,16 @@ export default function ProductPage({ params }) {
   const [productData, setProductData] = useState(null);
 
   useEffect(() => {
-    getProduct(db, id)
-      .then(product => setProductData(product))
-      .catch(error => console.error('Error getting document:', error));
-  }, [id]);
+    const fetchData = async () => {
+      try {
+        const product = await getProduct(db, id)
+        setProductData(product)
+      } catch (error) {
+          console.error('Error getting document:', error)
+      }
+    }
+    fetchData()
+  }, [id])
 
   return (
       <main className="max-width mx-auto px-6 md:px-9 lg:px-6 py-24">

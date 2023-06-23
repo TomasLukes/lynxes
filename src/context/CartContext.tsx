@@ -33,18 +33,22 @@ export const CartContextProvider = ({ children }) => {
     const [grandTotal, setGrandTotal] = useState(null)
 
     useEffect(() => {
-        if (user) {
-            getCartItemsFromDB(db, user.uid)
-                .then(cartItems => {
+        const fetchData = async () => {
+            try {
+                if (user) {
+                    const cartItems = await getCartItemsFromDB(db, user.uid)
                     setCart(cartItems)
-                });
-        } else {
-            const getCartFromLS = localStorage.getItem('cart');
-            if (getCartFromLS) {
-                setCart(JSON.parse(getCartFromLS))
-            }
+                } else {
+                    const getCartFromLS = localStorage.getItem('cart')
+                    setCart(JSON.parse(getCartFromLS))
+                }
+            } catch (error) {
+                console.error('Error retrieving cart items:', error);
+            } 
         }
-    }, [user]);
+
+        fetchData()
+    }, [user])
 
     useEffect(() => {
         const calcCartQ = cart.reduce((total, item) => total + item.itemQuantity, 0);
@@ -57,15 +61,18 @@ export const CartContextProvider = ({ children }) => {
         setVatPrice(calcVatPrice)
         const calcGrandTotal = cartTotal + shippingCost + vatPrice
         setGrandTotal(calcGrandTotal)
-      }, [cart, cartQ, cartTotal, shippingCost, vatPrice])
 
-    function handleAddCartItem(addedItem) {
+    }, [cart, cartQ, cartTotal, shippingCost, vatPrice])
+
+    async function handleAddCartItem(addedItem) {
         if (user) {
-            addCartItemToDB(db, user.uid, addedItem)
-            .then(() => getCartItemsFromDB(db, user.uid))
-            .then(cartItems => {
-                setCart(cartItems);
-            });
+            try {
+                await addCartItemToDB(db, user.uid, addedItem)
+                const cartItems = await getCartItemsFromDB(db, user.uid)
+                setCart(cartItems)
+            } catch (error) {
+                console.log('There was an error with adding the product to cart:', error)
+            }
         } else {
             addCartItemtoLS(addedItem);
             const getCartFromLS = localStorage.getItem('cart');
@@ -73,13 +80,15 @@ export const CartContextProvider = ({ children }) => {
         }
     }
 
-    function handleRemoveCartItem(removedItem) {
+    async function handleRemoveCartItem(removedItem) {
         if (user) {
-            removeCartItemFromDB(db, user.uid, removedItem)
-            .then(() => getCartItemsFromDB(db, user.uid))
-            .then(cartItems => {
-                setCart(cartItems);
-            });
+            try {
+                await removeCartItemFromDB(db, user.uid, removedItem)
+                const cartItems = await getCartItemsFromDB(db, user.uid)
+                setCart(cartItems)
+            } catch (error) {
+                console.log('There was an error while removing the product from cart:', error)
+            }
         } else {
             removeCartItemFromLS(removedItem);
             const getCartFromLS = localStorage.getItem('cart');
