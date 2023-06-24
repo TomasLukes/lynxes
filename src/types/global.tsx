@@ -16,7 +16,10 @@ export type ProductType = {
     new: boolean,
     description: string,
     features: string,
-    includes: Array<object>,
+    includes: Array<{
+        quantity: number,
+        item: string,
+    }>,
 }
 
 export type FormDataType = {
