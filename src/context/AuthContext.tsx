@@ -8,13 +8,12 @@ type AuthContextType = {
 }
 
 const auth = getAuth(app)
-export const AuthContext = createContext<AuthContextType | null>(null)
-export const useAuthContext = () => useContext(AuthContext)
 
-export const AuthContextProvider = ({
-    children,
-    }) => {
-        const [user, setUser] = useState(null)
+export const AuthContext = createContext<AuthContextType | null>(null)
+export const useAuthContext = ():AuthContextType | null => useContext(AuthContext)
+
+export const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
+        const [user, setUser] = useState<User | null>(null)
 
     const logOut = async () => {
         try {
@@ -26,12 +25,8 @@ export const AuthContextProvider = ({
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser(null);
-            }
-        });
+          setUser(user)
+        })
 
         return () => unsubscribe();
     }, []);
