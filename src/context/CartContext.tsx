@@ -6,7 +6,7 @@ import { removeCartItemFromDB } from '@/lib/firebase/deleteDB/removeCartItemFrom
 import removeCartItemFromLS from '@/helpers/LocalStorage/removeCartItemFromLS'
 import { clearCartFromDB } from '@/lib/firebase/deleteDB/clearCartFromDB'
 import { useEffect, useState, useContext, createContext } from "react"
-import { useAuthContext } from './AuthContext'
+import { AuthContextType, useAuthContext } from './AuthContext'
 import { ProductType } from '@/types/global'
 
 type CartContextType = {
@@ -36,7 +36,7 @@ export const CartContext = createContext<CartContextType>({
 export const useCartContext = (): CartContextType => useContext(CartContext)
 
 export const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const { user } = useAuthContext();
+    const { user } = useAuthContext() as AuthContextType;
     const [cart, setCart] = useState<ProductType[]>([])
     const [cartQ, setCartQ] = useState<number | null>(null)
     const [cartTotal, setCartTotal] = useState<number | null>(null)
