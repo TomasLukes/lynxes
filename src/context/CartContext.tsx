@@ -21,49 +21,64 @@ type CartContextType = {
     handleClearCart: () => void,
 }
 
-export const CartContext = createContext<CartContextType | null>(null)
-export const useCartContext = ():CartContextType => useContext(CartContext)
+export const CartContext = createContext<CartContextType>({
+    cart: [],
+    cartQ: null,
+    cartTotal: null,
+    shippingCost: null,
+    vatPrice: null,
+    grandTotal: null,
+    handleAddCartItem: () => {},
+    handleRemoveCartItem: () => {},
+    handleClearCart: () => {},
+  });
+
+export const useCartContext = (): CartContextType => useContext(CartContext)
 
 export const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
     const { user } = useAuthContext();
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState<ProductType[]>([])
     const [cartQ, setCartQ] = useState<number | null>(null)
     const [cartTotal, setCartTotal] = useState<number | null>(null)
     const [shippingCost, setShippingCost] = useState<number | null>(null)
     const [vatPrice, setVatPrice] = useState<number | null>(null)
     const [grandTotal, setGrandTotal] = useState<number | null>(null)
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                if (user) {
-                    const cartItems = await getCartItemsFromDB(db, user.uid)
-                    setCart(cartItems)
-                } else {
-                    const getCartFromLS = localStorage.getItem('cart')
-                    setCart(JSON.parse(getCartFromLS))
-                }
-            } catch (error) {
-                console.error('Error retrieving cart items:', error);
-            } 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (user) {
+          const cartItems = await getCartItemsFromDB(db, user.uid);
+          setCart(cartItems);
+        } else {
+          const getCartFromLS = localStorage.getItem('cart');
+          const cartItems = getCartFromLS ? JSON.parse(getCartFromLS) : [];
+          setCart(cartItems);
         }
+      } catch (error) {
+        console.error('Error retrieving cart items:', error);
+      } 
+    };
 
-        fetchData()
-    }, [user])
+    fetchData();
+  }, [user]);
 
-    useEffect(() => {
-        const calcCartQ = cart.reduce((total: number, item: number) => total + item.itemQuantity, 0);
-        setCartQ(calcCartQ);
-        const calcCartTotal = cart.reduce((total, item) => total + (item.itemQuantity * item.price), 0)
-        setCartTotal(calcCartTotal)
-        const calcShippingCost = cartQ > 0 ? 50 : 0
-        setShippingCost(calcShippingCost)
-        const calcVatPrice = Math.round(cartTotal * 0.21)
-        setVatPrice(calcVatPrice)
-        const calcGrandTotal = cartTotal + shippingCost + vatPrice
-        setGrandTotal(calcGrandTotal)
-
-    }, [cart, cartQ, cartTotal, shippingCost, vatPrice])
+  useEffect(() => {
+    const calcCartQ = cart.reduce((total, item) => total + item.itemQuantity, 0);
+    setCartQ(calcCartQ);
+  
+    const calcCartTotal = cart.reduce((total, item) => total + (item.itemQuantity * item.price), 0);
+    setCartTotal(calcCartTotal);
+  
+    const calcShippingCost = cartQ ? 50 : 0;
+    setShippingCost(calcShippingCost);
+  
+    const calcVatPrice = Math.round((cartTotal ?? 0) * 0.21);
+    setVatPrice(calcVatPrice);
+  
+    const calcGrandTotal = (cartTotal ?? 0) + (shippingCost ?? 0) + (vatPrice ?? 0);
+    setGrandTotal(calcGrandTotal);
+  }, [cart, cartQ, cartTotal, shippingCost, vatPrice]);
 
     async function handleAddCartItem(addedItem: ProductType) {
         if (user) {
@@ -77,7 +92,8 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
         } else {
             addCartItemtoLS(addedItem);
             const getCartFromLS = localStorage.getItem('cart');
-            setCart(JSON.parse(getCartFromLS));
+            const cartItems = getCartFromLS ? JSON.parse(getCartFromLS) : [];
+            setCart(cartItems);
         }
     }
 
@@ -93,7 +109,8 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
         } else {
             removeCartItemFromLS(removedItem);
             const getCartFromLS = localStorage.getItem('cart');
-            setCart(JSON.parse(getCartFromLS));
+            const cartItems = getCartFromLS ? JSON.parse(getCartFromLS) : [];
+            setCart(cartItems);
         }
     }
 
