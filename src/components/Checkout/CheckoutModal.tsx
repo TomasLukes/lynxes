@@ -5,11 +5,12 @@ import { db } from "@/lib/firebase/config"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useCartContext } from "@/context/CartContext"
 import { ReactNode } from "react";
+import { FormDataType } from "@/types/global";
 
 type CheckoutModalProps = {
   cartItems: ReactNode,
-  grandTotal: number,
-  formData: object, 
+  grandTotal: number | null,
+  formData: FormDataType, 
 }
 
 export default function CheckoutModal({ cartItems, grandTotal, formData }: CheckoutModalProps) {
@@ -65,7 +66,7 @@ export default function CheckoutModal({ cartItems, grandTotal, formData }: Check
                 GRAND TOTAL
               </p>
               <p className="heading-6">
-                $ {grandTotal.toLocaleString('en-US')}
+                $ {grandTotal?.toLocaleString('en-US')}
               </p>
             </div>
           </div>

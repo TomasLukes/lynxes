@@ -10,9 +10,9 @@ export default function SignUpPage() {
   const router = useRouter()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
       const { result, signUpError } = await signUp(email, password)
@@ -20,7 +20,7 @@ export default function SignUpPage() {
       if(!signUpError) {
         router.push('/');
       }
-    } catch (error) {
+    } catch (error: any) {
         setError(error)
     }
   }

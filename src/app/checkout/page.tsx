@@ -40,13 +40,13 @@ export default function CheckoutPage() {
     orderedItems: cart,
   }
 
-  function handleToggleCheckoutModal(e) {
+  function handleToggleCheckoutModal(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     window.scrollTo(0, 0);
     setCheckoutModalOpen(!checkoutModalOpen)
   }
 
-  let cartItems = []
+  let cartItems
   if (cart) {
     cartItems = cart.map((item, index) => <CartItem key={index} product={item} />);
   }

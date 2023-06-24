@@ -5,7 +5,7 @@ type RadioInputProps = {
   id: string,
   name: string,
   checked: boolean,
-  onChange: () => void,
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 export default function RadioInput({ label, id, name, checked, onChange } : RadioInputProps) {
