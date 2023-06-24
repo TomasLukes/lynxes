@@ -17,4 +17,18 @@ export type ProductType = {
     description: string,
     features: string,
     includes: Array<object>,
-  }
+}
+
+export type FormDataType = {
+    user: string,
+    creationDate: any,
+    name: string,
+    email: string,
+    phoneNumber: string,
+    address: string,
+    city: string,
+    zipCode: string,
+    country: string,
+    paymentMethod: string,
+    orderedItems: ProductType[],
+}

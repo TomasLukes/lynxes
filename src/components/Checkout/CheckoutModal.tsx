@@ -4,9 +4,10 @@ import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { db } from "@/lib/firebase/config"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useCartContext } from "@/context/CartContext"
+import { ReactNode } from "react";
 
 type CheckoutModalProps = {
-  cartItems: object,
+  cartItems: ReactNode,
   grandTotal: number,
   formData: object, 
 }

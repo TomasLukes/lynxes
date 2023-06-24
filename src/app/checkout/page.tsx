@@ -8,6 +8,7 @@ import CheckoutModal from "@/components/Checkout/CheckoutModal"
 import { useState } from "react"
 import { useCartContext } from "@/context/CartContext"
 import { useAuthContext } from "@/context/AuthContext";
+import { FormDataType } from '@/types/global';
 
 export default function CheckoutPage() {
   const router = useRouter()
@@ -25,7 +26,7 @@ export default function CheckoutPage() {
   const [country, setCountry] = useState('')
   const [paymentMethod, setPaymentMethod] = useState('')
   
-  const formData = {
+  const formData: FormDataType = {
     user: user?.uid || 'guest',
     creationDate: null,
     name,

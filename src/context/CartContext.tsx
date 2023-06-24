@@ -7,30 +7,31 @@ import removeCartItemFromLS from '@/helpers/LocalStorage/removeCartItemFromLS'
 import { clearCartFromDB } from '@/lib/firebase/deleteDB/clearCartFromDB'
 import { useEffect, useState, useContext, createContext } from "react"
 import { useAuthContext } from './AuthContext'
+import { ProductType } from '@/types/global'
 
 type CartContextType = {
-    cart: Array<object>,
-    cartQ: number,
-    cartTotal: number,
-    shippingCost: number,
-    vatPrice: number,
-    grandTotal: number,
-    handleAddCartItem: (addedItem: object) => void,
-    handleRemoveCartItem: (removedItem: object) => void,
+    cart: ProductType[],
+    cartQ: number | null,
+    cartTotal: number | null,
+    shippingCost: number | null,
+    vatPrice: number| null,
+    grandTotal: number | null,
+    handleAddCartItem: (addedItem: ProductType) => void,
+    handleRemoveCartItem: (removedItem: ProductType) => void,
     handleClearCart: () => void,
 }
 
 export const CartContext = createContext<CartContextType | null>(null)
-export const useCartContext = () => useContext(CartContext)
+export const useCartContext = ():CartContextType => useContext(CartContext)
 
-export const CartContextProvider = ({ children }) => {
+export const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
     const { user } = useAuthContext();
     const [cart, setCart] = useState([])
-    const [cartQ, setCartQ] = useState(null)
-    const [cartTotal, setCartTotal] = useState(null)
-    const [shippingCost, setShippingCost] = useState(null)
-    const [vatPrice, setVatPrice] = useState(null)
-    const [grandTotal, setGrandTotal] = useState(null)
+    const [cartQ, setCartQ] = useState<number | null>(null)
+    const [cartTotal, setCartTotal] = useState<number | null>(null)
+    const [shippingCost, setShippingCost] = useState<number | null>(null)
+    const [vatPrice, setVatPrice] = useState<number | null>(null)
+    const [grandTotal, setGrandTotal] = useState<number | null>(null)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -51,7 +52,7 @@ export const CartContextProvider = ({ children }) => {
     }, [user])
 
     useEffect(() => {
-        const calcCartQ = cart.reduce((total, item) => total + item.itemQuantity, 0);
+        const calcCartQ = cart.reduce((total: number, item: number) => total + item.itemQuantity, 0);
         setCartQ(calcCartQ);
         const calcCartTotal = cart.reduce((total, item) => total + (item.itemQuantity * item.price), 0)
         setCartTotal(calcCartTotal)
@@ -64,7 +65,7 @@ export const CartContextProvider = ({ children }) => {
 
     }, [cart, cartQ, cartTotal, shippingCost, vatPrice])
 
-    async function handleAddCartItem(addedItem) {
+    async function handleAddCartItem(addedItem: ProductType) {
         if (user) {
             try {
                 await addCartItemToDB(db, user.uid, addedItem)
@@ -80,7 +81,7 @@ export const CartContextProvider = ({ children }) => {
         }
     }
 
-    async function handleRemoveCartItem(removedItem) {
+    async function handleRemoveCartItem(removedItem: ProductType) {
         if (user) {
             try {
                 await removeCartItemFromDB(db, user.uid, removedItem)

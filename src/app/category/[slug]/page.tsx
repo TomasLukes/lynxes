@@ -6,6 +6,7 @@ import Loader from "@/components/ui/navigation/loader"
 import { useState, useEffect } from "react"
 import { db } from "@/lib/firebase/config"
 import getProductsByCategory from "@/lib/firebase/getDB/getProductByCategory"
+import { ProductType } from "@/types/global"
 
 export default function CategoryPage({ params }) {
     const { slug } = params;
@@ -25,7 +26,7 @@ export default function CategoryPage({ params }) {
 
     let ProductItems = null;
     if (productsData) {
-        ProductItems = productsData.map((product, index) => 
+        ProductItems = productsData.map((product: ProductType, index: number) => 
         <ProductItem key={index} product={product} />
     )
     }

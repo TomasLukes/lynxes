@@ -2,6 +2,7 @@ import Link from "next/link"
 import CartItem from "../../../shared/CartItem"
 import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import { useCartContext } from "@/context/CartContext";
+import { ProductType } from "@/types/global";
 
 type CartProps = {
   handleOpenCart: () => void,
@@ -12,7 +13,7 @@ export default function Cart({ handleOpenCart } : CartProps) {
 
   let cartItems = [];
   if (cart) {
-    cartItems = cart.map((item, index) => (
+    cartItems = cart.map((item: ProductType, index: number) => (
       <CartItem key={index} product={item} />));
   }
 
