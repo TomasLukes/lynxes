@@ -2,7 +2,7 @@ import { app } from '@/lib/firebase/config'
 import { useEffect, useState, useContext, createContext } from "react"
 import { onAuthStateChanged, getAuth, signOut, User } from "firebase/auth"
 
-type AuthContextType = {
+export type AuthContextType = {
     user: User | null,
     logOut: () => void
 }

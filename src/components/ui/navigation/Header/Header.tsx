@@ -7,14 +7,14 @@ import GuestIcon from "./GuestIcon";
 import Cart from "@/components/ui/navigation/Header/Cart";
 import MobileMenu from "@/components/ui/navigation/Header/MobileMenu";
 import { useState } from "react"
-import { useAuthContext } from "@/context/AuthContext";
+import { AuthContextType, useAuthContext } from "@/context/AuthContext";
 import { useCartContext } from "@/context/CartContext";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
 
-  const { user } = useAuthContext();
+  const { user } = useAuthContext() as AuthContextType;
   const { cartQ } = useCartContext();
 
   function handleClick() {

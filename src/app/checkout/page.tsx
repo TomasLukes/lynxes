@@ -7,13 +7,13 @@ import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
 import CheckoutModal from "@/components/Checkout/CheckoutModal"
 import { useState } from "react"
 import { useCartContext } from "@/context/CartContext"
-import { useAuthContext } from "@/context/AuthContext";
+import { AuthContextType, useAuthContext } from "@/context/AuthContext";
 import { FormDataType } from '@/types/global';
 
 export default function CheckoutPage() {
   const router = useRouter()
 
-  const { user } = useAuthContext()
+  const { user } = useAuthContext() as AuthContextType
   const { cart, cartQ, cartTotal, shippingCost, vatPrice, grandTotal } = useCartContext();
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false)
 
