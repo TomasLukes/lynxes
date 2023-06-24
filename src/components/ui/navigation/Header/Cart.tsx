@@ -11,7 +11,7 @@ type CartProps = {
 export default function Cart({ handleOpenCart } : CartProps) {
   const { cart, cartQ, cartTotal, handleClearCart } = useCartContext();
 
-  let cartItems = [];
+  let cartItems;
   if (cart) {
     cartItems = cart.map((item: ProductType, index: number) => (
       <CartItem key={index} product={item} />));
@@ -27,7 +27,7 @@ export default function Cart({ handleOpenCart } : CartProps) {
               <h5 className="subtitle uppercase">
                 {`Cart (${cartQ})`}
               </h5>
-              { cartQ > 0 &&
+              { cartQ && cartQ > 0 &&
                 <div>
                   <button onClick={handleClearCart} className="text-xs opacity-75">
                     Clear
@@ -45,7 +45,7 @@ export default function Cart({ handleOpenCart } : CartProps) {
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 my-8">
             {cartItems}
           </div>
-          { cartQ < 1 &&
+          { cartQ && cartQ < 1 &&
             <p className="block text-center text-body opacity-50 mb-16">
               Your cart looks little bit empty..
             </p>
@@ -55,10 +55,10 @@ export default function Cart({ handleOpenCart } : CartProps) {
               TOTAL
             </span>
             <p className="heading-6">
-              $ {cartTotal.toLocaleString('en-US')}
+              $ {cartTotal?.toLocaleString('en-US')}
             </p>
           </div>
-          { cartQ > 0 &&
+          { cartQ && cartQ > 0 &&
             <Link href="/checkout" className="text-light-100" onClick={() => handleOpenCart()}>
               <ButtonPrimary
                 type={"button"}
