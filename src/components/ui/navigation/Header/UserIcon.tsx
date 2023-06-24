@@ -1,7 +1,7 @@
-import { useAuthContext } from "@/context/AuthContext"
+import { AuthContextType, useAuthContext } from "@/context/AuthContext"
 
 export default function UserIcon() {
-    const { user, logOut } = useAuthContext()
+    const { user, logOut } = useAuthContext() as AuthContextType
 
     return (
         <div className="flex items-center gap-2">
@@ -17,7 +17,7 @@ export default function UserIcon() {
             </div>
             {/* </Link> */}
             <div>
-                <p className="text-xs opacity-75">{user.email}</p>
+                <p className="text-xs opacity-75">{user?.email}</p>
                 <button type='button' onClick={() => logOut()} className="flex items-center gap-1 cursor-pointer">
                 <label className="text-xs uppercase opacity-75 hover:opacity-100 hover:text-primary-700 cursor-pointer">Loged out</label>
                 <svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
