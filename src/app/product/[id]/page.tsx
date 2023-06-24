@@ -9,12 +9,13 @@ import About from "@/components/shared/About";
 import Loader from '@/components/ui/navigation/loader';
 import { db } from "@/lib/firebase/config";
 import getProduct from "@/lib/firebase/getDB/getProduct";
+import { ProductType } from '@/types/global';
 
 export default function ProductPage({ params }: any) {
   const { id } = params;
   const router = useRouter()
 
-  const [productData, setProductData] = useState(null);
+  const [productData, setProductData] = useState<ProductType | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
