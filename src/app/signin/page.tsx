@@ -10,9 +10,9 @@ export default function SignInPage() {
   const router = useRouter()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
-  async function handleLoginSubmit(e) {
+  async function handleLoginSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
       const { result, signInError } = await signIn(email, password);
@@ -20,7 +20,7 @@ export default function SignInPage() {
       if (!signInError) {
         router.push('/');
       }
-    } catch (error) {
+    } catch (error: any) {
       setError(error);
     }
   }

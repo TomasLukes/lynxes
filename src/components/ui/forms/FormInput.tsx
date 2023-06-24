@@ -3,7 +3,7 @@ type FormInputProps = {
   id: string,
   value: string,
   type: string,
-  onChange: () => void,
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 export default function FormInput({ label, id, value, type, onChange } : FormInputProps) {
