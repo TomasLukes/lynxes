@@ -1,6 +1,7 @@
-import { doc, updateDoc, getDoc, setDoc } from 'firebase/firestore'
+import { ProductType } from '@/types/global';
+import { doc, updateDoc, getDoc, setDoc, Firestore } from 'firebase/firestore'
 
-export async function addCartItemToDB(db, userID, addedItem) {
+export async function addCartItemToDB(db: Firestore, userID: string, addedItem: ProductType) {
     let error = null;
 
     try {
@@ -11,19 +12,19 @@ export async function addCartItemToDB(db, userID, addedItem) {
             slug: addedItem.slug,
             shortName: addedItem.shortName,
             price: addedItem.price,
-            itemQuantity: null,
+            itemQuantity: 0,
         }
 
         if (cartSnap.exists()) {
             // If cart exists
             let items = cartSnap.data().items;
             // Find item in cart
-            const existingItem = items.find(item => item.productID === addedItem.productID)
+            const existingItem = items.find((item: ProductType) => item.productID === addedItem.productID)
 
             if (existingItem) {
                 // If item already exists in cart, increment the quantity
                 existingItem.itemQuantity += 1;
-            } else {
+            } {
                 // If item isn't in cart, add it
                 addedItemData.itemQuantity = 1;
                 items.push(addedItemData)

@@ -1,13 +1,14 @@
-import { collection, query, where, getDocs } from 'firebase/firestore'
+import { ProductType } from '@/types/global';
+import { collection, query, where, getDocs, Firestore } from 'firebase/firestore'
 
-export default async function getProductsByCategory(db, category) {
+export default async function getProductsByCategory(db: Firestore, category: string) {
     const q = query(collection(db, 'products'), where('category', '==', category));
 
     const querySnapshot = await getDocs(q)
-    const products = []
+    const products: ProductType[] = []
 
     querySnapshot.forEach((doc) => {
-        products.push(doc.data())
+        products.push(doc.data() as ProductType)
     });
 
     return products;

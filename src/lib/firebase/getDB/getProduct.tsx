@@ -1,7 +1,7 @@
 import { ProductType } from '@/types/global';
-import { doc, getDoc } from 'firebase/firestore'
+import { Firestore, doc, getDoc } from 'firebase/firestore'
 
-export default async function getProduct(db, productId: string) {
+export default async function getProduct(db: Firestore, productId: string) {
     const docRef = doc(db, 'products', productId);
     const docSnap = await getDoc(docRef);
 

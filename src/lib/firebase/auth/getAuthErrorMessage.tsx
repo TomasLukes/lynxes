@@ -1,4 +1,4 @@
-export function getAuthErrorMessage(errorCode) {
+export function getAuthErrorMessage(errorCode: string) {
     switch (errorCode) {
         case 'auth/user-not-found':
             return 'User not found. Please check your email address.';
