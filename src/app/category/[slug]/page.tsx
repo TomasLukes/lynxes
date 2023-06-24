@@ -1,4 +1,5 @@
 'use client'
+import { useParams } from 'next/navigation'
 import ProductItem from "@/components/Category/ProductItem"
 import Categories from "@/components/shared/Categories"
 import About from "@/components/shared/About"
@@ -8,9 +9,10 @@ import { db } from "@/lib/firebase/config"
 import getProductsByCategory from "@/lib/firebase/getDB/getProductByCategory"
 import { ProductType } from "@/types/global"
 
-export default function CategoryPage({ params }) {
+export default function CategoryPage() {
+    const params = useParams()
     const { slug } = params;
-    const [productsData, setProductsData] = useState(null)
+    const [productsData, setProductsData] = useState<ProductType[] | null>(null)
 
     useEffect(() => {
         const fetchData = async () => {

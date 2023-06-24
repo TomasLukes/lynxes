@@ -1,5 +1,5 @@
 'use client'
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { useState, useEffect } from "react"
 import ProductHero from "@/components/Product/ProductHero";
 import ProductDetails from "@/components/Product/ProductDetails";
@@ -11,7 +11,8 @@ import { db } from "@/lib/firebase/config";
 import getProduct from "@/lib/firebase/getDB/getProduct";
 import { ProductType } from '@/types/global';
 
-export default function ProductPage({ params }: any) {
+export default function ProductPage() {
+  const params = useParams()
   const { id } = params;
   const router = useRouter()
 
