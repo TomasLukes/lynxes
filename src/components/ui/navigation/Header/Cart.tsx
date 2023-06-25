@@ -27,12 +27,12 @@ export default function Cart({ handleOpenCart } : CartProps) {
               <h5 className="subtitle uppercase">
                 {`Cart (${cartQ})`}
               </h5>
-              { cartQ && cartQ > 0 &&
-                <div>
-                  <button onClick={handleClearCart} className="text-xs opacity-75">
-                    Clear
-                  </button>
-                </div>
+              { cartQ !== null && cartQ > 0 &&
+              <div>
+                <button onClick={handleClearCart} className="text-xs opacity-75">
+                  Clear
+                </button>
+              </div>
               }
             </div>
             <button type='button' onClick={() => handleOpenCart()}>
@@ -45,7 +45,7 @@ export default function Cart({ handleOpenCart } : CartProps) {
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 my-8">
             {cartItems}
           </div>
-          { cartQ && cartQ < 1 &&
+          { cartQ !== null && cartQ < 1 &&
             <p className="block text-center text-body opacity-50 mb-16">
               Your cart looks little bit empty..
             </p>
@@ -58,7 +58,7 @@ export default function Cart({ handleOpenCart } : CartProps) {
               $ {cartTotal?.toLocaleString('en-US')}
             </p>
           </div>
-          { cartQ && cartQ > 0 &&
+          { cartQ !== null && cartQ > 0 &&
             <Link href="/checkout" className="text-light-100" onClick={() => handleOpenCart()}>
               <ButtonPrimary
                 type={"button"}
