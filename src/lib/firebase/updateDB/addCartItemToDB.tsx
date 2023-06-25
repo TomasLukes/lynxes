@@ -23,8 +23,8 @@ export async function addCartItemToDB(db: Firestore, userID: string, addedItem: 
 
             if (existingItem) {
                 // If item already exists in cart, increment the quantity
-                existingItem.itemQuantity += 1;
-            } {
+                existingItem.itemQuantity = existingItem.itemQuantity + 1;
+            } else {
                 // If item isn't in cart, add it
                 addedItemData.itemQuantity = 1;
                 items.push(addedItemData)
