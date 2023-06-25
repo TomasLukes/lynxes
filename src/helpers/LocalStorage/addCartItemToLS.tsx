@@ -20,7 +20,7 @@ export default function addCartItemtoLS(addedItem: ProductType) {
     if(existingItem) {
         existingItem.itemQuantity += 1;
     } else {
-        addedItemData.itemQuantity += 1;
+        addedItemData.itemQuantity = 1;
         cart.push(addedItemData as ProductType)
     }
 
