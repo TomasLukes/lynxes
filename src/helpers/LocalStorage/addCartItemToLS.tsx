@@ -12,7 +12,8 @@ export default function addCartItemtoLS(addedItem: ProductType) {
     let cart;
     const cartItems = localStorage.getItem('cart')
     if (cartItems) {
-    cart = JSON.parse(cartItems)}
+        cart = JSON.parse(cartItems)
+    } else {cart = []}
 
     const existingItem = cart.find((item: ProductType) => item.productID === addedItemData.productID )
 
