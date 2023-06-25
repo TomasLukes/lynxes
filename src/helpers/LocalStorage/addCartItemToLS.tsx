@@ -9,7 +9,7 @@ export default function addCartItemtoLS(addedItem: ProductType) {
         itemQuantity: addedItem.itemQuantity,
     }
 
-    let cart;
+    let cart: ProductType[];
     const cartItems = localStorage.getItem('cart')
     if (cartItems) {
         cart = JSON.parse(cartItems)
@@ -21,7 +21,7 @@ export default function addCartItemtoLS(addedItem: ProductType) {
         existingItem.itemQuantity += 1;
     } else {
         addedItemData.itemQuantity += 1;
-        cart.push(addedItemData)
+        cart.push(addedItemData as ProductType)
     }
 
     localStorage.setItem('cart', JSON.stringify(cart))

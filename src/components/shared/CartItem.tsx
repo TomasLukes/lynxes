@@ -26,7 +26,7 @@ export default function CartItem({ product } : ProductProp) {
             {product.shortName}
           </h5>
         </Link>
-        <p className="text-body opacity-50">
+        <p className="whitespace-nowrap text-body opacity-50">
           $ {totalPrice.toLocaleString('en-US')}
         </p>
       </div>
