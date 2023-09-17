@@ -1,22 +1,21 @@
-'use client'
-import Hero from "@/components/Home/Hero"
-import Categories from "@/components/shared/Categories"
-import BannerLg from "@/components/Home/BannerLg"
-import BannerSm from "@/components/Home/BannerSm"
-import BannerSplit from "@/components/Home/BannerSplit"
-import About from "@/components/shared/About"
+'use client';
+import BannerLg from '@/components/Home/BannerLg';
+import BannerSm from '@/components/Home/BannerSm';
+import BannerSplit from '@/components/Home/BannerSplit';
+import Hero from '@/components/Home/Hero';
+import About from '@/components/shared/About';
+import Categories from '@/components/shared/Categories';
 
-export default function Home() {
-  return (
-    <div className="">
+export default () => <div className=''>
       <Hero />
       <Categories />
-      <section id="banners" className="container flex flex-col gap-8 mx-auto my-12 px-6 md:px-9 lg:px-6">
+      <section
+        id='banners'
+        className='container mx-auto my-12 flex flex-col gap-8 px-6 md:px-9 lg:px-6'
+      >
         <BannerLg />
         <BannerSm />
         <BannerSplit />
       </section>
       <About />
-    </div>
-  )
-}
+    </div>;

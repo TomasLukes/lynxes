@@ -1,4 +1,1 @@
-
-export default function getCartItemFromLS() {
-
-}
+export default () => {};

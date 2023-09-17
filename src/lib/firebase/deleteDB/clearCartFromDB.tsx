@@ -1,10 +1,10 @@
-import { Firestore, doc, updateDoc } from "firebase/firestore";
+import { doc, Firestore, updateDoc } from 'firebase/firestore';
 
-export async function clearCartFromDB(db: Firestore, userID: string) {
-    try {
-        const cartRef = doc(db, "cart", userID);
-        await updateDoc(cartRef, { items: [] });
-    } catch (e) {
-        throw e;
-    }
-}
+export const clearCartFromDB = async (db: Firestore, userID: string) => {
+  try {
+    const cartRef = doc(db, 'cart', userID);
+    await updateDoc(cartRef, { items: [] });
+  } catch (e) {
+    throw e;
+  }
+};

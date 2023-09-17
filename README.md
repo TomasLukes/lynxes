@@ -23,6 +23,7 @@ Welcome to Lynxes, a fictional e-commerce page for audiophile devices. This proj
 <a href="https://www.w3.org/TR/CSS/#css" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="36" height="36" alt="CSS3" /></a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/Typescript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/typescript-colored.svg" width="36" height="36" alt="Typescript" /></a>
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg" width="36" height="36" alt="React" /></a>
+
 </p>
 
 <p align="left">
@@ -53,11 +54,12 @@ Desktop
 - Understanding the specific requirements for building an e-commerce page.
 - Planning and executing a large-scale project.
 
-
 ## Future Improvements
+
 - ✅ Design and functionality are mostly complete.
 - 👷 I'm planning to take full adventage of Next.js as my knowledge of this framework continues to grow.
 - 👷 I intend to enhance the project's type safety with TypeScript.
 
 ## Last update:
+
 - 20/06/2023 - MVP of project is live, now I will implement Typescript, then refactoring and final polishing.

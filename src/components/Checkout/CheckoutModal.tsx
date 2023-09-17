@@ -1,22 +1,27 @@
-import Link from "next/link"
-import Image from "next/image"
-import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
-import { db } from "@/lib/firebase/config"
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { useCartContext } from "@/context/CartContext"
-import { ReactNode } from "react";
-import { FormDataType } from "@/types/global";
+import { ReactNode } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+
+import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
+import { useCartContext } from '@/context/CartContext';
+import { db } from '@/lib/firebase/config';
+import { FormDataType } from '@/types/global';
 
 type CheckoutModalProps = {
-  cartItems: ReactNode,
-  grandTotal: number | null,
-  formData: FormDataType, 
-}
+  cartItems: ReactNode;
+  grandTotal: number | null;
+  formData: FormDataType;
+};
 
-export default function CheckoutModal({ cartItems, grandTotal, formData }: CheckoutModalProps) {
+export default ({
+  cartItems,
+  grandTotal,
+  formData,
+}: CheckoutModalProps) => {
   const { handleClearCart } = useCartContext();
 
-  async function handleOrderSubmit() {
+  const handleOrderSubmit = async () => {
     const creationDate = serverTimestamp();
     const orderData = {
       ...formData,
@@ -24,61 +29,59 @@ export default function CheckoutModal({ cartItems, grandTotal, formData }: Check
     };
 
     try {
-      const docRef = await addDoc(collection(db, 'orders'), {... orderData})
+      const docRef = await addDoc(collection(db, 'orders'), { ...orderData });
     } catch (e) {
       console.log(e);
     }
 
     handleClearCart();
-  }
+  };
 
   return (
     /* Checkout Modal */
-    <div className="absolute top-0 w-full md:w-3/4 lg:w-auto mt-6 z-50 left-1/2 transform -translate-x-1/2 mx-auto px-6 md:px-9 lg:px-6">
+    <div className='absolute left-1/2 top-0 z-50 mx-auto mt-6 w-full -translate-x-1/2 transform px-6 md:w-3/4 md:px-9 lg:w-auto lg:px-6'>
       {/* Checkout Modal container */}
-      <div className="container flex flex-col gap-4 md:gap-8 bg-light-100 text-dark-900 p-6 md:p-9 mt-4 rounded-lg">
+      <div className='container mt-4 flex flex-col gap-4 rounded-lg bg-light-100 p-6 text-dark-900 md:gap-8 md:p-9'>
         {/* Modal heading */}
-        <div className="flex items-center gap-3">
-          <h5 className="heading-5 uppercase flex-grow">
+        <div className='flex items-center gap-3'>
+          <h5 className='heading-5 flex-grow uppercase'>
             Thank you for your order, {`${formData.name}`}
           </h5>
           <Image
-            src="/assets/icons/pages/Checkout/icon-order-confirmation.svg"
-            alt="Succesfull order icon"
-            className="w-12"
+            src='/assets/icons/pages/Checkout/icon-order-confirmation.svg'
+            alt='Succesfull order icon'
+            className='w-12'
             width={50}
             height={50}
           />
         </div>
-        <p className="text-body opacity-50">
+        <p className='text-body opacity-50'>
           You will receive an email confirmation shortly.
         </p>
         {/* Order summary */}
-        <div className="flex flex-col">
+        <div className='flex flex-col'>
           {/* First/Left item */}
-          <div className="flex-grow bg-light-300 p-4 rounded-t-lg md:rounded-l-lg md:rounded-b-none">
+          <div className='flex-grow rounded-t-lg bg-light-300 p-4 md:rounded-b-none md:rounded-l-lg'>
             {cartItems}
           </div>
           {/* Second/Right item */}
-          <div className="flex items-center lg:w-auto bg-dark-800 p-4 rounded-b-lg md:rounded-r-lg md:rounded-t-none md:rounded-b-lg text-light-200">
-            <div className="flex flex-col items-center w-full ">
-              <p className="subtitle opacity-50 mt-auto">
-                GRAND TOTAL
-              </p>
-              <p className="heading-6">
+          <div className='flex items-center rounded-b-lg bg-dark-800 p-4 text-light-200 md:rounded-b-lg md:rounded-r-lg md:rounded-t-none lg:w-auto'>
+            <div className='flex w-full flex-col items-center '>
+              <p className='subtitle mt-auto opacity-50'>GRAND TOTAL</p>
+              <p className='heading-6'>
                 $ {grandTotal?.toLocaleString('en-US')}
               </p>
             </div>
           </div>
         </div>
-        <Link href="/" onClick={handleOrderSubmit} className="text-light-100">
+        <Link href='/' onClick={handleOrderSubmit} className='text-light-100'>
           <ButtonPrimary
-            type={"button"}
+            type={'button'}
             label={'Back to home'}
             style={'w-full uppercase'}
           />
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};

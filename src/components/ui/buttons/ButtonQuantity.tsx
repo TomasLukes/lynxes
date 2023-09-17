@@ -2,17 +2,29 @@ import { useCartContext } from '@/context/CartContext';
 import { ProductType } from '@/types/global';
 
 type ButtonQuantityProps = {
-  product: ProductType,
-}
+  product: ProductType;
+};
 
-export default function ButtonQuantity({ product } : ButtonQuantityProps) {
+export default ({ product }: ButtonQuantityProps) => {
   const { handleAddCartItem, handleRemoveCartItem } = useCartContext();
-  
+
   return (
-    <div className='flex items-center ml-auto gap-3 bg-neutral-300'>
-      <button type='button' onClick={() => handleRemoveCartItem(product)} className='py-1 px-2 hover:bg-light-400 hover:text-primary-700 hover:font-bold'>-</button>
+    <div className='ml-auto flex items-center gap-3 bg-neutral-300'>
+      <button
+        type='button'
+        onClick={() => handleRemoveCartItem(product)}
+        className='px-2 py-1 hover:bg-light-400 hover:font-bold hover:text-primary-700'
+      >
+        -
+      </button>
       <p className=' text-sm'>{product.itemQuantity}</p>
-      <button type='button' onClick={() => handleAddCartItem(product)} className='py-1 px-2 hover:bg-light-400 hover:text-primary-700 hover:font-bold'>+</button>
+      <button
+        type='button'
+        onClick={() => handleAddCartItem(product)}
+        className='px-2 py-1 hover:bg-light-400 hover:font-bold hover:text-primary-700'
+      >
+        +
+      </button>
     </div>
-  )
-}
+  );
+};

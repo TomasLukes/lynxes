@@ -1,25 +1,29 @@
 type FormInputProps = {
-  label: string,
-  id: string,
-  value: string,
-  type: string,
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
-}
+  label: string;
+  id: string;
+  value: string;
+  type: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-export default function FormInput({ label, id, value, type, onChange } : FormInputProps) {
-
-  return (
-    <label htmlFor={id} className="flex flex-col gap-2 subtitle normal-case pb-4">
+export default ({
+  label,
+  id,
+  value,
+  type,
+  onChange,
+}: FormInputProps) => <label
+      htmlFor={id}
+      className='subtitle flex flex-col gap-2 pb-4 normal-case'
+    >
       {label}
-      <input 
+      <input
         id={id}
         type={type}
         placeholder={`Your ${label}`}
         required
-        className="px-4 py-3 text-body text-neutral-700 placeholder-opacity-50 border border-light-400 rounded-lg"
+        className='text-body rounded-lg border border-light-400 px-4 py-3 text-neutral-700 placeholder-opacity-50'
         value={value}
         onChange={onChange}
       />
-    </label>
-  )
-}
+    </label>;

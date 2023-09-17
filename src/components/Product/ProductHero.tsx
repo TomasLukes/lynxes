@@ -1,17 +1,18 @@
-'use client'
-import Image from "next/image"
-import ButtonPrimary from "@/components/ui/buttons/ButtonPrimary"
-import { useCartContext } from "@/context/CartContext"
-import { ProductProp } from "@/types/global"
+'use client';
+import Image from 'next/image';
 
-export default function ProductHero({ product }: ProductProp) {
+import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
+import { useCartContext } from '@/context/CartContext';
+import { ProductProp } from '@/types/global';
+
+export default ({ product }: ProductProp) => {
   const { handleAddCartItem } = useCartContext();
 
   return (
     /* Product Item container */
-    <div className='mx-auto flex flex-col md:flex-row gap-6 md:gap-16 pb-12'>
+    <div className='mx-auto flex flex-col gap-6 pb-12 md:flex-row md:gap-16'>
       {/* Left/First item */}
-      <div className="flex items-center p-4 md:w-1/2 bg-light-300 rounded-lg">
+      <div className='flex items-center rounded-lg bg-light-300 p-4 md:w-1/2'>
         <Image
           src={`/assets/images/products/${product.slug}/desktop/image-product.jpg`}
           alt={`Product image of ${product.name}`}
@@ -20,25 +21,23 @@ export default function ProductHero({ product }: ProductProp) {
         />
       </div>
       {/* Right/Second item */}
-      <div className="md:w-1/2 flex flex-col gap-4 lg:gap-3 md:my-auto md:py-6">
+      <div className='flex flex-col gap-4 md:my-auto md:w-1/2 md:py-6 lg:gap-3'>
         {/* New product span */}
-        {product.new &&
-          <span className=" text-primary-700">
-            <p className="overline-text">NEW PRODUCT</p>
+        {product.new && (
+          <span className=' text-primary-700'>
+            <p className='overline-text'>NEW PRODUCT</p>
           </span>
-        }
+        )}
         {/* Heading */}
-        <h3 className="heading-4 uppercase lg:w-1/2 mx-auto md:m-0">
-            {product.name}
+        <h3 className='heading-4 mx-auto uppercase md:m-0 lg:w-1/2'>
+          {product.name}
         </h3>
         {/* Product description */}
-        <p className="text-body opacity-50 lg:w-4/5 mx-auto md:m-0">
+        <p className='text-body mx-auto opacity-50 md:m-0 lg:w-4/5'>
           {product.description}
         </p>
         {/* Product price */}
-        <p className="heading-6">
-            $ {product.price.toLocaleString('en-US')}
-        </p>
+        <p className='heading-6'>$ {product.price.toLocaleString('en-US')}</p>
         {/* Button */}
         <ButtonPrimary
           type={'button'}
@@ -48,5 +47,5 @@ export default function ProductHero({ product }: ProductProp) {
         />
       </div>
     </div>
-  )
-}
+  );
+};
