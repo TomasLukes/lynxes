@@ -27,7 +27,7 @@ export default function Cart({ handleOpenCart } : CartProps) {
               <h5 className="subtitle uppercase">
                 {`Cart (${cartQ})`}
               </h5>
-              { cartQ !== null && cartQ > 0 &&
+              { !!cartQ &&
               <div>
                 <button onClick={handleClearCart} className="text-xs opacity-75">
                   Clear
@@ -58,7 +58,7 @@ export default function Cart({ handleOpenCart } : CartProps) {
               $ {cartTotal?.toLocaleString('en-US')}
             </p>
           </div>
-          { cartQ !== null && cartQ > 0 &&
+          { !!cartQ &&
             <Link href="/checkout" className="text-light-100" onClick={() => handleOpenCart()}>
               <ButtonPrimary
                 type={"button"}
