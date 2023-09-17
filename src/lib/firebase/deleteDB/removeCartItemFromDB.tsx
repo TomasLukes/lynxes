@@ -1,8 +1,12 @@
-import { doc, Firestore,getDoc, updateDoc } from 'firebase/firestore';
+import { doc, Firestore, getDoc, updateDoc } from 'firebase/firestore';
 
 import { ProductType } from '@/types/global';
 
-export const removeCartItemFromDB = async (db: Firestore, userID: string, removedItem: ProductType) => {
+export const removeCartItemFromDB = async (
+  db: Firestore,
+  userID: string,
+  removedItem: ProductType
+) => {
   try {
     const cartRef = doc(db, 'cart', userID);
     const cartSnap = await getDoc(cartRef);

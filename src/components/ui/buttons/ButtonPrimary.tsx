@@ -5,16 +5,13 @@ type ButtonPrimaryProps = {
   onClick?: () => void;
 };
 
-export default ({
-  type,
-  label,
-  style,
-  onClick,
-}: ButtonPrimaryProps) => <button
-      type={type}
-      className={`subtitle font-base bg-primary-700 px-6 py-3 text-light-100 ${style}
+export default ({ type, label, style, onClick }: ButtonPrimaryProps) => (
+  <button
+    type={type}
+    className={`subtitle font-base bg-primary-700 px-6 py-3 text-light-100 ${style}
     hover:bg-primary-500`}
-      onClick={onClick}
-    >
-      {label}
-    </button>;
+    onClick={onClick}
+  >
+    {label}
+  </button>
+);

@@ -1,6 +1,6 @@
 'use client';
-import { useEffect,useState } from 'react';
-import { useParams,useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 
 import ProductDetails from '@/components/Product/ProductDetails';
 import ProductGallery from '@/components/Product/ProductGallery';

@@ -14,11 +14,7 @@ type CheckoutModalProps = {
   formData: FormDataType;
 };
 
-export default ({
-  cartItems,
-  grandTotal,
-  formData,
-}: CheckoutModalProps) => {
+export default ({ cartItems, grandTotal, formData }: CheckoutModalProps) => {
   const { handleClearCart } = useCartContext();
 
   const handleOrderSubmit = async () => {

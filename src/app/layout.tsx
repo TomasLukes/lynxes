@@ -6,23 +6,21 @@ import { CartContextProvider } from '@/context/CartContext';
 
 import '@/styles/globals.css';
 
-export default ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => <html lang='en'>
-      <head>
-        <meta charSet='UTF-8' />
-        <meta name='viewport' content='width=device-width' />
-        <title>Lynxes - Best Audio Gear</title>
-      </head>
-      <body>
-        <AuthContextProvider>
-          <CartContextProvider>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </CartContextProvider>
-        </AuthContextProvider>
-      </body>
-    </html>;
+export default ({ children }: { children: React.ReactNode }) => (
+  <html lang='en'>
+    <head>
+      <meta charSet='UTF-8' />
+      <meta name='viewport' content='width=device-width' />
+      <title>Lynxes - Best Audio Gear</title>
+    </head>
+    <body>
+      <AuthContextProvider>
+        <CartContextProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </CartContextProvider>
+      </AuthContextProvider>
+    </body>
+  </html>
+);

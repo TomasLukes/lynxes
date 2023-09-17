@@ -1,8 +1,12 @@
-import { doc, Firestore,getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, Firestore, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 import { ProductType } from '@/types/global';
 
-export const addCartItemToDB = async (db: Firestore, userID: string, addedItem: ProductType) => {
+export const addCartItemToDB = async (
+  db: Firestore,
+  userID: string,
+  addedItem: ProductType
+) => {
   let error = null;
 
   try {

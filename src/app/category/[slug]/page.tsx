@@ -1,5 +1,5 @@
 'use client';
-import { useEffect,useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
 import ProductItem from '@/components/Category/ProductItem';
@@ -10,7 +10,7 @@ import { db } from '@/lib/firebase/config';
 import getProductsByCategory from '@/lib/firebase/getDB/getProductByCategory';
 import { ProductType } from '@/types/global';
 
-export default () => {
+const CategoryPageSlug = (): ReactElement => {
   const params = useParams();
   const { slug } = params;
   const [productsData, setProductsData] = useState<ProductType[] | null>(null);
@@ -52,3 +52,5 @@ export default () => {
     </main>
   );
 };
+
+export default CategoryPageSlug;
