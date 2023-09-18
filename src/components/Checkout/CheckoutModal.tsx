@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
@@ -14,7 +14,11 @@ type CheckoutModalProps = {
   formData: FormDataType;
 };
 
-export default ({ cartItems, grandTotal, formData }: CheckoutModalProps) => {
+const CheckoutModal = ({
+  cartItems,
+  grandTotal,
+  formData,
+}: CheckoutModalProps): ReactElement => {
   const { handleClearCart } = useCartContext();
 
   const handleOrderSubmit = async () => {
@@ -81,3 +85,5 @@ export default ({ cartItems, grandTotal, formData }: CheckoutModalProps) => {
     </div>
   );
 };
+
+export default CheckoutModal;

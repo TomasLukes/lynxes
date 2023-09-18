@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 
 type RadioInputProps = {
@@ -8,7 +9,13 @@ type RadioInputProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default ({ label, id, name, checked, onChange }: RadioInputProps) => (
+const RadioInput = ({
+  label,
+  id,
+  name,
+  checked,
+  onChange,
+}: RadioInputProps): ReactElement => (
   <div className='flex h-16 items-center gap-4 rounded-lg border border-light-400 px-4 py-3'>
     <input
       type='radio'
@@ -31,3 +38,5 @@ export default ({ label, id, name, checked, onChange }: RadioInputProps) => (
     </label>
   </div>
 );
+
+export default RadioInput;

@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import Link from 'next/link';
 
 import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
@@ -10,7 +11,7 @@ type CartProps = {
   handleOpenCart: () => void;
 };
 
-export default ({ handleOpenCart }: CartProps) => {
+const Cart = ({ handleOpenCart }: CartProps): ReactElement => {
   const { cart, cartQ, cartTotal, handleClearCart } = useCartContext();
 
   let cartItems;
@@ -80,3 +81,5 @@ export default ({ handleOpenCart }: CartProps) => {
     </div>
   );
 };
+
+export default Cart;

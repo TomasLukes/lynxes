@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import CheckoutModal from '@/components/Checkout/CheckoutModal';
@@ -11,7 +11,7 @@ import { AuthContextType, useAuthContext } from '@/context/AuthContext';
 import { useCartContext } from '@/context/CartContext';
 import { FormDataType } from '@/types/global';
 
-export default () => {
+const CheckoutPage = (): ReactElement => {
   const router = useRouter();
 
   const { user } = useAuthContext() as AuthContextType;
@@ -243,3 +243,5 @@ export default () => {
     </section>
   );
 };
+
+export default CheckoutPage;

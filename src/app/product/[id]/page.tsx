@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 
 import ProductDetails from '@/components/Product/ProductDetails';
@@ -12,7 +12,7 @@ import { db } from '@/lib/firebase/config';
 import getProduct from '@/lib/firebase/getDB/getProduct';
 import { ProductType } from '@/types/global';
 
-export default () => {
+const ProductPage = (): ReactElement => {
   const params = useParams();
   const { id } = params;
   const router = useRouter();
@@ -53,3 +53,5 @@ export default () => {
     </main>
   );
 };
+
+export default ProductPage;

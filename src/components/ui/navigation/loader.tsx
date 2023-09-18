@@ -1,4 +1,6 @@
-export default () => (
+import { ReactElement } from 'react';
+
+const loader = (): ReactElement => (
   <div id='loader' className='flex w-full items-start'>
     <svg
       className='mx-auto'
@@ -99,3 +101,5 @@ export default () => (
     </svg>
   </div>
 );
+
+export default loader;

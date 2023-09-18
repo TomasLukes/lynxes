@@ -1,10 +1,11 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
 import { ProductProp } from '@/types/global';
 
-export default ({ product }: ProductProp) => {
+const ProductItem = ({ product }: ProductProp): ReactElement => {
   const reversed = product.productID % 2 == 0;
 
   return (
@@ -66,3 +67,5 @@ export default ({ product }: ProductProp) => {
     </div>
   );
 };
+
+export default ProductItem;

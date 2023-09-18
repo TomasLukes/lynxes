@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import Link from 'next/link';
 
 import ButtonSecondary from '@/components/ui/buttons/ButtonSecondary';
 
-export default () => (
+const BannerSm = (): ReactElement => (
   <div className='container mx-auto'>
     {/* BannerSm container */}
     <div
@@ -21,3 +22,5 @@ export default () => (
     </div>
   </div>
 );
+
+export default BannerSm;

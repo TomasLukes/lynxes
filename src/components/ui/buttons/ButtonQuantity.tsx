@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 import { useCartContext } from '@/context/CartContext';
 import { ProductType } from '@/types/global';
 
@@ -5,7 +7,7 @@ type ButtonQuantityProps = {
   product: ProductType;
 };
 
-export default ({ product }: ButtonQuantityProps) => {
+const ButtonQuantity = ({ product }: ButtonQuantityProps): ReactElement => {
   const { handleAddCartItem, handleRemoveCartItem } = useCartContext();
 
   return (

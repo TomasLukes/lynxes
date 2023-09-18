@@ -1,6 +1,7 @@
+import { removeCartItemFromDB } from '@/lib/firebase/deleteDB/removeCartItemFromDB';
 import { ProductType } from '@/types/global';
 
-export default (removedItem: ProductType) => {
+export const removeCartItemFromLS = (removedItem: ProductType) => {
   const cart = localStorage.getItem('cart');
 
   if (cart) {

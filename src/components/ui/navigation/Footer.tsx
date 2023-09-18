@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import InstagramIcon from 'public/assets/icons/shared/socials/icon-instagram.svg';
@@ -28,7 +29,7 @@ const footerLinkIconsConfig = [
   },
 ];
 
-export default () => (
+const Footer = (): ReactElement => (
   <footer className='relative w-full bg-dark-850 text-neutral-100'>
     {/* Footer container */}
     <div className='footer-container container mx-auto grid px-6 py-9 md:px-9 lg:px-6'>
@@ -82,10 +83,10 @@ export default () => (
         </Link>
         {/* Social icons */}
         <div className='flex items-center gap-3 py-3 md:gap-4'>
-          {footerLinkIconsConfig.map((item) => {
+          {footerLinkIconsConfig.map((item, index) => {
             const IconComponent = item.icon; // Get the icon component for the current item
             return (
-              <Link href={item.href}>
+              <Link key={index} href={item.href}>
                 <IconComponent className='cursor-pointer fill-red-500 hover:fill-primary-700 focus:fill-primary-700' />
               </Link>
             );
@@ -95,3 +96,5 @@ export default () => (
     </div>
   </footer>
 );
+
+export default Footer;

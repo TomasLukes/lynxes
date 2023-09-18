@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import Link from 'next/link';
 
 import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
 
-export default () => (
+const Hero = (): ReactElement => (
   <section
     id='hero'
     className='mb-12 bg-neutral-900
@@ -28,3 +29,5 @@ export default () => (
     </div>
   </section>
 );
+
+export default Hero;

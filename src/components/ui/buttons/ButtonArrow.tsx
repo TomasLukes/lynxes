@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 
 import { LabelProp } from '@/types/global';
 
-export default ({ label }: LabelProp) => (
+const ButtonArow = ({ label }: LabelProp): ReactElement => (
   <button
     type='button'
     className='subtitle mx-auto flex items-center gap-1 px-4 py-2 text-dark-900 opacity-50
@@ -18,3 +19,5 @@ export default ({ label }: LabelProp) => (
     />
   </button>
 );
+
+export default ButtonArow;

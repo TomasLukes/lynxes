@@ -1,10 +1,11 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ButtonQuantity from '@/components/ui/buttons/ButtonQuantity';
 import { ProductProp } from '@/types/global';
 
-export default ({ product }: ProductProp) => {
+const CartItem = ({ product }: ProductProp): ReactElement => {
   const totalPrice = product.itemQuantity * product.price;
 
   return (

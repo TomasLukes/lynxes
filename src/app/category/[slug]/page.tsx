@@ -10,7 +10,7 @@ import { db } from '@/lib/firebase/config';
 import getProductsByCategory from '@/lib/firebase/getDB/getProductByCategory';
 import { ProductType } from '@/types/global';
 
-const CategoryPageSlug = (): ReactElement => {
+const CategoryPage = (): ReactElement => {
   const params = useParams();
   const { slug } = params;
   const [productsData, setProductsData] = useState<ProductType[] | null>(null);
@@ -53,4 +53,4 @@ const CategoryPageSlug = (): ReactElement => {
   );
 };
 
-export default CategoryPageSlug;
+export default CategoryPage;

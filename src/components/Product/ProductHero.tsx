@@ -1,11 +1,12 @@
 'use client';
+import { ReactElement } from 'react';
 import Image from 'next/image';
 
 import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
 import { useCartContext } from '@/context/CartContext';
 import { ProductProp } from '@/types/global';
 
-export default ({ product }: ProductProp) => {
+const ProductHero = ({ product }: ProductProp): ReactElement => {
   const { handleAddCartItem } = useCartContext();
 
   return (
@@ -49,3 +50,5 @@ export default ({ product }: ProductProp) => {
     </div>
   );
 };
+
+export default ProductHero;

@@ -1,9 +1,10 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ButtonSecondary from '@/components/ui/buttons/ButtonSecondary';
 
-export default () => (
+const BannerSplit = (): ReactElement => (
   <div className='container mx-auto flex flex-col md:flex-row md:gap-8'>
     {/* Left item */}
     <div className='overflow-hidden rounded-t-lg md:w-1/2 md:rounded-lg'>
@@ -40,3 +41,5 @@ export default () => (
     </div>
   </div>
 );
+
+export default BannerSplit;

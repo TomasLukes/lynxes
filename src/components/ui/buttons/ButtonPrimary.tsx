@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 type ButtonPrimaryProps = {
   type: 'button' | 'submit';
   label: string;
@@ -5,7 +7,12 @@ type ButtonPrimaryProps = {
   onClick?: () => void;
 };
 
-export default ({ type, label, style, onClick }: ButtonPrimaryProps) => (
+const ButtonPrimary = ({
+  type,
+  label,
+  style,
+  onClick,
+}: ButtonPrimaryProps): ReactElement => (
   <button
     type={type}
     className={`subtitle font-base bg-primary-700 px-6 py-3 text-light-100 ${style}
@@ -15,3 +22,5 @@ export default ({ type, label, style, onClick }: ButtonPrimaryProps) => (
     {label}
   </button>
 );
+
+export default ButtonPrimary;

@@ -1,6 +1,8 @@
+import { ReactElement } from 'react';
+
 import { LabelProp } from '@/types/global';
 
-export default ({ label }: LabelProp) => (
+const ButtonSecondary = ({ label }: LabelProp): ReactElement => (
   <button
     type='button'
     className='border border-dark-900 bg-transparent px-6 py-3 font-bold text-dark-900
@@ -9,3 +11,5 @@ export default ({ label }: LabelProp) => (
     {label}
   </button>
 );
+
+export default ButtonSecondary;

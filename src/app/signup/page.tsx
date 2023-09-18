@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -7,7 +7,7 @@ import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
 import FormInput from '@/components/ui/forms/FormInput';
 import { signUp } from '@/lib/firebase/auth/signUp';
 
-export default () => {
+const SignupPage = (): ReactElement => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -70,3 +70,5 @@ export default () => {
     </section>
   );
 };
+
+export default SignupPage;

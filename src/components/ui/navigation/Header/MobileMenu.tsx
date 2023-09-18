@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -5,7 +6,7 @@ type MobileMenuProps = {
   handleClick: () => void;
 };
 
-export default ({ handleClick }: MobileMenuProps) => (
+const MobileMenu = ({ handleClick }: MobileMenuProps): ReactElement => (
   <div className='subtitle flex flex-col items-center px-6 py-8 md:px-9'>
     <ul className='flex flex-col gap-4 text-center md:flex-row md:gap-12'>
       <li
@@ -71,3 +72,5 @@ export default ({ handleClick }: MobileMenuProps) => (
     </ul>
   </div>
 );
+
+export default MobileMenu;

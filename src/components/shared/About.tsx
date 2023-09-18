@@ -1,6 +1,7 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 
-export default () => (
+const About = (): ReactElement => (
   <section
     id='about'
     className='gap:8 container mx-auto my-24 flex flex-col-reverse items-center px-6 md:my-28 
@@ -47,3 +48,5 @@ export default () => (
     </div>
   </section>
 );
+
+export default About;

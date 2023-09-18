@@ -1,6 +1,7 @@
+import { ReactElement } from 'react';
 import Link from 'next/link';
 
-export default () => (
+const GuestIcon = (): ReactElement => (
   <div className='flex items-center gap-2'>
     {/* Guest icon container */}
     <Link href='/signin'>
@@ -37,3 +38,5 @@ export default () => (
     </div>
   </div>
 );
+
+export default GuestIcon;

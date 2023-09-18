@@ -1,10 +1,11 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 
 type SlugProp = {
   slug: string;
 };
 
-export default ({ slug }: SlugProp) => (
+const ProductGallery = ({ slug }: SlugProp): ReactElement => (
   <section id='productGallery' className='max-width mb-12 px-6 lg:px-6'>
     {/* Gallery container */}
     <div className='flex flex-col gap-8 md:flex-row md:gap-6'>
@@ -79,3 +80,5 @@ export default ({ slug }: SlugProp) => (
     </div>
   </section>
 );
+
+export default ProductGallery;

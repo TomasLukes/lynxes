@@ -1,9 +1,10 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ButtonArrow from '@/components/ui/buttons/ButtonArrow';
 
-export default () => (
+const Categories = (): ReactElement => (
   <section id='categories' className='max-width mx-auto px-6 md:px-9 lg:px-6'>
     {/* Categories cards container */}
     <div
@@ -73,3 +74,5 @@ export default () => (
     </div>
   </section>
 );
+
+export default Categories;

@@ -1,6 +1,8 @@
+import { ReactElement } from 'react';
+
 import { AuthContextType, useAuthContext } from '@/context/AuthContext';
 
-export default () => {
+const UserIcon = (): ReactElement => {
   const { user, logOut } = useAuthContext() as AuthContextType;
 
   return (
@@ -44,3 +46,5 @@ export default () => {
     </div>
   );
 };
+
+export default UserIcon;

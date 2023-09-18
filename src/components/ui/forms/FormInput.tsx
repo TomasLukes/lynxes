@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 type FormInputProps = {
   label: string;
   id: string;
@@ -6,7 +8,13 @@ type FormInputProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default ({ label, id, value, type, onChange }: FormInputProps) => (
+const FormInput = ({
+  label,
+  id,
+  value,
+  type,
+  onChange,
+}: FormInputProps): ReactElement => (
   <label htmlFor={id} className='subtitle flex flex-col gap-2 pb-4 normal-case'>
     {label}
     <input
@@ -20,3 +28,5 @@ export default ({ label, id, value, type, onChange }: FormInputProps) => (
     />
   </label>
 );
+
+export default FormInput;

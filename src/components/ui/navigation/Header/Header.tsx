@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ import { useCartContext } from '@/context/CartContext';
 import GuestIcon from './GuestIcon';
 import UserIcon from './UserIcon';
 
-export default () => {
+const Header = (): ReactElement => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -121,3 +121,5 @@ export default () => {
     </header>
   );
 };
+
+export default Header;

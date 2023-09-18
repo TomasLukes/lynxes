@@ -1,7 +1,8 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default () => (
+const Logo = (): ReactElement => (
   <Link href='/'>
     <div className='flex flex-col items-center'>
       <Image
@@ -15,3 +16,5 @@ export default () => (
     </div>
   </Link>
 );
+
+export default Logo;

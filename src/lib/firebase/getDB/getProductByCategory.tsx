@@ -8,7 +8,7 @@ import {
 
 import { ProductType } from '@/types/global';
 
-export default async (db: Firestore, category: string) => {
+export const getProductByCategory = async (db: Firestore, category: string) => {
   const q = query(
     collection(db, 'products'),
     where('category', '==', category)

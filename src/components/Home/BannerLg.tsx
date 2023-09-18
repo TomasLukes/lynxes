@@ -1,9 +1,10 @@
+import { ReactElement } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import ButtonSecondary from '@/components/ui/buttons/ButtonSecondary';
 
-export default () => (
+const BannerLg = (): ReactElement => (
   <div className='container mx-auto overflow-hidden'>
     {/* BannerLg container */}
     <div
@@ -38,3 +39,5 @@ export default () => (
     </div>
   </div>
 );
+
+export default BannerLg;

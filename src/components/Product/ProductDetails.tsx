@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 import { ProductProp } from '@/types/global';
 
 import ProductIncludesItem from './ProductIncludesItem';
@@ -7,7 +9,7 @@ type ProductIncludesItemProps = {
   name: string;
 };
 
-export default ({ product }: ProductProp) => {
+const ProductDetails = ({ product }: ProductProp): ReactElement => {
   const ProductIncludesItems = product.includes.map((item, index: number) => (
     <ProductIncludesItem
       key={index}
@@ -34,3 +36,5 @@ export default ({ product }: ProductProp) => {
     </div>
   );
 };
+
+export default ProductDetails;

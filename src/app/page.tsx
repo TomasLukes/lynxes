@@ -1,4 +1,6 @@
 'use client';
+import { ReactElement } from 'react';
+
 import BannerLg from '@/components/Home/BannerLg';
 import BannerSm from '@/components/Home/BannerSm';
 import BannerSplit from '@/components/Home/BannerSplit';
@@ -6,7 +8,7 @@ import Hero from '@/components/Home/Hero';
 import About from '@/components/shared/About';
 import Categories from '@/components/shared/Categories';
 
-export default () => (
+const HomePage = (): ReactElement => (
   <div className=''>
     <Hero />
     <Categories />
@@ -21,3 +23,5 @@ export default () => (
     <About />
   </div>
 );
+
+export default HomePage;
