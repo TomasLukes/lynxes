@@ -1,4 +1,3 @@
-'use client';
 import { ReactElement } from 'react';
 
 import BannerLg from '@/components/Home/BannerLg';

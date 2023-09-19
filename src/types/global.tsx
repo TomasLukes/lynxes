@@ -1,3 +1,7 @@
+export type Params = {
+  slug: string;
+};
+
 export type LabelProp = {
   label: string;
 };

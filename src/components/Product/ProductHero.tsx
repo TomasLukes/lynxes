@@ -1,14 +1,10 @@
-'use client';
 import { ReactElement } from 'react';
 import Image from 'next/image';
 
 import ButtonPrimary from '@/components/ui/buttons/ButtonPrimary';
-import { useCartContext } from '@/context/CartContext';
 import { ProductProp } from '@/types/global';
 
 const ProductHero = ({ product }: ProductProp): ReactElement => {
-  const { handleAddCartItem } = useCartContext();
-
   return (
     /* Product Item container */
     <div className='mx-auto flex flex-col gap-6 pb-12 md:flex-row md:gap-16'>
@@ -44,7 +40,7 @@ const ProductHero = ({ product }: ProductProp): ReactElement => {
           type={'button'}
           label={'ADD TO CART'}
           style={'w-1/2 button-text-white'}
-          onClick={() => handleAddCartItem(product)}
+          /* onClick={() => handleAddCartItem(product)} */
         />
       </div>
     </div>

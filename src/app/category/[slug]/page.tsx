@@ -1,38 +1,25 @@
-'use client';
-import { ReactElement, useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { ReactElement } from 'react';
 
 import ProductItem from '@/components/Category/ProductItem';
 import About from '@/components/shared/About';
 import Categories from '@/components/shared/Categories';
 import Loader from '@/components/ui/navigation/loader';
 import { db } from '@/lib/firebase/config';
-import getProductsByCategory from '@/lib/firebase/getDB/getProductByCategory';
-import { ProductType } from '@/types/global';
+import { getProductByCategory } from '@/lib/firebase/getDB/getProductByCategory';
+import { Params, ProductType } from '@/types/global';
 
-const CategoryPage = (): ReactElement => {
-  const params = useParams();
-  const { slug } = params;
-  const [productsData, setProductsData] = useState<ProductType[] | null>(null);
+const CategoryPage = async ({
+  params,
+}: {
+  params: Params;
+}): Promise<ReactElement> => {
+  const productsData = await getProductByCategory(db, params.slug);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const products = await getProductsByCategory(db, slug);
-        setProductsData(products);
-      } catch (error) {
-        console.error('Error getting document:', error);
-      }
-    };
-    fetchData();
-  }, [slug]);
-
-  let ProductItems = null;
-  if (productsData) {
-    ProductItems = productsData.map((product: ProductType, index: number) => (
+  const ProductItems = productsData.map(
+    (product: ProductType, index: number) => (
       <ProductItem key={index} product={product} />
-    ));
-  }
+    )
+  );
 
   return (
     <main className='mx-auto'>
