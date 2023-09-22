@@ -6,6 +6,10 @@ export type LabelProp = {
   label: string;
 };
 
+export interface IClassName {
+  className: string;
+}
+
 export type ProductProp = {
   product: ProductType;
 };

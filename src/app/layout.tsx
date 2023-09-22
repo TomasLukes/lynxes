@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 
 import Footer from '@/components/ui/navigation/Footer';
-import Header from '@/components/ui/navigation/Header/Header';
+import Navbar from '@/components/ui/navigation/Header/Navbar';
 
 import '@/styles/globals.css';
 
@@ -17,7 +17,7 @@ const RootLayout = async ({
       <title>Lynxes - Best Audio Gear</title>
     </head>
     <body>
-      {/* <Header /> */}
+      <Navbar />
       <main>{children}</main>
       <Footer />
     </body>
