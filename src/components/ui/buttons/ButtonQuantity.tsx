@@ -30,3 +30,5 @@ const ButtonQuantity = ({ product }: ButtonQuantityProps): ReactElement => {
     </div>
   );
 };
+
+export default ButtonQuantity;

@@ -16,23 +16,8 @@ const ProductPage = async ({
   params: Params;
 }): Promise<ReactElement> => {
   const productId = params.slug;
-  /*   const router = useRouter(); */
   const productData = await getProduct(db, productId);
 
-  /*   const [productData, setProductData] = useState<ProductType | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const product = await getProduct(db, id);
-        setProductData(product);
-      } catch (error) {
-        console.error('Error getting document:', error);
-      }
-    };
-    fetchData();
-  }, [id]);
- */
   return (
     <main className='max-width mx-auto px-6 py-24 md:px-9 lg:px-6'>
       {/* 

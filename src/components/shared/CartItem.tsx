@@ -35,3 +35,5 @@ const CartItem = ({ product }: ProductProp): ReactElement => {
     </div>
   );
 };
+
+export default CartItem;

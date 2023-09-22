@@ -1,6 +1,6 @@
 import { ProductType } from '@/types/global';
 
-const addCartItemToLS = (addedItem: ProductType) => {
+export const addCartItemToLS = (addedItem: ProductType) => {
   const addedItemData = {
     productID: addedItem.productID,
     slug: addedItem.slug,
