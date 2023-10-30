@@ -4,14 +4,14 @@ import {
   getDocs,
   query,
   where,
-} from 'firebase/firestore';
+} from "firebase/firestore";
 
-import { ProductType } from '@/types/global';
+import { ProductType } from "@/types/global";
 
 export const getProductByCategory = async (db: Firestore, category: string) => {
   const q = query(
-    collection(db, 'products'),
-    where('category', '==', category)
+    collection(db, "products"),
+    where("category", "==", category)
   );
 
   const querySnapshot = await getDocs(q);

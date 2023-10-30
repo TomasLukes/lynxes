@@ -1,15 +1,15 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from "react";
 
-import addCartItemtoLS from '@/helpers/LocalStorage/addCartItemToLS';
-import removeCartItemFromLS from '@/helpers/LocalStorage/removeCartItemFromLS';
-import { db } from '@/lib/firebase/config';
-import { clearCartFromDB } from '@/lib/firebase/deleteDB/clearCartFromDB';
-import { removeCartItemFromDB } from '@/lib/firebase/deleteDB/removeCartItemFromDB';
-import getCartItemsFromDB from '@/lib/firebase/getDB/getCartItemsFromDB';
-import { addCartItemToDB } from '@/lib/firebase/updateDB/addCartItemToDB';
-import { ProductType } from '@/types/global';
+import addCartItemtoLS from "@/helpers/LocalStorage/addCartItemToLS";
+import removeCartItemFromLS from "@/helpers/LocalStorage/removeCartItemFromLS";
+import { db } from "@/lib/firebase/config";
+import { clearCartFromDB } from "@/lib/firebase/deleteDB/clearCartFromDB";
+import { removeCartItemFromDB } from "@/lib/firebase/deleteDB/removeCartItemFromDB";
+import getCartItemsFromDB from "@/lib/firebase/getDB/getCartItemsFromDB";
+import { addCartItemToDB } from "@/lib/firebase/updateDB/addCartItemToDB";
+import { ProductType } from "@/types/global";
 
-import { AuthContextType, useAuthContext } from './AuthContext';
+import { AuthContextType, useAuthContext } from "./AuthContext";
 
 type CartContextType = {
   cart: ProductType[];
@@ -57,12 +57,12 @@ export const CartContextProvider = ({
           const cartItems = await getCartItemsFromDB(db, user.uid);
           setCart(cartItems);
         } else {
-          const getCartFromLS = localStorage.getItem('cart');
+          const getCartFromLS = localStorage.getItem("cart");
           const cartItems = getCartFromLS ? JSON.parse(getCartFromLS) : [];
           setCart(cartItems);
         }
       } catch (error) {
-        console.error('Error retrieving cart items:', error);
+        console.error("Error retrieving cart items:", error);
       }
     };
 
@@ -101,13 +101,13 @@ export const CartContextProvider = ({
         setCart(cartItems);
       } catch (error) {
         console.log(
-          'There was an error with adding the product to cart:',
+          "There was an error with adding the product to cart:",
           error
         );
       }
     } else {
       addCartItemtoLS(addedItem);
-      const getCartFromLS = localStorage.getItem('cart');
+      const getCartFromLS = localStorage.getItem("cart");
       const cartItems = getCartFromLS ? JSON.parse(getCartFromLS) : [];
       setCart(cartItems);
     }
@@ -121,13 +121,13 @@ export const CartContextProvider = ({
         setCart(cartItems);
       } catch (error) {
         console.log(
-          'There was an error while removing the product from cart:',
+          "There was an error while removing the product from cart:",
           error
         );
       }
     } else {
       removeCartItemFromLS(removedItem);
-      const getCartFromLS = localStorage.getItem('cart');
+      const getCartFromLS = localStorage.getItem("cart");
       const cartItems = getCartFromLS ? JSON.parse(getCartFromLS) : [];
       setCart(cartItems);
     }
@@ -138,7 +138,7 @@ export const CartContextProvider = ({
       clearCartFromDB(db, user.uid);
       setCart([]);
     } else {
-      localStorage.removeItem('cart');
+      localStorage.removeItem("cart");
       setCart([]);
     }
     setCartQ(0);

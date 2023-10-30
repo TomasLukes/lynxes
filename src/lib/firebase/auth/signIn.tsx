@@ -1,8 +1,8 @@
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-import { app } from '../config';
+import { app } from "../config";
 
-import { getAuthErrorMessage } from './getAuthErrorMessage';
+import { getAuthErrorMessage } from "./getAuthErrorMessage";
 
 const auth = getAuth(app);
 

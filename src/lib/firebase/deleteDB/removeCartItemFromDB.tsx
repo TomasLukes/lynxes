@@ -1,6 +1,6 @@
-import { doc, Firestore, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, Firestore, getDoc, updateDoc } from "firebase/firestore";
 
-import { ProductType } from '@/types/global';
+import { ProductType } from "@/types/global";
 
 export const removeCartItemFromDB = async (
   db: Firestore,
@@ -8,7 +8,7 @@ export const removeCartItemFromDB = async (
   removedItem: ProductType
 ) => {
   try {
-    const cartRef = doc(db, 'cart', userID);
+    const cartRef = doc(db, "cart", userID);
     const cartSnap = await getDoc(cartRef);
 
     if (cartSnap.exists()) {
@@ -20,7 +20,7 @@ export const removeCartItemFromDB = async (
       );
 
       if (!existingItem) {
-        throw new Error('Product not found in the cart');
+        throw new Error("Product not found in the cart");
       }
 
       if (existingItem.itemQuantity > 1) {
@@ -41,7 +41,7 @@ export const removeCartItemFromDB = async (
         await updateDoc(cartRef, { items: updatedCartItems });
       }
     } else {
-      throw new Error('Cart not found');
+      throw new Error("Cart not found");
     }
   } catch (e) {
     throw e;

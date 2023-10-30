@@ -1,8 +1,8 @@
-import { removeCartItemFromDB } from '@/lib/firebase/deleteDB/removeCartItemFromDB';
-import { ProductType } from '@/types/global';
+import { removeCartItemFromDB } from "@/lib/firebase/deleteDB/removeCartItemFromDB";
+import { ProductType } from "@/types/global";
 
 export const removeCartItemFromLS = (removedItem: ProductType) => {
-  const cart = localStorage.getItem('cart');
+  const cart = localStorage.getItem("cart");
 
   if (cart) {
     const cartItems: ProductType[] = JSON.parse(cart);
@@ -12,7 +12,7 @@ export const removeCartItemFromLS = (removedItem: ProductType) => {
     );
 
     if (!existingItem) {
-      throw new Error('Product not found in the cart');
+      throw new Error("Product not found in the cart");
     }
 
     if (existingItem.itemQuantity > 1) {
@@ -25,12 +25,12 @@ export const removeCartItemFromLS = (removedItem: ProductType) => {
           ? updatedExistingItem
           : item
       );
-      localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+      localStorage.setItem("cart", JSON.stringify(updatedCartItems));
     } else if (existingItem.itemQuantity === 1) {
       const updatedCartItems = cartItems.filter(
         (cartItem: ProductType) => cartItem.productID !== existingItem.productID
       );
-      localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+      localStorage.setItem("cart", JSON.stringify(updatedCartItems));
     }
   }
 };

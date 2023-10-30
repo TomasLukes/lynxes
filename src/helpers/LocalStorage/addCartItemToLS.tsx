@@ -1,4 +1,4 @@
-import { ProductType } from '@/types/global';
+import { ProductType } from "@/types/global";
 
 export const addCartItemToLS = (addedItem: ProductType) => {
   const addedItemData = {
@@ -10,7 +10,7 @@ export const addCartItemToLS = (addedItem: ProductType) => {
   };
 
   let cart: ProductType[];
-  const cartItems = localStorage.getItem('cart');
+  const cartItems = localStorage.getItem("cart");
   if (cartItems) {
     cart = JSON.parse(cartItems);
   } else {
@@ -28,5 +28,5 @@ export const addCartItemToLS = (addedItem: ProductType) => {
     cart.push(addedItemData as ProductType);
   }
 
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 };

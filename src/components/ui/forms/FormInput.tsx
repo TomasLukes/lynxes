@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 type FormInputProps = {
   label: string;
@@ -15,14 +15,14 @@ const FormInput = ({
   type,
   onChange,
 }: FormInputProps): ReactElement => (
-  <label htmlFor={id} className='subtitle flex flex-col gap-2 pb-4 normal-case'>
+  <label htmlFor={id} className="subtitle flex flex-col gap-2 pb-4 normal-case">
     {label}
     <input
       id={id}
       type={type}
       placeholder={`Your ${label}`}
       required
-      className='text-body rounded-lg border border-light-400 px-4 py-3 text-neutral-700 placeholder-opacity-50'
+      className="text-body rounded-lg border border-light-400 px-4 py-3 text-neutral-700 placeholder-opacity-50"
       value={value}
       onChange={onChange}
     />

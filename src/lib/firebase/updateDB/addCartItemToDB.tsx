@@ -1,6 +1,6 @@
-import { doc, Firestore, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, Firestore, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
-import { ProductType } from '@/types/global';
+import { ProductType } from "@/types/global";
 
 export const addCartItemToDB = async (
   db: Firestore,
@@ -10,7 +10,7 @@ export const addCartItemToDB = async (
   let error = null;
 
   try {
-    const cartRef = doc(db, 'cart', userID);
+    const cartRef = doc(db, "cart", userID);
     const cartSnap = await getDoc(cartRef);
     const addedItemData = {
       productID: addedItem.productID,

@@ -1,7 +1,7 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 type ButtonPrimaryProps = {
-  type: 'button' | 'submit';
+  type: "button" | "submit";
   label: string;
   style: string;
   onClick?: () => void;

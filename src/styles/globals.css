@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
 
 :root {
-  --light-200: '#FAFAFA';
-  --dark-900: '#000000';
-  --primary-700: '#D87D4A';
+  --light-200: "#FAFAFA";
+  --dark-900: "#000000";
+  --primary-700: "#D87D4A";
 }
 
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   color: var(--dark-900);
   background-color: var(--light-200);
 }
@@ -100,21 +100,21 @@ main {
 #hero {
   min-height: 70vh;
   background: #191919;
-  background-image: url('/assets/images/pages/Home/desktop/image-hero.jpg');
+  background-image: url("/assets/images/pages/Home/desktop/image-hero.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position-x: 75%;
 }
 
 #bannerLg {
-  background-image: url('/assets/images/pages/Home/desktop/pattern-circles.svg');
+  background-image: url("/assets/images/pages/Home/desktop/pattern-circles.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-size: 51%;
 }
 
 #bannerSm {
-  background-image: url('/assets/images/pages/Home/desktop/image-speaker-zx7.jpg');
+  background-image: url("/assets/images/pages/Home/desktop/image-speaker-zx7.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -130,7 +130,7 @@ main {
 /* Smaller laptop */
 @media screen and (max-width: 976px) {
   #hero {
-    background-image: url('/assets/images/pages/Home/tablet/image-header.jpg');
+    background-image: url("/assets/images/pages/Home/tablet/image-header.jpg");
     background-position-x: 50%;
     background-position-y: -100px;
   }
@@ -161,7 +161,7 @@ main {
   }
 
   #hero {
-    background-image: url('/assets/images/pages/Home/tablet/image-header.jpg');
+    background-image: url("/assets/images/pages/Home/tablet/image-header.jpg");
     background-position-y: 75px;
   }
 
@@ -171,6 +171,6 @@ main {
   }
 
   #bannerSm {
-    background-image: url('/assets/images/pages/Home/mobile/image-speaker-zx7-mobile.jpg');
+    background-image: url("/assets/images/pages/Home/mobile/image-speaker-zx7-mobile.jpg");
   }
 }

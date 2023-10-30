@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged, signOut, User } from 'firebase/auth';
+import { createContext, useContext, useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged, signOut, User } from "firebase/auth";
 
-import { app } from '@/lib/firebase/config';
+import { app } from "@/lib/firebase/config";
 
 export type AuthContextType = {
   user: User | null;
@@ -25,7 +25,7 @@ export const AuthContextProvider = ({
     try {
       await signOut(auth);
     } catch (error) {
-      console.error('Error signing out: ', error);
+      console.error("Error signing out: ", error);
     }
   };
 
